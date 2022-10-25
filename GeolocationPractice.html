@@ -1,0 +1,25 @@
+
+<!--one time position getter
+<div id = "map"></div>
+<script>
+    //access navigator object and geolocation object and getting coordinates
+    navigator.geolocation.getCurrentPosition(position => {
+  const { latitude, longitude } = position.coords;
+  // Show a map centered at latitude / longitude.
+  //iframe needs to be updated to current google maps api key
+  map.innerHTML = '<iframe width = "700" height = "300 src ="https://maps.google.com/ maps?q='+latitude+','+longitude+'&amp;z=15&amp;output=embed"></iframe>';
+});
+</script>
+-->
+
+<!--constant position tracker-->
+<div id = "map"></div>
+<script>
+   const watchId = navigator.geolocation.watchPosition(position => {
+  const { latitude, longitude } = position.coords;
+  // Show a map centered at latitude / longitude.
+  console.log("watchId -" + watchId);
+});
+</script>
+
+<!--Geolocation API link https://www.w3.org/TR/geolocation/-->
