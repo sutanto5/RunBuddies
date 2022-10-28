@@ -39,8 +39,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.Executor;
 
     /**
@@ -57,7 +55,7 @@ import java.util.concurrent.Executor;
         private static String uid = null;      // var will be updated for currently signed in user
         private FirebaseAuth mAuth;
         private FirebaseFirestore db;
-        private ArrayList<Memory> myMemories;
+        private ArrayList<Run> myRuns;
         // we don't need this yet
         // private ArrayList<Memory> myItems = new ArrayList<>();
 
@@ -65,7 +63,7 @@ import java.util.concurrent.Executor;
         public FirebaseHelper() {
             mAuth = FirebaseAuth.getInstance();
             db = FirebaseFirestore.getInstance();
-            myMemories = new ArrayList<>();
+            myRuns = new ArrayList<>();
         }
 
 
@@ -83,10 +81,10 @@ import java.util.concurrent.Executor;
             // returned from the asynch method calls
             if (mAuth.getCurrentUser() != null) {
                 uid = mAuth.getUid();
-                readData(new FirestoreCallback() {
+                readData(new FirestoreCallback()) {
                     @Override
-                    public void onCallback(ArrayList<Memory> memoryList) {
-                        Log.d(TAG, "Inside attachReadDataToUser, onCallback " + memoryList.toString());
+                    public void onCallback(ArrayList<Run> runList) {
+                        Log.d(TAG, "Inside attachReadDataToUser, onCallback " + runList.toString());
                     }
                 });
             }
@@ -119,19 +117,19 @@ import java.util.concurrent.Executor;
 
         }
 
-        public void addData(Memory m) {
+        public void addData(Run m) {
             // add Memory m to the database
             // this method is overloaded and incorporates the interface to handle the asynch calls
             addData(m, new FirestoreCallback() {
                 @Override
-                public void onCallback(ArrayList<Memory> myList) {
+                public void onCallback(ArrayList<Run> myList) {
                     Log.i(TAG, "Inside addData, onCallback :" + myMemories.toString());
                 }
             });
 
         }
 
-        private void addData(Memory m, FirestoreCallback firestoreCallback) {
+        private void addData(Run m, FirestoreCallback firestoreCallback) {
             db.collection("users").document(uid).collection("myMemoryList")
                     .add(m)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
