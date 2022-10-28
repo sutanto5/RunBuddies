@@ -10,65 +10,66 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        >
+        tools:layout_editor_absoluteX="184dp"
+        tools:layout_editor_absoluteY="172dp">
 
-    <TextView
-        android:id="@+id/loginTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RunBuddies"
-        android:textSize="@dimen/titleFont"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:textColor="@color/richBlackFOGRA_29"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.028" />
+        <TextView
+            android:id="@+id/loginTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="RunBuddies"
+            android:textColor="@color/richBlackFOGRA_29"
+            android:textSize="@dimen/titleFont"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.028" />
 
-    <EditText
-        android:id="@+id/emailET"
-        android:layout_width="@dimen/loginETWidth"
-        android:layout_height="@dimen/loginETHeight"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:background=""
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Email"
-        android:text="" />
+        <EditText
+            android:id="@+id/emailET"
+            android:layout_width="@dimen/loginETWidth"
+            android:layout_height="@dimen/loginETHeight"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background=""
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textPersonName"
+            android:text="" />
 
 
-    <EditText
-        android:id="@+id/passwordET"
-        android:layout_width="@dimen/loginETWidth"
-        android:layout_height="@dimen/loginETHeight"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:background="@color/brightNavyBlue"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Password"
-        android:text="" />
+        <EditText
+            android:id="@+id/passwordET"
+            android:layout_width="@dimen/loginETWidth"
+            android:layout_height="@dimen/loginETHeight"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@color/brightNavyBlue"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPersonName"
+            android:text="" />
 
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="@dimen/buttonWidth"
-        android:layout_height="@dimen/buttonHeight"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:text="Log in" />
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="Log in" />
 
-    <Button
-        android:id="@+id/signUpButton"
-        style="?android:attr/borderlessButtonStyle"
-        android:textColor="@color/carolinaBlue"
-        android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Dont have an account, Sign Up" />
+        <Button
+            android:id="@+id/signUpButton"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Dont have an account, Sign Up"
+            android:textColor="@color/carolinaBlue" />
 
 
     </LinearLayout>
