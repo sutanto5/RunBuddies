@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/moy9410/Documents/GitHub/RunBuddies/app/src/main/res/font/font.xml" value="0.125" />
+        <entry key="..\:/Users/moy9410/Documents/GitHub/RunBuddies/app/src/main/res/layout/activity_home_page.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/moy9410/Documents/GitHub/RunBuddies/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/moy9410/Documents/GitHub/RunBuddies/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+<<<<<<< Updated upstream
         <entry key="..\:/Users/sutanto3747/Documents/GitHub/RunBuddies/app/src/main/res/layout/activity_edit_profile.xml" value="0.36354166666666665" />
         <entry key="..\:/Users/sutanto3747/Documents/GitHub/RunBuddies/app/src/main/res/layout/activity_find_buddy.xml" value="0.36354166666666665" />
         <entry key="..\:/Users/sutanto3747/Documents/GitHub/RunBuddies/app/src/main/res/layout/activity_home_page.xml" value="0.36354166666666665" />
@@ -13,6 +16,11 @@
         <entry key="..\:/Users/sutanto3747/Documents/GitHub/RunBuddies/app/src/main/res/layout/activity_profile_creator.xml" value="0.36354166666666665" />
         <entry key="..\:/Users/sutanto3747/Documents/GitHub/RunBuddies/app/src/main/res/layout/activity_sign_up.xml" value="0.5" />
         <entry key="..\:/Users/sutanto3747/Documents/GitHub/RunBuddies/app/src/main/res/layout/activity_start_run.xml" value="0.36354166666666665" />
+=======
+        <entry key="..\:/Users/moy9410/Documents/GitHub/RunBuddies/app/src/main/res/layout/activity_profile_creator.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/moy9410/Documents/GitHub/RunBuddies/app/src/main/res/layout/activity_sign_up.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/moy9410/Documents/GitHub/RunBuddies/app/src/main/res/layout/activity_start_run.xml" value="0.36666666666666664" />
+>>>>>>> Stashed changes
         <entry key="..\:/Users/thomas8238/Documents/GitHub/RunBuddies/app/src/main/res/layout/activity_login.xml" value="0.3120471014492754" />
         <entry key="..\:/Users/thomas8238/Documents/GitHub/RunBuddies/app/src/main/res/layout/activity_sign_up.xml" value="0.3120471014492754" />
       </map>

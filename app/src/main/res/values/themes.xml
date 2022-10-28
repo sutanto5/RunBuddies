@@ -11,6 +11,9 @@
         <item name="colorOnSecondary">@color/richBlackFOGRA_29</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name = "android:fontFamily">@font/applegaramond_bold</item>
         <!-- Customize your theme here. -->
     </style>
+
+
 </resources>
