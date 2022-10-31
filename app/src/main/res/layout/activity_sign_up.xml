@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1A00A8E8"
     tools:context=".SignUpActivity">
 
     <EditText
@@ -61,17 +60,15 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="Sign Up"
-        android:textSize="@dimen/titleFont"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="448dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:srcCompat="@drawable/runbudlogo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
