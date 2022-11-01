@@ -67,8 +67,7 @@ public class Run implements Parcelable {
         dest.writeString(docID);
     }
 
-    public static final Parcelable.Creator<Run> CREATOR = new
-            Parcelable.Creator<Run>() {
+    public static final Parcelable.Creator<Run> CREATOR = new Parcelable.Creator<Run>() {
 
                 @Override
                 public Run createFromParcel(Parcel parcel) {
