@@ -7,23 +7,23 @@
     tools:context=".HomePageActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:layout_height="500dp"
+        android:orientation="vertical">
 
 
         <TextView
             android:id="@+id/homePageTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/titleFont"
-            android:fontFamily="@font/applegaramond"
-            android:textColor="@color/richBlackFOGRA_29"
-            android:layout_marginTop="@dimen/LargerTopMargin"
             android:layout_gravity="center"
+            android:layout_marginTop="@dimen/LargerTopMargin"
+            android:fontFamily="@font/applegaramond"
             android:gravity="center"
-            android:text="Home Page" />
+            android:text="Home Page"
+            android:textColor="@color/richBlackFOGRA_29"
+            android:textSize="@dimen/titleFont" />
 
         <Button
             android:id="@+id/recordRunButton"
@@ -47,10 +47,55 @@
             android:layout_height="@dimen/buttonHeight"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/smallerTopMargin"
-            android:textSize="@dimen/buttonFont"
-            android:text="View Runs" />
+            android:text="View Runs"
+            android:textSize="@dimen/buttonFont" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/smallerTopMargin"
+            android:text="Log Out" />
 
 
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="60dip"
+        android:layout_height="60dip"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/profileicon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/settingsButton"
+        android:layout_width="60dip"
+        android:layout_height="60dip"
+        android:layout_gravity="right"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/profileicon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/profileButton"
+        android:layout_width="60dip"
+        android:layout_height="60dip"
+        android:layout_gravity="center"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/profileicon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/settingsButton"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageButton1"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.947" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

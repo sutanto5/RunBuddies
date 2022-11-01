@@ -10,5 +10,5 @@
    <dimen name="buttonFont">20dp</dimen>
 
    <dimen name="smallerTopMargin">30dp</dimen>
-   <dimen name="LargerTopMargin">50dp</dimen>
+   <dimen name="LargerTopMargin">60dp</dimen>
 </resources>
