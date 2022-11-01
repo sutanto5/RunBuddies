@@ -174,10 +174,10 @@ public class FirebaseHelper {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
-                            for (DocumentSnapshot doc : task.getResult()) {
+                            /*for (DocumentSnapshot doc : task.getResult()) {
                                 Run run = doc.toObject(Run.class);
                                 myRuns.add(run);
-                            }
+                            } */
 
                             Log.i(TAG, "Success reading data: " + myRuns.toString());
                             firestoreCallback.onCallback(myRuns);
