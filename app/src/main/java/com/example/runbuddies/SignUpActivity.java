@@ -7,8 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-<<<<<<< HEAD
-=======
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,7 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuthEmailException;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
->>>>>>> f24ac8028c54d26fd2ed66af145f22255a357ac1
+
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -40,17 +39,14 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-<<<<<<< HEAD
-    }
-    public void signUpClicked(View view) {
-        Intent intent = new Intent(SignUpActivity.this, HomePageActivity.class);
-        startActivity(intent);
-=======
         firebaseHelper = new FirebaseHelper();
         emailET = findViewById(R.id.editTextEmailAddress);
         passwordET = findViewById(R.id.editTextPassword);
         nameET = findViewById(R.id.editTextName);
+
     }
+
+
 
     /**
      * Method first checks if the input is valid.  If it meets the screening criteria from

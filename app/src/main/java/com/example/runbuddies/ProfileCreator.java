@@ -14,7 +14,7 @@ public class ProfileCreator extends AppCompatActivity implements AdapterView.OnI
     EditText cityET;
     EditText stateET;
     EditText bioET;
-    Button 
+    Button
 
 
 
