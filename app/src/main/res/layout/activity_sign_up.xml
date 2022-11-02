@@ -7,7 +7,7 @@
     tools:context=".SignUpActivity">
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/editTextEmailAddress"
         android:layout_width="@dimen/loginETWidth"
         android:layout_height="@dimen/loginETHeight"
         android:background="#8000A8E8"
@@ -15,14 +15,14 @@
         android:gravity="center"
         android:hint="Email Address"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumberPassword"
+        app:layout_constraintBottom_toTopOf="@+id/editTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/editTextName"
         app:layout_constraintVertical_bias="0.492" />
 
     <EditText
-        android:id="@+id/editTextNumberPassword"
+        android:id="@+id/editTextPassword"
         android:layout_width="@dimen/loginETWidth"
         android:layout_height="@dimen/loginETHeight"
         android:layout_marginBottom="276dp"
@@ -36,7 +36,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextName"
         android:layout_width="@dimen/loginETWidth"
         android:layout_height="@dimen/loginETHeight"
         android:layout_marginTop="144dp"
