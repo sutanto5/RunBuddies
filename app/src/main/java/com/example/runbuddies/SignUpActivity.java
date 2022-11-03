@@ -191,6 +191,5 @@ public class SignUpActivity extends AppCompatActivity {
 
     public void setName(String name) {
         this.name = name;
->>>>>>> f24ac8028c54d26fd2ed66af145f22255a357ac1
     }
 }
