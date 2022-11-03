@@ -7,7 +7,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.firebaseRunBuddies"
+        applicationId "com.example.runbuddies"
         minSdk 21
         targetSdk 32
         versionCode 1
