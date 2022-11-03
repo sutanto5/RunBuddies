@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">RunBuddies</string>
+    <string-array name="runnerLevels">
+        <item>Beginning Sprinter</item>
+        <item>Competitive Sprinter</item>
+        <item>Competitive Runner (40mi+)</item>
+        <item>Semi-Competitive (20-40mi) </item>
+        <item>Casual Runner (10-20mi)</item>
+        <item>Beginner (0-10mi faster)</item>
+        <item>Jogger (0-5mi slow)</item>
+    </string-array>
 </resources>
