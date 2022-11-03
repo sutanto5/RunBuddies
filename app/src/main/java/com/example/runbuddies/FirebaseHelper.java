@@ -118,7 +118,7 @@ public class FirebaseHelper {
     }
 
     public void addData(Run r) {
-        // add Memory m to the database
+        // add Run r to the database
         // this method is overloaded and incorporates the interface to handle the asynch calls
         addData(r, new FirestoreCallback() {
             @Override
@@ -130,13 +130,13 @@ public class FirebaseHelper {
     }
 
     private void addData(Run r, FirestoreCallback firestoreCallback) {
-        db.collection("users").document(uid).collection("myMemoryList")
+        db.collection("users").document(uid).collection("myRunList")
                 .add(r)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        // This will set the docID key for the Memory that was just added.
-                        db.collection("users").document(uid).collection("myMemoryList").
+                        // This will set the docID key for the Run that was just added.
+                        db.collection("users").document(uid).collection("myRunList").
                                 document(documentReference.getId()).update("docID", documentReference.getId());
                         Log.i(TAG, "just added " + r.getName());
                         readData(firestoreCallback);
@@ -148,6 +148,10 @@ public class FirebaseHelper {
                         Log.i(TAG, "Error adding document", e);
                     }
                 });
+    }
+
+    public void addProfile(Run r){
+
     }
 
 
