@@ -8,21 +8,24 @@ public class Run implements Parcelable {
     private String date;
     private double distance;
     private double pace;
+    private double time;
     private String name;
     private String docID;
 
-    public Run(String date, double distance, double pace, String name, String docID) {
+    public Run(String date, double distance, double pace, double time, String name, String docID) {
         this.date = date;
         this.distance = distance;
         this.pace = pace;
+        this.time = time;
         this.name = name;
         this.docID = docID;
     }
 
-    public Run(String date, double distance, double pace, String name) {
+    public Run(String date, double distance, double pace, double time, String name) {
         this.date = date;
         this.distance = distance;
         this.pace = pace;
+        this.time = time;
         this.name = name;
         this.docID = "No docID yet";
     }
@@ -31,6 +34,7 @@ public class Run implements Parcelable {
         date = "no date";
         distance = 0;
         pace = 0;
+        time = 0;
         name = "no name";
         docID = "No docID yet";
     }
@@ -48,6 +52,7 @@ public class Run implements Parcelable {
         date = parcel.readString();
         distance = parcel.readDouble();
         pace = parcel.readDouble();
+        time = parcel.readDouble();
         name = parcel.readString();
         docID = parcel.readString();
     }

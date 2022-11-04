@@ -32,7 +32,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     String email;
     String password;
-    String name;
+    public static String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -185,7 +185,7 @@ public class SignUpActivity extends AppCompatActivity {
         this.password = password;
     }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
