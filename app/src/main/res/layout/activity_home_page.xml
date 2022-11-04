@@ -57,6 +57,7 @@
             android:layout_height="@dimen/buttonHeight"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/smallerTopMargin"
+            android:onClick="logOutClicked"
             android:text="Log Out" />
 
 

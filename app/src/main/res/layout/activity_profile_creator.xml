@@ -58,16 +58,18 @@
 
     <Spinner
         android:id="@+id/levelSpinner"
-        android:layout_width="416dp"
-        android:layout_height="51dp"
+        android:layout_width="363dp"
+        android:layout_height="49dp"
         android:layout_marginTop="200dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/bioEditText"
-        android:layout_width="411dp"
-        android:layout_height="173dp"
+        android:layout_width="379dp"
+        android:layout_height="179dp"
         android:layout_marginStart="4dp"
         android:layout_marginBottom="104dp"
         android:ems="10"
@@ -76,7 +78,7 @@
         android:text="Bio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
