@@ -23,6 +23,7 @@ public class ProfileCreator extends AppCompatActivity implements AdapterView.OnI
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +60,15 @@ public class ProfileCreator extends AppCompatActivity implements AdapterView.OnI
         String state = stateET.getText().toString();
         String runBio = bioET.getText().toString();
         String runLevel = spinnerSelectedText;
+        String name = SignUpActivity.getName();
+
+        Profile p = new Profile(city, state, runBio, runLevel);
+        Log.d("Denna", p.toString());
+        SignUpActivity.firebaseHelper.addData(p);
+
+        memoryName.setText("");
+        memoryDesc.setText("");
+
         Intent intent = new Intent(ProfileCreator.this, HomePageActivity.class);
         startActivity(intent);
 

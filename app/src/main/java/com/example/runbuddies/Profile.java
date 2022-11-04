@@ -7,21 +7,24 @@ public class Profile implements Parcelable {
     private String city;
     private String state;
     private String bio;
+    private String level;
     private String docID;
     private String name;
 
-    public Profile(String city, String state, String bio, String docID) {
+    public Profile(String city, String state, String bio, String level, String docID) {
         this.city = city;
         this.state = state;
         this.bio = bio;
+        this.level = level;
         this.docID = docID;
         name = SignUpActivity.getName();
     }
 
-    public Profile(String city, String state, String bio){
+    public Profile(String city, String state, String bio, String level){
         this.city = city;
         this.state = state;
         this.bio = bio;
+        this.level = level;
         docID = "no DocID yet";
         name = SignUpActivity.getName();
     }
@@ -30,6 +33,7 @@ public class Profile implements Parcelable {
         city = "no city";
         state = "no state";
         bio = "no bio";
+        level = "no level";
         docID = "no DocID yet";
         name = "no Name";
     }
@@ -47,7 +51,99 @@ public class Profile implements Parcelable {
         city = parcel.readString();
         state = parcel.readString();
         bio = parcel.readString();
+        level = parcel.readString();
         docID = parcel.readString();
-        name = SignUpActivity.getName();
+        name = parcel.readString();
+    }
+
+    /**
+     * This is what is used when we send the Memory object through an intent
+     * It is also a method that is part of the Parceable interface and is needed
+     * to set up the object that is being sent.  Then, when it is received, the
+     * other Memory constructor that accepts a Parcel reference can "unpack it"
+     */
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(city);
+        dest.writeString(state);
+        dest.writeString(bio);
+        dest.writeString(level);
+        dest.writeString(docID);
+        dest.writeString(name);
+    }
+
+    public static final Parcelable.Creator<Profile> CREATOR = new Parcelable.Creator<Profile>() {
+
+        @Override
+        public Profile createFromParcel(Parcel parcel) {
+            return new Profile(parcel);
+        }
+
+        @Override
+        public Profile[] newArray(int size) {
+            return new Profile[0];
+        }
+    };
+
+    /**
+     * This method is required for the Parceable interface.  As of now, this method
+     * is in the default state and doesn't really do anything.
+     *
+     * If your Parcelable class will have child classes, you'll need to
+     * take some extra care with the describeContents() method. This would
+     * let you identify the specific child class that should be created by
+     * the Parcelable.Creator. You can read more about how this works on
+     *  Stack Overflow with this link.
+     *           https://stackoverflow.com/questions/4778834/purpose-of-describecontents-of-parcelable-interface
+     * @return
+     */
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getLevel() { return level; }
+
+    public void setLevel(String level) { this.level = level; }
+
+    public String getDocID() {
+        return docID;
+    }
+
+    public void setDocID(String docID) {
+        this.docID = docID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
