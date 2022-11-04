@@ -62,5 +62,6 @@ public class ProfileCreator extends AppCompatActivity implements AdapterView.OnI
         Intent intent = new Intent(ProfileCreator.this, HomePageActivity.class);
         startActivity(intent);
 
+
     }
 }
