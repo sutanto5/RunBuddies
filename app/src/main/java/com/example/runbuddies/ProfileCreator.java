@@ -2,6 +2,7 @@ package com.example.runbuddies;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -58,7 +59,8 @@ public class ProfileCreator extends AppCompatActivity implements AdapterView.OnI
         String state = stateET.getText().toString();
         String runBio = bioET.getText().toString();
         String runLevel = spinnerSelectedText;
-
+        Intent intent = new Intent(ProfileCreator.this, HomePageActivity.class);
+        startActivity(intent);
 
     }
 }

@@ -84,6 +84,7 @@
         android:layout_width="125dp"
         android:layout_height="51dp"
         android:layout_marginBottom="40dp"
+        android:onClick="addProfileButtonClicked"
         android:text="Get Started"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
