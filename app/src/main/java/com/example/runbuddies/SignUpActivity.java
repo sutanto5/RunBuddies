@@ -1,5 +1,7 @@
 package com.example.runbuddies;
 
+import static com.example.runbuddies.LogInActivity.firebaseHelper;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,8 +28,6 @@ public class SignUpActivity extends AppCompatActivity {
     EditText nameET;
     Button signUpButton;
 
-    FirebaseHelper firebaseHelper;
-
     final String TAG = "Buddies";
 
     String email;
@@ -39,7 +39,6 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        firebaseHelper = new FirebaseHelper();
         emailET = findViewById(R.id.editTextEmailAddress);
         passwordET = findViewById(R.id.editTextPassword);
         nameET = findViewById(R.id.editTextName);

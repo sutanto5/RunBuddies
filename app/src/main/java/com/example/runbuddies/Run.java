@@ -3,32 +3,29 @@ package com.example.runbuddies;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.google.android.gms.maps.MapView;
+
 
 public class Run implements Parcelable {
 
     private String date;
     private double distance;
-    private MapView map;
     private double pace;
     private double time;
     private String name;
     private String docID;
 
-    public Run(String date, double distance, MapView map, double pace, double time, String name, String docID) {
+    public Run(String date, double distance, double pace, double time, String name, String docID) {
         this.date = date;
         this.distance = distance;
-        this.map = map;
         this.pace = pace;
         this.time = time;
         this.name = name;
         this.docID = docID;
     }
 
-    public Run(String date, double distance, MapView map, double pace, double time, String name) {
+    public Run(String date, double distance, double pace, double time, String name) {
         this.date = date;
         this.distance = distance;
-        this.map = map;
         this.pace = pace;
         this.time = time;
         this.name = name;
