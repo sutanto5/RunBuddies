@@ -1,28 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".StartRunActivity">
 
+
     <TextView
-        android:id="@+id/timerText"
+        android:id="@+id/time_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
-        tools:text="00:00"
+        android:layout_marginTop="36dp"
+        android:textSize="56sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="137dp"
+        tools:text="00:00" />
+
+    <TextView
+        android:id="@+id/distanceTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/time_view"
         android:layout_centerHorizontal="true"
-        />
+        android:gravity="center"
+        android:text="Distance"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="115dp" />
 
     <Button
-        android:id="@+id/countdownButton"
+        android:id="@+id/stopButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start"
-        android:layout_below="@id/timerText"
+        android:text="Stop"
+        tools:layout_editor_absoluteX="257dp"
+        tools:layout_editor_absoluteY="452dp" />
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/distanceTV"
         android:layout_centerHorizontal="true"
-        />
+        android:text="Start"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="455dp" />
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
