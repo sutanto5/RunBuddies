@@ -64,10 +64,11 @@ public class ProfileCreator extends AppCompatActivity implements AdapterView.OnI
 
         Profile p = new Profile(city, state, runBio, runLevel);
         Log.d("Denna", p.toString());
-        SignUpActivity.firebaseHelper.addData(p);
+        LogInActivity.firebaseHelper.addProfile(p);
 
-        memoryName.setText("");
-        memoryDesc.setText("");
+        cityET.setText("");
+        stateET.setText("");
+        bioET.setText("");
 
         Intent intent = new Intent(ProfileCreator.this, HomePageActivity.class);
         startActivity(intent);

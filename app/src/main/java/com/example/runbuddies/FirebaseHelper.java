@@ -56,6 +56,7 @@ public class FirebaseHelper {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private ArrayList<Run> myRuns;
+    private ArrayList<Profile> myProfile;
 
     // we don't need this yet
     // private ArrayList<Memory> myItems = new ArrayList<>();
@@ -65,6 +66,7 @@ public class FirebaseHelper {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         myRuns = new ArrayList<>();
+        myProfile = new ArrayList<>();
     }
 
 
@@ -82,7 +84,7 @@ public class FirebaseHelper {
         // returned from the asynch method calls
         if (mAuth.getCurrentUser() != null) {
             uid = mAuth.getUid();
-            readData(new FirestoreCallback() {
+            readRunData(new FirestoreCallback() {
                 @Override
                 public void onCallback(ArrayList<Run> runList) {
                     Log.d(TAG, "Inside attachReadDataToUser, onCallback " + runList.toString());
@@ -117,10 +119,10 @@ public class FirebaseHelper {
 
     }
 
-    public void addData(Run r) {
+    public void addRunData(Run r) {
         // add Run r to the database
         // this method is overloaded and incorporates the interface to handle the asynch calls
-        addData(r, new FirestoreCallback() {
+        addRunData(r, new FirestoreCallback() {
             @Override
             public void onCallback(ArrayList<Run> myList) {
                 Log.i(TAG, "Inside addData, onCallback :" + myRuns.toString());
@@ -129,7 +131,7 @@ public class FirebaseHelper {
 
     }
 
-    private void addData(Run r, FirestoreCallback firestoreCallback) {
+    private void addRunData(Run r, FirestoreCallback firestoreCallback) {
         db.collection("users").document(uid).collection("myRunList")
                 .add(r)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -139,7 +141,7 @@ public class FirebaseHelper {
                         db.collection("users").document(uid).collection("myRunList").
                                 document(documentReference.getId()).update("docID", documentReference.getId());
                         Log.i(TAG, "just added " + r.getName());
-                        readData(firestoreCallback);
+                        readRunData(firestoreCallback);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -150,14 +152,45 @@ public class FirebaseHelper {
                 });
     }
 
-    public void addProfile(Run r){
+    public void addProfile(Profile p){
+        // add Profile p to the database
+        // this method is overloaded and incorporates the interface to handle the asynch calls
+        addProfile(p, new AFirestoreCallback() {
+            @Override
+            public void onACallback(ArrayList<Profile> myList) {
+                Log.i(TAG, "Inside addData, onCallback :" + myProfile.toString());
+            }
+        });
+    }
 
+    private void addProfile(Profile p, AFirestoreCallback aFirestoreCallback){
+        db.collection("users").document(uid).collection("myProfile")
+                .add(p)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        // This will set the docID key for the Run that was just added.
+                        db.collection("users").document(uid).collection("myProfile").
+                                document(documentReference.getId()).update("docID", documentReference.getId());
+                        Log.i(TAG, "just added " + p.getName());
+                        readProfileData(aFirestoreCallback);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.i(TAG, "Error adding document", e);
+                    }
+                });
     }
 
 
-    public ArrayList<Run> getWishListItems() {
+    public ArrayList<Run> getWishListItemsRuns() {
         return myRuns;
     }
+
+    public ArrayList<Profile> getWishListItemProfile() {return myProfile; }
+
 
     public void updateUId(String uid) {
         this.uid = uid;
@@ -170,9 +203,9 @@ public class FirebaseHelper {
    certain things from occurring until after the onSuccess is finished.
     */
 
-    private void readData(FirestoreCallback firestoreCallback) {
+    private void readRunData(FirestoreCallback firestoreCallback) {
         myRuns.clear();        // empties the AL so that it can get a fresh copy of data
-        db.collection("users").document(uid).collection("myMemoryList")
+        db.collection("users").document(uid).collection("myRunList")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -193,9 +226,35 @@ public class FirebaseHelper {
 
     }
 
+    public void readProfileData(AFirestoreCallback aFirestoreCallback){
+        myProfile.clear();        // empties the AL so that it can get a fresh copy of data
+        db.collection("users").document(uid).collection("myProfileList")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (DocumentSnapshot doc : task.getResult()) {
+                                Profile profile = doc.toObject(Profile.class);
+                                myProfile.add(profile);
+                            }
+
+                            Log.i(TAG, "Success reading data: " + myProfile.toString());
+                            aFirestoreCallback.onACallback(myProfile);
+                        } else {
+                            Log.d(TAG, "Error getting documents: " + task.getException());
+                        }
+                    }
+                });
+    }
+
     //https://stackoverflow.com/questions/48499310/how-to-return-a-documentsnapshot-as-a-result-of-a-method/48500679#48500679
     public interface FirestoreCallback {
         void onCallback(ArrayList<Run> myList);
+    }
+
+    public interface AFirestoreCallback {
+        void onACallback(ArrayList<Profile> myList);
     }
 
     public ArrayList<Run> getRunArrayList() {
@@ -204,7 +263,7 @@ public class FirebaseHelper {
 
 
     public void editData(Run r) {
-        // edit Memory m to the database
+        // edit Run r to the database
         // this method is overloaded and incorporates the interface to handle the asynch calls
         editData(r, new FirestoreCallback() {
             @Override
@@ -223,7 +282,38 @@ public class FirebaseHelper {
                     @Override
                     public void onSuccess(Void unused) {
                         Log.i(TAG, "Success updating document");
-                        readData(firestoreCallback);
+                        readRunData(firestoreCallback);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.i(TAG, "Error updating document", e);
+                    }
+                });
+    }
+
+    public void editProfile(Profile p){
+        // edit Profile p to the database
+        // this method is overloaded and incorporates the interface to handle the asynch calls
+        editProfile(p, new AFirestoreCallback() {
+            @Override
+            public void onACallback(ArrayList<Profile> myProfileList) {
+                Log.i(TAG, "Inside editData, onCallback " + myProfileList.toString());
+            }
+        });
+    }
+
+    private void editProfile(Profile p, AFirestoreCallback aFirestoreCallback) {
+        String docId = p.getDocID();
+        db.collection("users").document(uid).collection("myProfileList")
+                .document(docId)
+                .set(p)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.i(TAG, "Success updating document");
+                        readProfileData(aFirestoreCallback);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -256,7 +346,7 @@ public class FirebaseHelper {
                     @Override
                     public void onSuccess(Void unused) {
                         Log.i(TAG, r.getName() + " successfully deleted");
-                        readData(firestoreCallback);
+                        readRunData(firestoreCallback);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -267,6 +357,38 @@ public class FirebaseHelper {
                 });
     }
 
+    public void deleteProfile(Profile p) {
+        // delete item w from database
+        // this method is overloaded and incorporates the interface to handle the asynch calls
+        deleteProfile(p, new AFirestoreCallback(){
+            @Override
+            public void onACallback(ArrayList<Profile> myList) {
+                Log.i(TAG, "Inside deleteData, onCallBack" + myList.toString());
+            }
+        });
+
+    }
+
+    private void deleteProfile(Profile p, AFirestoreCallback aFirestoreCallback) {
+        // delete item w from database
+        String docId = p.getDocID();
+        db.collection("users").document(uid).collection("myProfileList")
+                .document(docId)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.i(TAG, p.getName() + " successfully deleted");
+                        readProfileData(aFirestoreCallback);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.i(TAG, "Error deleting document", e);
+                    }
+                });
+    }
 
 }
 
