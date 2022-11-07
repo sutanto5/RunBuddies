@@ -19,4 +19,8 @@ public class HomePageActivity extends AppCompatActivity {
         Intent intent = new Intent(HomePageActivity.this, LogInActivity.class);
         startActivity(intent);
     }
+    public void startRun(View view) {
+        Intent intent = new Intent(HomePageActivity.this,StartRunActivity.class);
+        startActivity(intent);
+    }
 }
