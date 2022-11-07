@@ -16,7 +16,7 @@
         android:layout_marginTop="36dp"
         android:textSize="56sp"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="137dp"
+        tools:layout_editor_absoluteX="127dp"
         tools:text="00:00" />
 
     <TextView
@@ -25,16 +25,19 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/time_view"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="132dp"
         android:gravity="center"
         android:text="Distance"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="115dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/stopButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onClickStop"
         android:text="Stop"
         tools:layout_editor_absoluteX="257dp"
         tools:layout_editor_absoluteY="452dp" />
@@ -45,9 +48,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/distanceTV"
         android:layout_centerHorizontal="true"
+        android:onClick="onClickStart"
         android:text="Start"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="455dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
