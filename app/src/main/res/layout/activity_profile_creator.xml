@@ -39,8 +39,8 @@
         android:layout_marginStart="4dp"
         android:layout_marginBottom="288dp"
         android:ems="10"
+        android:hint="State"
         android:inputType="textPersonName"
-        android:text="State"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -51,8 +51,8 @@
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="288dp"
         android:ems="10"
+        android:hint="City"
         android:inputType="textPersonName"
-        android:text="City"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -74,8 +74,8 @@
         android:layout_marginBottom="104dp"
         android:ems="10"
         android:gravity="top|left"
+        android:hint="Bio"
         android:inputType="textPersonName"
-        android:text="Bio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
