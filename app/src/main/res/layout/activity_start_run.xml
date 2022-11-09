@@ -10,14 +10,71 @@
 
 
     <TextView
-        android:id="@+id/time_view"
+        android:id="@+id/distanceTV3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:textSize="56sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="127dp"
+        android:layout_below="@+id/time_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="105dp"
+        android:gravity="center"
+        android:text="Pace"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TIMETV" />
+
+    <TextView
+        android:id="@+id/TIMETV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/time_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="105dp"
+        android:gravity="center"
+        android:text="Time"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/distanceTV" />
+
+    <TextView
+        android:id="@+id/time_view"
+        android:layout_width="121dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TIMETV"
         tools:text="00:00" />
+
+    <TextView
+        android:id="@+id/pace_View"
+        android:layout_width="121dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/distanceTV3"
+        tools:text="0:00/mi" />
+
+    <TextView
+        android:id="@+id/milesView"
+        android:layout_width="121dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="0.0mi"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/distanceTV" />
 
     <TextView
         android:id="@+id/distanceTV"
@@ -25,10 +82,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/time_view"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="4dp"
         android:gravity="center"
         android:text="Distance"
-        android:textSize="30sp"
+        android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,10 +94,15 @@
         android:id="@+id/stopButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#B80000"
+        android:fontFamily="@font/applegaramond"
         android:onClick="onClickStop"
         android:text="Stop"
-        tools:layout_editor_absoluteX="257dp"
-        tools:layout_editor_absoluteY="452dp" />
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/startButton"
@@ -48,10 +110,25 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/distanceTV"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#00BD08"
         android:onClick="onClickStart"
         android:text="Start"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickReset"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/stopButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/startButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

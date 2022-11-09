@@ -2,6 +2,7 @@ package com.example.runbuddies;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -20,6 +21,8 @@ public class StartRunActivity extends AppCompatActivity {
     // Number of seconds displayed
     // on the stopwatch.
     private int seconds = 0;
+    private double distance =0;
+    private int pace = 0;
 
     // Is the stopwatch running?
     private boolean running;
@@ -111,6 +114,10 @@ public class StartRunActivity extends AppCompatActivity {
     {
         running = false;
         seconds = 0;
+        pace = 0;
+        distance= 0;
+        Intent intent = new Intent(StartRunActivity.this,HomePageActivity.class);
+        startActivity(intent);
     }
 
     // Sets the NUmber of seconds on the timer.
@@ -124,7 +131,12 @@ public class StartRunActivity extends AppCompatActivity {
         final TextView timeView
                 = (TextView)findViewById(
                 R.id.time_view);
-
+        final TextView paceView
+                = (TextView)findViewById(
+                R.id.pace_View);
+        final TextView distView
+                = (TextView)findViewById(
+                R.id.milesView);
         // Creates a new Handler
         final Handler handler
                 = new Handler();
@@ -143,22 +155,49 @@ public class StartRunActivity extends AppCompatActivity {
                 int hours = seconds / 3600;
                 int minutes = (seconds % 3600) / 60;
                 int secs = seconds % 60;
-
+                pace = (int)((int)seconds/distance);
+                int paceHours = pace/ 3600;
+                int paceMinutes = (pace % 3600) / 60;
+                int paceSecs = pace % 60;
                 // Format the seconds into hours, minutes,
                 // and seconds.
-                String time
-                        = String
-                        .format(Locale.getDefault(),
-                                "%d:%02d:%02d", hours,
-                                minutes, secs);
+                String time;
+                if(hours >0) {
+                    time = String
+                            .format(Locale.getDefault(),
+                                    "%d:%02d:%02d", hours,
+                                    minutes, secs);
+                } else {
+                    time = String
+                            .format(Locale.getDefault(),
+                                    "%02d:%02d",
+                                    minutes, seconds);
+                }
+               String pace;
+                if(paceHours >0) {
+                    pace = String
+                            .format(Locale.getDefault(),
+                                    "%d:%02d:%02d", paceHours,
+                                    paceMinutes, paceSecs);
+                } else {
+                    pace = String
+                            .format(Locale.getDefault(),
+                                    "%02d:%02d",
+                                    paceMinutes, paceSecs);
+                }
+                pace +="/mi";
 
                 // Set the text view text.
                 timeView.setText(time);
+                paceView.setText(pace);
+                distView.setText(distance + "mi");
+
 
                 // If running is true, increment the
                 // seconds variable.
                 if (running) {
                     seconds++;
+                    distance+=0.01;
                 }
 
                 // Post the code again
