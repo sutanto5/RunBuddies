@@ -31,6 +31,8 @@
             android:layout_width="@dimen/buttonWidth"
             android:layout_height="@dimen/buttonHeight"
             android:layout_gravity="center"
+            android:theme="@style/ButtonStyle"
+            android:textSize="25dp"
             android:layout_marginTop="@dimen/smallerTopMargin"
             android:onClick="startRun"
             android:text="Record Run" />
@@ -39,6 +41,8 @@
             android:id="@+id/messageButton"
             android:layout_width="@dimen/buttonWidth"
             android:layout_height="@dimen/buttonHeight"
+            android:theme="@style/ButtonStyle"
+            android:textSize="25dp"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/smallerTopMargin"
             android:text="Message Buddy" />
@@ -47,6 +51,8 @@
             android:id="@+id/viewRunButton"
             android:layout_width="@dimen/buttonWidth"
             android:layout_height="@dimen/buttonHeight"
+            android:theme="@style/ButtonStyle"
+            android:textSize="25dp"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/smallerTopMargin"
             android:text="View Runs" />
@@ -55,6 +61,8 @@
             android:id="@+id/logoutButton"
             android:layout_width="@dimen/buttonWidth"
             android:layout_height="@dimen/buttonHeight"
+            android:theme="@style/ButtonStyle"
+            android:textSize="25dp"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/smallerTopMargin"
             android:onClick="logOutClicked"

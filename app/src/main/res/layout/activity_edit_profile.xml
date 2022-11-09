@@ -7,4 +7,56 @@
     tools:context=".EditProfileActivity">
 
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/buttonHeight"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/masterykingdom"
+        android:text="Save"
+        android:textAllCaps="false"
+
+        android:textSize="@dimen/buttonFont"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.936"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="@dimen/loginETWidth"
+        android:layout_height="@dimen/loginETHeight"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="@dimen/loginETWidth"
+        android:layout_height="@dimen/loginETHeight"
+        android:layout_marginStart="44dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Username"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameEditText"
+        app:layout_constraintVertical_bias="0.042" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="350dp"
+        android:layout_height="300dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="bio"
+        android:background="@color/brightNavyBlue"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="213dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
