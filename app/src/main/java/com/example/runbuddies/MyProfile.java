@@ -22,7 +22,7 @@ public class MyProfile extends AppCompatActivity {
         city = findViewById(R.id.cityTextView);
         bio = findViewById(R.id.bioTextView);
 
-        level.setText(Profile.getLevel());
+       
     }
 
 
