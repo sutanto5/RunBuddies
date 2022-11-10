@@ -159,6 +159,7 @@ public class StartRunActivity extends AppCompatActivity {
                 int paceHours = pace/ 3600;
                 int paceMinutes = (pace % 3600) / 60;
                 int paceSecs = pace % 60;
+
                 // Format the seconds into hours, minutes,
                 // and seconds.
                 String time;
@@ -171,7 +172,7 @@ public class StartRunActivity extends AppCompatActivity {
                     time = String
                             .format(Locale.getDefault(),
                                     "%02d:%02d",
-                                    minutes, seconds);
+                                    minutes, secs);
                 }
                String pace;
                 if(paceHours >0) {
