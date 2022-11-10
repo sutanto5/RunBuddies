@@ -11,35 +11,49 @@
         android:id="@+id/button"
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="28dp"
         android:fontFamily="@font/masterykingdom"
         android:text="Save"
-        android:textAllCaps="false"
 
+        android:textAllCaps="false"
         android:textSize="@dimen/buttonFont"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.936"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/nameEditText"
         android:layout_width="@dimen/loginETWidth"
         android:layout_height="@dimen/loginETHeight"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="36dp"
+        android:background="@color/white"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="350dp"
+        android:layout_height="300dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:gravity="top"
+        android:inputType="textPersonName"
+        android:text="bio"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="172dp" />
+
+
 
     <EditText
         android:id="@+id/usernameEditText"
         android:layout_width="@dimen/loginETWidth"
         android:layout_height="@dimen/loginETHeight"
-        android:layout_marginStart="44dp"
+        android:layout_marginStart="28dp"
         android:background="@color/white"
         android:ems="10"
         android:inputType="textPersonName"
@@ -47,16 +61,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameEditText"
-        app:layout_constraintVertical_bias="0.042" />
+        app:layout_constraintVertical_bias="0.031" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="350dp"
-        android:layout_height="300dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="bio"
-        android:background="@color/brightNavyBlue"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="213dp" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="128dp"
+        android:layout_height="151dp"
+        app:srcCompat="@drawable/profileicon"
+        tools:layout_editor_absoluteX="266dp"
+        tools:layout_editor_absoluteY="6dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
