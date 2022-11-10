@@ -8,10 +8,11 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.Locale;
 
 public class StartRunActivity extends AppCompatActivity {
-
+    DecimalFormat decimalFormat = new DecimalFormat(".##");
     // Use seconds, running and wasRunning respectively
     // to record the number of seconds passed,
     // whether the stopwatch is running and
@@ -191,7 +192,7 @@ public class StartRunActivity extends AppCompatActivity {
                 // Set the text view text.
                 timeView.setText(time);
                 paceView.setText(pace);
-                distView.setText(distance + "mi");
+                distView.setText(decimalFormat.format(distance) + "mi");
 
 
                 // If running is true, increment the

@@ -14,7 +14,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class ProfileCreator extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-
+//Liam is Bad, and he's a baddie
     Spinner spinner;
     EditText cityET;
     EditText stateET;
