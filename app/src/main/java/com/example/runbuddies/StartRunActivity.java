@@ -25,6 +25,7 @@ public class StartRunActivity extends AppCompatActivity {
     private double distance =0;
     private int pace = 0;
 
+
     // Is the stopwatch running?
     private boolean running;
 
@@ -96,6 +97,10 @@ public class StartRunActivity extends AppCompatActivity {
     public void onClickStart(View view)
     {
         running = true;
+        View s = findViewById(R.id.save);
+        View r = findViewById(R.id.reset);
+        r.setVisibility(View.INVISIBLE);
+        s.setVisibility(View.INVISIBLE);
     }
 
     // Stop the stopwatch running
@@ -105,6 +110,10 @@ public class StartRunActivity extends AppCompatActivity {
     public void onClickStop(View view)
     {
         running = false;
+        View s = findViewById(R.id.save);
+        View r = findViewById(R.id.reset);
+        r.setVisibility(View.VISIBLE);
+        s.setVisibility(View.VISIBLE);
     }
 
     // Reset the stopwatch when

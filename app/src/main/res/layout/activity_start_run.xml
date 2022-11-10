@@ -9,6 +9,21 @@
     tools:context=".StartRunActivity">
 
 
+    <Button
+        android:id="@+id/save"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/buttonHeight"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="44dp"
+        android:fontFamily="@font/volunmo"
+        android:onClick="onClickReset"
+        android:text="Save Run"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/distanceTV3"
         android:layout_width="wrap_content"
@@ -92,43 +107,50 @@
 
     <Button
         android:id="@+id/stopButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/buttonHeight"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="124dp"
         android:backgroundTint="#B80000"
-        android:fontFamily="@font/applegaramond"
+        android:fontFamily="@font/volunmo"
         android:onClick="onClickStop"
         android:text="Stop"
         android:textAllCaps="false"
+        android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/startButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/buttonHeight"
         android:layout_below="@id/distanceTV"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="124dp"
         android:backgroundTint="#00BD08"
+        android:fontFamily="@font/volunmo"
         android:onClick="onClickStart"
         android:text="Start"
         android:textAllCaps="false"
+        android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/reset"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/buttonHeight"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="44dp"
+        android:fontFamily="@font/volunmo"
         android:onClick="onClickReset"
-        android:text="Button"
+        android:text="Delete Run"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/stopButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/startButton" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
