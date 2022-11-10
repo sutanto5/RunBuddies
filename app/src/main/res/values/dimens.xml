@@ -10,5 +10,7 @@
    <dimen name="buttonFont">20dp</dimen>
 
    <dimen name="smallerTopMargin">30dp</dimen>
-   <dimen name="LargerTopMargin">60dp</dimen>
+   <dimen name="largerTopMargin">60dp</dimen>
+   <dimen name="runButtonHeight">60</dimen>
+   <dimen name="runButtonWidth">160dp</dimen>
 </resources>

@@ -8,10 +8,11 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.Locale;
 
 public class StartRunActivity extends AppCompatActivity {
-
+    DecimalFormat decimalFormat = new DecimalFormat(".##");
     // Use seconds, running and wasRunning respectively
     // to record the number of seconds passed,
     // whether the stopwatch is running and
@@ -23,6 +24,7 @@ public class StartRunActivity extends AppCompatActivity {
     private int seconds = 0;
     private double distance =0;
     private int pace = 0;
+
 
     // Is the stopwatch running?
     private boolean running;
@@ -95,6 +97,10 @@ public class StartRunActivity extends AppCompatActivity {
     public void onClickStart(View view)
     {
         running = true;
+        View s = findViewById(R.id.save);
+        View r = findViewById(R.id.reset);
+        r.setVisibility(View.INVISIBLE);
+        s.setVisibility(View.INVISIBLE);
     }
 
     // Stop the stopwatch running
@@ -104,6 +110,10 @@ public class StartRunActivity extends AppCompatActivity {
     public void onClickStop(View view)
     {
         running = false;
+        View s = findViewById(R.id.save);
+        View r = findViewById(R.id.reset);
+        r.setVisibility(View.VISIBLE);
+        s.setVisibility(View.VISIBLE);
     }
 
     // Reset the stopwatch when
@@ -159,6 +169,7 @@ public class StartRunActivity extends AppCompatActivity {
                 int paceHours = pace/ 3600;
                 int paceMinutes = (pace % 3600) / 60;
                 int paceSecs = pace % 60;
+
                 // Format the seconds into hours, minutes,
                 // and seconds.
                 String time;
@@ -171,7 +182,7 @@ public class StartRunActivity extends AppCompatActivity {
                     time = String
                             .format(Locale.getDefault(),
                                     "%02d:%02d",
-                                    minutes, seconds);
+                                    minutes, secs);
                 }
                String pace;
                 if(paceHours >0) {
@@ -190,7 +201,7 @@ public class StartRunActivity extends AppCompatActivity {
                 // Set the text view text.
                 timeView.setText(time);
                 paceView.setText(pace);
-                distView.setText(distance + "mi");
+                distView.setText(decimalFormat.format(distance) + "mi");
 
 
                 // If running is true, increment the
