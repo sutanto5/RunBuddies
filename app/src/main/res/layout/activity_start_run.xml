@@ -14,7 +14,6 @@
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="44dp"
         android:fontFamily="@font/volunmo"
         android:onClick="onClickReset"
         android:text="Save Run"
@@ -62,7 +61,6 @@
         android:gravity="center"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TIMETV"
         tools:text="00:00" />
@@ -71,7 +69,7 @@
         android:id="@+id/pace_View"
         android:layout_width="121dp"
         android:layout_height="65dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:gravity="center"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,16 +107,17 @@
         android:id="@+id/stopButton"
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginBottom="76dp"
         android:backgroundTint="#B80000"
         android:fontFamily="@font/volunmo"
         android:onClick="onClickStop"
         android:text="Stop"
         android:textAllCaps="false"
         android:textSize="48sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/startButton"
@@ -126,15 +125,16 @@
         android:layout_height="@dimen/buttonHeight"
         android:layout_below="@id/distanceTV"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginBottom="76dp"
         android:backgroundTint="#00BD08"
         android:fontFamily="@font/volunmo"
         android:onClick="onClickStart"
         android:text="Start"
         android:textAllCaps="false"
-        android:textSize="48sp"
+        android:textSize="46sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -142,7 +142,6 @@
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="44dp"
         android:fontFamily="@font/volunmo"
         android:onClick="onClickReset"
         android:text="Delete Run"

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -24,6 +25,7 @@ public class StartRunActivity extends AppCompatActivity {
     private int seconds = 0;
     private double distance =0;
     private int pace = 0;
+
 
 
     // Is the stopwatch running?
@@ -98,9 +100,14 @@ public class StartRunActivity extends AppCompatActivity {
     {
         running = true;
         View s = findViewById(R.id.save);
+        Button go =findViewById(R.id.startButton);
         View r = findViewById(R.id.reset);
+        View st = findViewById(R.id.stopButton);
+        go.setVisibility(View.GONE);
+        go.setText("Resume");
         r.setVisibility(View.INVISIBLE);
         s.setVisibility(View.INVISIBLE);
+        st.setVisibility(View.VISIBLE);
     }
 
     // Stop the stopwatch running
@@ -111,8 +118,12 @@ public class StartRunActivity extends AppCompatActivity {
     {
         running = false;
         View s = findViewById(R.id.save);
+        Button go = findViewById(R.id.startButton);
+        View st = findViewById(R.id.stopButton);
         View r = findViewById(R.id.reset);
         r.setVisibility(View.VISIBLE);
+        st.setVisibility(View.GONE);
+        go.setVisibility(View.VISIBLE);
         s.setVisibility(View.VISIBLE);
     }
 
