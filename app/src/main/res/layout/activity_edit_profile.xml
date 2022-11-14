@@ -35,19 +35,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <EditText
         android:id="@+id/editTextTextPersonName3"
         android:layout_width="350dp"
         android:layout_height="300dp"
+        android:layout_marginBottom="88dp"
         android:background="@color/white"
         android:ems="10"
         android:gravity="top"
         android:inputType="textPersonName"
         android:text="bio"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="172dp" />
-
-
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/usernameEditText"
@@ -61,7 +63,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameEditText"
-        app:layout_constraintVertical_bias="0.031" />
+        app:layout_constraintVertical_bias="0.056" />
 
     <ImageView
         android:id="@+id/imageView"
