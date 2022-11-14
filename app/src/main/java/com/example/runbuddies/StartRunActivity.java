@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
+import java.util.Calendar;
 import java.util.Locale;
 
 public class StartRunActivity extends AppCompatActivity {
@@ -32,7 +35,9 @@ public class StartRunActivity extends AppCompatActivity {
     private boolean running;
 
     private boolean wasRunning;
-
+    TextView runDistance;
+    TextView runTime;
+    TextView runPace;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -54,6 +59,9 @@ public class StartRunActivity extends AppCompatActivity {
                     .getBoolean("wasRunning");
         }
         runTimer();
+        runTime = findViewById(R.id.time_view);
+        runPace = findViewById(R.id.pace_View);
+        runDistance = findViewById(R.id.milesView)
     }
 
     // Save the state of the stopwatch
@@ -139,6 +147,20 @@ public class StartRunActivity extends AppCompatActivity {
         distance= 0;
         Intent intent = new Intent(StartRunActivity.this,HomePageActivity.class);
         startActivity(intent);
+    }
+
+    public void addRunButtonClicked(View view) {
+        String dist = runDistance.getText().toString();
+        String time = runTime.getText().toString();
+        String pace = runPace.getText().toString();
+        Calendar c = Calendar.getInstance();
+        int day = c.get(Calendar.DAY_OF_MONTH);
+        int month = c.get(Calendar.MONTH);
+        int year = c.get(Calendar.YEAR);
+        String date = day + "/" + (month+1) + "/" + year;
+        Run r = new Run(date, dist, pace, time,"");
+        LogInActivity.firebaseHelper.addData(r);
+
     }
 
     // Sets the NUmber of seconds on the timer.

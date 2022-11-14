@@ -8,13 +8,13 @@ import android.os.Parcelable;
 public class Run implements Parcelable {
 
     private String date;
-    private double distance;
-    private double pace;
-    private double time;
+    private String distance;
+    private String pace;
+    private String time;
     private String name;
     private String docID;
 
-    public Run(String date, double distance, double pace, double time, String name, String docID) {
+    public Run(String date, String distance, String pace, String time, String name, String docID) {
         this.date = date;
         this.distance = distance;
         this.pace = pace;

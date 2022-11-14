@@ -41,21 +41,22 @@
             android:id="@+id/messageButton"
             android:layout_width="@dimen/buttonWidth"
             android:layout_height="@dimen/buttonHeight"
-            android:theme="@style/ButtonStyle"
-            android:textSize="25dp"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/smallerTopMargin"
-            android:text="Message Buddy" />
+            android:text="Message Buds"
+            android:textSize="25dp"
+            android:theme="@style/ButtonStyle" />
 
         <Button
             android:id="@+id/viewRunButton"
             android:layout_width="@dimen/buttonWidth"
             android:layout_height="@dimen/buttonHeight"
-            android:theme="@style/ButtonStyle"
-            android:textSize="25dp"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/smallerTopMargin"
-            android:text="View Runs" />
+            android:onClick="viewRuns"
+            android:text="View Runs"
+            android:textSize="25dp"
+            android:theme="@style/ButtonStyle" />
 
         <Button
             android:id="@+id/logoutButton"

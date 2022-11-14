@@ -27,4 +27,9 @@ public class HomePageActivity extends AppCompatActivity {
         Intent intent = new Intent(HomePageActivity.this,MyProfile.class);
         startActivity(intent);
     }
+    public void viewRuns(View view) {
+        Intent intent = new Intent(HomePageActivity.this,PastRunsActivity.class);
+        startActivity(intent);
+    }
+
 }
