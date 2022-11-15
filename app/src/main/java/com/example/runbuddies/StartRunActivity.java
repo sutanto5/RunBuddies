@@ -168,10 +168,7 @@ public class StartRunActivity extends AppCompatActivity {
         int year = c.get(Calendar.YEAR);
         String date = day + "/" + (month+1) + "/" + year;
         Run r = new Run(date, dist, pace, time,"");
-<<<<<<< Updated upstream
         LogInActivity.firebaseHelper.addRunData(r);
-=======
->>>>>>> Stashed changes
 
     }
 
