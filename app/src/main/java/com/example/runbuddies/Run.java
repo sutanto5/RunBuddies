@@ -23,7 +23,7 @@ public class Run implements Parcelable {
         this.docID = docID;
     }
 
-    public Run(String date, double distance, double pace, double time, String name) {
+    public Run(String date, String distance, String pace, String time, String name) {
         this.date = date;
         this.distance = distance;
         this.pace = pace;
@@ -34,9 +34,9 @@ public class Run implements Parcelable {
 
     public Run() {
         date = "no date";
-        distance = 0;
-        pace = 0;
-        time = 0;
+        distance = "0 mi";
+        pace = "0 /mile";
+        time = "0 min";
         name = "no name";
         docID = "No docID yet";
     }
@@ -52,9 +52,9 @@ public class Run implements Parcelable {
      */
     public Run(Parcel parcel) {
         date = parcel.readString();
-        distance = parcel.readDouble();
-        pace = parcel.readDouble();
-        time = parcel.readDouble();
+        distance = parcel.readString();
+        pace = parcel.readString();
+        time = parcel.readString();
         name = parcel.readString();
         docID = parcel.readString();
     }
@@ -68,8 +68,9 @@ public class Run implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(date);
-        dest.writeDouble(distance);
-        dest.writeDouble(pace);
+        dest.writeString(distance);
+        dest.writeString(pace);
+        dest.writeString(time);
         dest.writeString(name);
         dest.writeString(docID);
     }
@@ -113,21 +114,25 @@ public class Run implements Parcelable {
         this.date = date;
     }
 
-    public double getDistance() {
+    public String getDistance() {
         return distance;
     }
 
-    public void setDistance(double distance) {
+    public void setDistance(String distance) {
         this.distance = distance;
     }
 
-    public double getPace() {
+    public String getPace() {
         return pace;
     }
 
-    public void setPace(double pace) {
+    public void setPace(String pace) {
         this.pace = pace;
     }
+
+    public String getTime(){ return time; }
+
+    public void setTime(String time) { this.time = time; }
 
     public String getName() {
         return name;

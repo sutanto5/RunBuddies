@@ -61,7 +61,7 @@ public class StartRunActivity extends AppCompatActivity {
         runTimer();
         runTime = findViewById(R.id.time_view);
         runPace = findViewById(R.id.pace_View);
-        runDistance = findViewById(R.id.milesView)
+        runDistance = findViewById(R.id.milesView);
     }
 
     // Save the state of the stopwatch
@@ -159,7 +159,7 @@ public class StartRunActivity extends AppCompatActivity {
         int year = c.get(Calendar.YEAR);
         String date = day + "/" + (month+1) + "/" + year;
         Run r = new Run(date, dist, pace, time,"");
-        LogInActivity.firebaseHelper.addData(r);
+        LogInActivity.firebaseHelper.addRunData(r);
 
     }
 

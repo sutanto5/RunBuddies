@@ -21,7 +21,7 @@ public class PastRunsActivity extends AppCompatActivity {
         // find listView in xml
         myRunsListView = findViewById(R.id.allRunsListView);
         // get ArrayList of data from firebase
-        ArrayList<Run> myList = LogInActivity.firebaseHelper.getRunArrayList();
+        ArrayList<Run> myList = LogInActivity.firebaseHelper.getWishListItemsRuns();
         // bind data to the ArrayAdapter (this is a default adapter
         // The text shown is based on the Memory class toString
         ArrayAdapter<Run> listAdapter = new ArrayAdapter<>(
