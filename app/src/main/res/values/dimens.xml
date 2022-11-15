@@ -13,4 +13,8 @@
    <dimen name="largerTopMargin">60dp</dimen>
    <dimen name="runButtonHeight">60</dimen>
    <dimen name="runButtonWidth">160dp</dimen>
+   
+   <dimen name="tvWidth">160dp</dimen>
+   <dimen name="tvHeight">40dp</dimen>
+   <dimen name="subTitleFont">25dp</dimen>
 </resources>
