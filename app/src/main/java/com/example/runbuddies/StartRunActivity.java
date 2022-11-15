@@ -5,13 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -29,15 +30,25 @@ public class StartRunActivity extends AppCompatActivity {
     private double distance =0;
     private int pace = 0;
 
-
+    Button save = findViewById(R.id.save);
+    Button start = findViewById(R.id.startButton);
+    Button stop = findViewById(R.id.stopButton);
+    Button reset = findViewById(R.id.reset);
+    TextView nameTV = findViewById(R.id.nameTV);
+    EditText name = findViewById(R.id.nameEditText);
+    TextView distanceTV = findViewById(R.id.distanceTV);
+    TextView paceTV = findViewById(R.id.paceTV);
+    TextView runDistance = findViewById(R.id.milesView);
+    TextView runTime=findViewById(R.id.time_view);
+    TextView runPace=findViewById(R.id.pace_View);
+    ArrayList<View> views = new ArrayList<View>(
+            Arrays.asList(save,start,stop,reset,nameTV,name,distanceTV,paceTV,runDistance,runTime,runPace));
 
     // Is the stopwatch running?
     private boolean running;
 
     private boolean wasRunning;
-    TextView runDistance;
-    TextView runTime;
-    TextView runPace;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -107,15 +118,11 @@ public class StartRunActivity extends AppCompatActivity {
     public void onClickStart(View view)
     {
         running = true;
-        View s = findViewById(R.id.save);
-        Button go =findViewById(R.id.startButton);
-        View r = findViewById(R.id.reset);
-        View st = findViewById(R.id.stopButton);
-        go.setVisibility(View.GONE);
-        go.setText("Resume");
-        r.setVisibility(View.INVISIBLE);
-        s.setVisibility(View.INVISIBLE);
-        st.setVisibility(View.VISIBLE);
+        start.setVisibility(View.GONE);
+        start.setText("Resume");
+        reset.setVisibility(View.INVISIBLE);
+        save.setVisibility(View.INVISIBLE);
+        stop.setVisibility(View.VISIBLE);
     }
 
     // Stop the stopwatch running
@@ -125,14 +132,10 @@ public class StartRunActivity extends AppCompatActivity {
     public void onClickStop(View view)
     {
         running = false;
-        View s = findViewById(R.id.save);
-        Button go = findViewById(R.id.startButton);
-        View st = findViewById(R.id.stopButton);
-        View r = findViewById(R.id.reset);
-        r.setVisibility(View.VISIBLE);
-        st.setVisibility(View.GONE);
-        go.setVisibility(View.VISIBLE);
-        s.setVisibility(View.VISIBLE);
+        reset.setVisibility(View.VISIBLE);
+        stop.setVisibility(View.GONE);
+        start.setVisibility(View.VISIBLE);
+        save.setVisibility(View.VISIBLE);
     }
 
     // Reset the stopwatch when
@@ -148,7 +151,13 @@ public class StartRunActivity extends AppCompatActivity {
         Intent intent = new Intent(StartRunActivity.this,HomePageActivity.class);
         startActivity(intent);
     }
-
+    public void addRun(View view) {
+        for(View v:views) {
+            v.setVisibility(View.GONE);
+        }
+        name.setVisibility(View.VISIBLE);
+        nameTV.setVisibility(View.VISIBLE);
+    }
     public void addRunButtonClicked(View view) {
         String dist = runDistance.getText().toString();
         String time = runTime.getText().toString();
@@ -159,7 +168,10 @@ public class StartRunActivity extends AppCompatActivity {
         int year = c.get(Calendar.YEAR);
         String date = day + "/" + (month+1) + "/" + year;
         Run r = new Run(date, dist, pace, time,"");
+<<<<<<< Updated upstream
         LogInActivity.firebaseHelper.addRunData(r);
+=======
+>>>>>>> Stashed changes
 
     }
 
