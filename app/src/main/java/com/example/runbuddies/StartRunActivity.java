@@ -30,25 +30,22 @@ public class StartRunActivity extends AppCompatActivity {
     private double distance =0;
     private int pace = 0;
 
-    Button save = findViewById(R.id.save);
-    Button start = findViewById(R.id.startButton);
-    Button stop = findViewById(R.id.stopButton);
-    Button reset = findViewById(R.id.reset);
-    TextView nameTV = findViewById(R.id.nameTV);
-    EditText name = findViewById(R.id.nameEditText);
-    TextView distanceTV = findViewById(R.id.distanceTV);
-    TextView paceTV = findViewById(R.id.paceTV);
-    TextView runDistance = findViewById(R.id.milesView);
-    TextView runTime=findViewById(R.id.time_view);
-    TextView runPace=findViewById(R.id.pace_View);
-    ArrayList<View> views = new ArrayList<View>(
-            Arrays.asList(save,start,stop,reset,nameTV,name,distanceTV,paceTV,runDistance,runTime,runPace));
+
 
     // Is the stopwatch running?
     private boolean running;
 
     private boolean wasRunning;
-
+    TextView runDistance;
+    TextView runTime;
+    TextView runPace;
+    Button start;
+    Button stop;
+    Button save;
+    Button reset;
+    TextView distanceTV;
+    TextView paceTV;
+    TextView timeTV;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -73,6 +70,13 @@ public class StartRunActivity extends AppCompatActivity {
         runTime = findViewById(R.id.time_view);
         runPace = findViewById(R.id.pace_View);
         runDistance = findViewById(R.id.milesView);
+        start = findViewById(R.id.startButton);
+        stop = findViewById(R.id.stopButton);
+        save = findViewById(R.id.save);
+        reset = findViewById(R.id.reset);
+        distanceTV = findViewById(R.id.distanceTV);
+        paceTV = findViewById(R.id.paceTV);
+        timeTV = findViewById(R.id.TIMETV);
     }
 
     // Save the state of the stopwatch
@@ -152,13 +156,21 @@ public class StartRunActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void addRun(View view) {
+        ArrayList<View> views = new ArrayList<View>(
+                Arrays.asList(start,stop,save,reset,distanceTV,paceTV,timeTV,runDistance,runTime,runPace));
+        View nameTV = findViewById(R.id.nameTV);
+        EditText name = findViewById(R.id.runNameEditText);
+        Button upload = findViewById(R.id.upload);
         for(View v:views) {
             v.setVisibility(View.GONE);
         }
         name.setVisibility(View.VISIBLE);
         nameTV.setVisibility(View.VISIBLE);
+        upload.setVisibility(View.VISIBLE);
     }
     public void addRunButtonClicked(View view) {
+        EditText nameET = findViewById(R.id.runNameEditText);
+        String name = nameET.getText().toString();
         String dist = runDistance.getText().toString();
         String time = runTime.getText().toString();
         String pace = runPace.getText().toString();
@@ -166,10 +178,10 @@ public class StartRunActivity extends AppCompatActivity {
         int day = c.get(Calendar.DAY_OF_MONTH);
         int month = c.get(Calendar.MONTH);
         int year = c.get(Calendar.YEAR);
-        String date = day + "/" + (month+1) + "/" + year;
-        Run r = new Run(date, dist, pace, time,"");
+        String date = (month+1) + "/" + (day) + "/" + year;
+        Run r = new Run(date, dist, pace, time,name);
         LogInActivity.firebaseHelper.addRunData(r);
-
+        onClickReset(view);
     }
 
     // Sets the NUmber of seconds on the timer.

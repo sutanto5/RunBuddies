@@ -15,7 +15,7 @@
         android:layout_height="@dimen/buttonHeight"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/volunmo"
-        android:onClick="onClickReset"
+        android:onClick="addRun"
         android:text="Save Run"
         android:textSize="24sp"
         android:visibility="invisible"
@@ -169,8 +169,8 @@
 
     <EditText
         android:id="@+id/runNameEditText"
-        android:layout_width="210dp"
-        android:layout_height="47dp"
+        android:layout_width="243dp"
+        android:layout_height="61dp"
         android:layout_marginTop="56dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -180,6 +180,21 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameTV" />
+
+    <Button
+        android:id="@+id/upload"
+        android:layout_width="244dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="104dp"
+        android:fontFamily="@font/volunmo"
+        android:onClick="addRunButtonClicked"
+        android:text="Upload"
+        android:textSize="48sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/runNameEditText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
