@@ -213,7 +213,7 @@ public class FirebaseHelper {
     */
 
     public void readRunData(FirestoreCallback firestoreCallback) {
-        myRuns.clear();        // empties the AL so that it can get a fresh copy of data
+        //myRuns.clear();        // empties the AL so that it can get a fresh copy of data
         db.collection("users").document(uid).collection("myRuns")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -223,8 +223,8 @@ public class FirebaseHelper {
                             for (DocumentSnapshot doc : task.getResult()) {
                                 Run run = doc.toObject(Run.class);
                                 myRuns.add(run);
+                                Log.i(TAG, "Success adding data: " + myRuns.toString());
                             }
-
                             Log.i(TAG, "Success reading data: " + myRuns.toString());
                             firestoreCallback.onCallback(myRuns, myProfile);
                         } else {
