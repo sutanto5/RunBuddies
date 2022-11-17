@@ -70,7 +70,7 @@ public class ProfileCreator extends AppCompatActivity implements AdapterView.OnI
         stateET.setText("");
         bioET.setText("");
 
-        Intent intent = new Intent(ProfileCreator.this, HomePageActivity.class);
+        Intent intent = new Intent(ProfileCreator.this, ProfilePicture.class);
         startActivity(intent);
 
 
