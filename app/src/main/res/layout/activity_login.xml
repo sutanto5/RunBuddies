@@ -11,13 +11,12 @@
         android:id="@+id/logo"
         android:layout_width="448dp"
         android:layout_height="118dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="52dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/runbudlogo" />
-
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailTextInputLayout"
@@ -66,7 +65,7 @@
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
         android:layout_gravity="center"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="16dp"
         android:onClick="logInClicked"
         android:text="Log in"
         android:textAllCaps="false"
@@ -82,15 +81,14 @@
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="291dp"
         android:layout_height="43dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:onClick="signUpClicked"
         android:text="Don't have an account? Sign Up"
-        android:theme="@style/ButtonStyle"
         android:textAllCaps="false"
         android:textColor="@color/carolinaBlue"
         android:textSize="26sp"
+        android:theme="@style/ButtonStyle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
