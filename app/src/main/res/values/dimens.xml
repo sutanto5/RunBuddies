@@ -17,4 +17,12 @@
    <dimen name="tvWidth">160dp</dimen>
    <dimen name="tvHeight">40dp</dimen>
    <dimen name="subTitleFont">25dp</dimen>
+
+
+   <!-- home page -->
+   <dimen name="layoutHeight">570dp</dimen>
+
+   <dimen name="bottomLayoutMargin">30dp</dimen>
+   <dimen name="sideLayoutMargin">30dp</dimen>
+   <dimen name="middleLayoutMargin">85dp</dimen>
 </resources>
