@@ -8,5 +8,6 @@
         <item>Casual Runner (10-20mi)</item>
         <item>Beginner (0-10mi faster)</item>
         <item>Jogger (0-5mi slow)</item>
+        <string name="mapbox_access_token">pk.eyJ1Ijoiam1hc3V0YW50byIsImEiOiJjbGFjand4a3cwOThnM3FxdDhqaXRhdDgyIn0.JiNkpt-oE8HkpeGQMv-eEQ</string>
     </string-array>
 </resources>
