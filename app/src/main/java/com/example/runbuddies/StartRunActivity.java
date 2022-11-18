@@ -180,6 +180,8 @@ public class StartRunActivity extends AppCompatActivity {
         int year = c.get(Calendar.YEAR);
         String date = (month+1) + "/" + (day) + "/" + year;
         Run r = new Run(date, dist, pace, time,name);
+
+
         LogInActivity.firebaseHelper.addRunData(r);
         onClickReset(view);
     }
