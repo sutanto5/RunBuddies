@@ -214,7 +214,7 @@ public class FirebaseHelper {
 
     public void readRunData(FirestoreCallback firestoreCallback) {
         //myRuns.clear();        // empties the AL so that it can get a fresh copy of data
-        db.collection("users").document(uid).collection("myRuns")
+        db.collection("users").document(uid).collection("myRunList")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override

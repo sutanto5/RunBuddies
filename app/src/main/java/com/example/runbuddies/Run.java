@@ -3,6 +3,7 @@ package com.example.runbuddies;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.Locale;
 
 
 public class Run implements Parcelable {
@@ -100,7 +101,9 @@ public class Run implements Parcelable {
      *           https://stackoverflow.com/questions/4778834/purpose-of-describecontents-of-parcelable-interface
      * @return
      */
-
+    public String toString(){
+        return (name.toUpperCase()) + "\t\t" +date + "\nDistance: " + distance + "\t\tTime: " + time;
+     }
     @Override
     public int describeContents() {
         return 0;
