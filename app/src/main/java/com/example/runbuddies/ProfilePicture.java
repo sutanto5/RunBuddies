@@ -158,5 +158,9 @@ public class ProfilePicture extends AppCompatActivity {
                             });
         }
     }
+    public void bypassButton(View view){
+        Intent intent = new Intent(ProfilePicture.this, HomePageActivity.class);
+        startActivity(intent);
+    }
 }
 
