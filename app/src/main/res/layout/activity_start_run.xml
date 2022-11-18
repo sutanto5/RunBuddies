@@ -189,6 +189,7 @@
         android:fontFamily="@font/volunmo"
         android:onClick="addRunButtonClicked"
         android:text="Upload"
+        android:textAllCaps="false"
         android:textSize="48sp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
