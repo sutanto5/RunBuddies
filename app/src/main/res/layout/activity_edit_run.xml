@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditRunActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="51dp">
+
+
+    <TextView
+        android:id="@+id/paceView"
+        android:layout_width="193dp"
+        android:layout_height="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeTV" />
+
+    <TextView
+        android:id="@+id/distTv"
+        android:layout_width="193dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="236dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/runDescTV" />
+
+    <EditText
+        android:id="@+id/runNameTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Run Name"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/runDescTV"
+        android:layout_width="302dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Run Description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/runNameTV" />
+
+    <Button
+        android:id="@+id/editRunButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="352dp"
+        android:fontFamily="@font/volunmo"
+        android:onClick="saveRunEdits"
+        android:text="Save Edits"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/runDescTV" />
+
+    <Button
+        android:id="@+id/deleteRunButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/volunmo"
+        android:onClick="deleteRun"
+        android:text="Delete Run"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editRunButton" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/volunmo"
+        android:onClick="goBack"
+        android:text="Back"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deleteRunButton" />
+
+    <TextView
+        android:id="@+id/timeTV"
+        android:layout_width="193dp"
+        android:layout_height="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/distTv" />
+
+    <TextView
+        android:id="@+id/dateView"
+        android:layout_width="76dp"
+        android:layout_height="26dp"
+        android:text="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -268,7 +268,7 @@ public class FirebaseHelper {
         editData(r, new FirestoreCallback() {
             @Override
             public void onCallback(ArrayList<Run> myRuns, ArrayList<Profile> myProfile) {
-
+                Log.i(TAG, "Inside editData, onCallback " + myRuns.toString());
             }
         });
     }

@@ -14,6 +14,7 @@ public class Run implements Parcelable {
     private String time;
     private String name;
     private String docID;
+    private String desc;
 
     public Run(String date, String distance, String pace, String time, String name, String docID) {
         this.date = date;
@@ -22,6 +23,7 @@ public class Run implements Parcelable {
         this.time = time;
         this.name = name;
         this.docID = docID;
+        desc = "";
     }
 
     public Run(String date, String distance, String pace, String time, String name) {
@@ -31,6 +33,16 @@ public class Run implements Parcelable {
         this.time = time;
         this.name = name;
         this.docID = "No docID yet";
+        desc = "";
+    }
+    public Run(String date, String distance, String pace, String time, String name, String docID,String desc) {
+        this.date = date;
+        this.distance = distance;
+        this.pace = pace;
+        this.time = time;
+        this.name = name;
+        this.docID = docID;
+        this.desc = desc;
     }
 
     public Run() {
@@ -58,6 +70,7 @@ public class Run implements Parcelable {
         time = parcel.readString();
         name = parcel.readString();
         docID = parcel.readString();
+        desc = parcel.readString();
     }
 
     /**
@@ -74,6 +87,7 @@ public class Run implements Parcelable {
         dest.writeString(time);
         dest.writeString(name);
         dest.writeString(docID);
+        dest.writeString(desc);
     }
 
     public static final Parcelable.Creator<Run> CREATOR = new Parcelable.Creator<Run>() {
@@ -113,29 +127,17 @@ public class Run implements Parcelable {
         return date;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
     public String getDistance() {
         return distance;
     }
 
-    public void setDistance(String distance) {
-        this.distance = distance;
-    }
 
     public String getPace() {
         return pace;
     }
 
-    public void setPace(String pace) {
-        this.pace = pace;
-    }
-
     public String getTime(){ return time; }
 
-    public void setTime(String time) { this.time = time; }
 
     public String getName() {
         return name;
@@ -144,6 +146,14 @@ public class Run implements Parcelable {
     public void setName(String name) {
         this.name = name;
     }
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
 
     public String getDocID() {
         return docID;
