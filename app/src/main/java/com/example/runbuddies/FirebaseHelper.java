@@ -213,7 +213,7 @@ public class FirebaseHelper {
     */
 
     public void readRunData(FirestoreCallback firestoreCallback) {
-        //myRuns.clear();        // empties the AL so that it can get a fresh copy of data
+        myRuns.clear();        // empties the AL so that it can get a fresh copy of data
         db.collection("users").document(uid).collection("myRunList")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -275,7 +275,7 @@ public class FirebaseHelper {
 
     private void editData(Run r, FirestoreCallback firestoreCallback) {
         String docId = r.getDocID();
-        db.collection("users").document(uid).collection("myMemoryList")
+        db.collection("users").document(uid).collection("myRunList")
                 .document(docId)
                 .set(r)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -342,7 +342,7 @@ public class FirebaseHelper {
     private void deleteData(Run r, FirestoreCallback firestoreCallback) {
         // delete item w from database
         String docId = r.getDocID();
-        db.collection("users").document(uid).collection("myMemoryList")
+        db.collection("users").document(uid).collection("myRunList")
                 .document(docId)
                 .delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {

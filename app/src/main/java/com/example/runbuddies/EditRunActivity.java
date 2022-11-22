@@ -55,6 +55,7 @@ public class EditRunActivity extends AppCompatActivity {
 
         // Calls editData with this updated Memory object
         firebaseHelper.editData(currentRun);
+        goBack(v);
     }
 
     public void deleteRun(View v) {
