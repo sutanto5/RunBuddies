@@ -4,20 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditProfileActivity"><![CDATA[
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".ProfilePicture">
-
-
-
-
-
-
-    ]]>
 
     <Button
         android:id="@+id/selectImageButton"
@@ -60,12 +47,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/byPassButton"
         android:layout_width="300dp"
         android:layout_height="80dp"
         android:layout_marginStart="55dp"
         android:layout_marginBottom="62dp"
-        android:text="Button"
+        android:onClick="bypassButton"
+        android:text="Bypass Picture"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
