@@ -10,4 +10,6 @@
     android:padding="5dp"
     android:text="Level of Runner (Weekly Mileage)"
     android:textColor="@color/richBlackFOGRA_29"
-    android:textSize="20dp" />
+    android:textSize="20dp"
+
+    />

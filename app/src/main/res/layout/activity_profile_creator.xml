@@ -6,31 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".ProfileCreator">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/runbudlogo" />
 
     <TextView
 
         android:id="@+id/setUptextView"
         android:layout_width="206dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:gravity="center"
         android:text="Set Up Profile"
         android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/levelSpinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.304" />
 
     <Spinner
         android:id="@+id/levelSpinner"
@@ -47,14 +37,14 @@
         android:layout_width="370dp"
         android:layout_height="180dp"
         android:layout_marginStart="4dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginBottom="128dp"
         android:ems="10"
         android:gravity="top|left"
         android:hint="Bio"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintHorizontal_bias="0.351"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -75,8 +65,8 @@
         android:id="@+id/runnerLevelTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="40dp"
         android:text="What Runner Are You?"
         android:textSize="@dimen/subTitleFont"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,12 +84,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/levelSpinner">
 
+
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/stateEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="State" />
+
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cityTextInputLayout"
@@ -119,6 +113,8 @@
             android:layout_height="wrap_content"
             android:hint="City" />
     </com.google.android.material.textfield.TextInputLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

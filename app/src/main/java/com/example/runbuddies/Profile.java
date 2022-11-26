@@ -1,5 +1,6 @@
 package com.example.runbuddies;
 
+import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.widget.ImageView;
@@ -11,9 +12,8 @@ public class Profile implements Parcelable {
     private String level;
     private String docID;
     private String name;
-    private ImageView profilePicture;
 
-    public Profile(String city, String state, String bio, String level, String docID, ImageView profilePicture) {
+    public Profile(String city, String state, String bio, String level, String docID) {
         this.city = city;
         this.state = state;
         this.bio = bio;
@@ -31,7 +31,7 @@ public class Profile implements Parcelable {
         name = SignUpActivity.getName();
     }
 
-    public Profile(){
+    public Profile() {
         city = "no city";
         state = "no state";
         bio = "no bio";
@@ -149,5 +149,4 @@ public class Profile implements Parcelable {
         this.name = name;
     }
 
-    
 }

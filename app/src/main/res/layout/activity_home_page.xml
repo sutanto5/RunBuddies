@@ -84,6 +84,7 @@
             android:layout_marginStart="@dimen/sideLayoutMargin"
             android:layout_marginBottom="@dimen/bottomLayoutMargin"
             android:background="@drawable/ic_baseline_search_24"
+            android:onClick="findMatch"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

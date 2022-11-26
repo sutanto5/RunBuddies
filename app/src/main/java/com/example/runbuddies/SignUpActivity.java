@@ -30,7 +30,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     final String TAG = "Buddies";
 
-    String email;
+    public static String email;
     String password;
     public static String name;
 
@@ -87,7 +87,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 // updateIfLoggedIn();
                                 // firebaseHelper.attachReadDataToUser();
 
-                                Intent intent = new Intent(SignUpActivity.this, ProfileCreator.class);
+                                Intent intent = new Intent(SignUpActivity.this, ProfilePicture.class);
                                 startActivity(intent);
                             }
                             else {
@@ -168,7 +168,7 @@ public class SignUpActivity extends AppCompatActivity {
         return email;
     }
 
-    public String getEmail() {
+    public static String getEmail() {
         return email;
     }
 

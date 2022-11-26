@@ -8,10 +8,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class ProfileCreator extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
@@ -21,8 +22,7 @@ public class ProfileCreator extends AppCompatActivity implements AdapterView.OnI
     EditText bioET;
     String spinnerSelectedText;
 
-
-
+    public static ArrayList<String> allUsers = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +70,9 @@ public class ProfileCreator extends AppCompatActivity implements AdapterView.OnI
         stateET.setText("");
         bioET.setText("");
 
-        Intent intent = new Intent(ProfileCreator.this, ProfilePicture.class);
+        allUsers.add(LogInActivity.firebaseHelper.getMAuth().getUid());
+
+        Intent intent = new Intent(ProfileCreator.this, HomePageActivity.class);
         startActivity(intent);
 
 
