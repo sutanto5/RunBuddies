@@ -10,7 +10,7 @@
         <item>Jogger (0-5mi slow)</item>
     </string-array>
 
-    <string-array name ="states">
+    <string-array name="states">
         <item>Alabama</item>
         <item>Alaska</item>
         <item>Arizona</item>
@@ -62,4 +62,7 @@
         <item>Wisconsin</item>
         <item>Wyoming</item>
     </string-array>
+
+    <string name="mapbox_access_token">pk.eyJ1Ijoiam1hc3V0YW50byIsImEiOiJjbGFjand4a3cwOThnM3FxdDhqaXRhdDgyIn0.JiNkpt-oE8HkpeGQMv-eEQ</string>
+
 </resources>

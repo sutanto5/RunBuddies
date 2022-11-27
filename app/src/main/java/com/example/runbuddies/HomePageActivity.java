@@ -20,7 +20,11 @@ public class HomePageActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void startRun(View view) {
-        Intent intent = new Intent(HomePageActivity.this,StartRunActivity.class);
+        //I changed this for testing Leo you can decide where to put it
+        //and how to format the page
+        // it works so...
+        //distance broke for some reason sadness
+        Intent intent = new Intent(HomePageActivity.this,MapActivity.class);
         startActivity(intent);
     }
     public void viewProfile(View view) {

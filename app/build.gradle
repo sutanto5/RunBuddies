@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
+    id 'org.jetbrains.kotlin.android'
 }
 
 android {
@@ -47,6 +48,11 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'com.mapbox.maps:android:10.9.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation("com.google.android.gms:play-services-location:18.0.0")
 
     // This must go at the bottom and any other Firebase dependencies go BELOW IT
     implementation platform('com.google.firebase:firebase-bom:30.5.0')
