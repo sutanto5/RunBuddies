@@ -87,13 +87,11 @@ public class ProfilePicture extends AppCompatActivity {
         progressDialog.setTitle("Uploading File....");
         progressDialog.show();
 
-
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.CANADA);
-        Date now = new Date();
+        //We're gonna store the images by user ID number
         String fileName = LogInActivity.firebaseHelper.getMAuth().getUid();
+        //"duplicate" fireabse storage
         storageReference = FirebaseStorage.getInstance().getReference("images/"+fileName);
-
-
+        //store file in firebase storage
         storageReference.putFile(imageUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -103,6 +101,7 @@ public class ProfilePicture extends AppCompatActivity {
                         Toast.makeText(ProfilePicture.this,"Successfully Uploaded",Toast.LENGTH_SHORT).show();
                         if (progressDialog.isShowing())
                             progressDialog.dismiss();
+                        //moves to other clasee
                         Intent intent = new Intent(ProfilePicture.this, ProfileCreator.class);
                         startActivity(intent);
 

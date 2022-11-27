@@ -68,14 +68,13 @@ public class MyProfile extends AppCompatActivity {
         bio.setText(myList.get(0).getBio());
         name.setText(myList.get(0).getName());
         // Create a reference with an initial file path and name
-
         StorageReference pathReference = storageRef.child("images/"+ LogInActivity.firebaseHelper.getMAuth().getUid());
-
-
-        final long ONE_MEGABYTE = 1024 * 1024;
+        //file size increase to 5 mb
+        final long ONE_MEGABYTE = 1024 * 1024 *5;
         pathReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
             @Override
             public void onSuccess(byte[] bytes) {
+                //on success set the image to the image view through use of bitmpa
                 Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                 profile.setImageBitmap(bmp);
 
