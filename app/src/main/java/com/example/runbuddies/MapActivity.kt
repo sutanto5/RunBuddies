@@ -1,12 +1,14 @@
 package com.example.runbuddies
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -30,6 +32,7 @@ import java.util.*
 
 class MapActivity : AppCompatActivity(),LocationListener {
 
+    //for location tracking
     private var latLong: TextView? = null
     private var address: TextView? = null
     private var distanceView: TextView? = null
@@ -39,6 +42,11 @@ class MapActivity : AppCompatActivity(),LocationListener {
     private var last: Location? = null
     private var distance: Long = 0
 
+    //for slide screen
+    var x1 = 0f
+    var x2 = 0f
+
+    //for mapbox implementation
     private lateinit var locationPermissionHelper: LocationPermissionHelper
 
     private val onIndicatorBearingChangedListener = OnIndicatorBearingChangedListener {
@@ -62,6 +70,7 @@ class MapActivity : AppCompatActivity(),LocationListener {
         override fun onMoveEnd(detector: MoveGestureDetector) {}
     }
 
+    //map
     private lateinit var mapView: MapView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -240,6 +249,21 @@ class MapActivity : AppCompatActivity(),LocationListener {
     override fun onLowMemory() {
         super.onLowMemory()
         mapView?.onLowMemory()
+    }
+
+    //switch screens
+    override fun onTouchEvent(touchEvent: MotionEvent): Boolean {
+        when (touchEvent.action) {
+            MotionEvent.ACTION_DOWN -> x1 = touchEvent.x
+            MotionEvent.ACTION_UP -> {
+                x2 = touchEvent.x
+                if (x1 > x2) {
+                    val i = Intent(this@MapActivity, StartRunActivity::class.java)
+                    startActivity(i)
+                }
+            }
+        }
+        return false
     }
 
 }
