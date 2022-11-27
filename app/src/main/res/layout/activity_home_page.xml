@@ -108,6 +108,7 @@
             android:layout_marginEnd="@dimen/sideLayoutMargin"
             android:layout_marginBottom="@dimen/bottomLayoutMargin"
             android:background="@drawable/ic_baseline_settings_24"
+            android:onClick="startSettings"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

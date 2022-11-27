@@ -40,4 +40,9 @@ public class HomePageActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void startSettings(View view){
+        Intent intent = new Intent(HomePageActivity.this, SettingsActivity.class);
+        startActivity(intent);
+    }
+
 }
