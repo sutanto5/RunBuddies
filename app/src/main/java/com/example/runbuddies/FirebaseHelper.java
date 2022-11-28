@@ -51,10 +51,11 @@ import java.util.concurrent.Executor;
  * in many places.  This is MUCH more efficient and less error prone.
  */
 public class FirebaseHelper {
+    public static Object FirestoreCallback;
     public final String TAG = "Denna";
     private static String uid = null;      // var will be updated for currently signed in user
     private FirebaseAuth mAuth;
-    private FirebaseFirestore db;
+    public static FirebaseFirestore db;
     private ArrayList<Run> myRuns;
     private ArrayList<Profile> myProfile;
 
@@ -254,6 +255,28 @@ public class FirebaseHelper {
                         }
                     }
                 });
+    }
+
+    public ArrayList<Profile> getAllProfiles(FirestoreCallback firestoreCallback){
+        ArrayList<Profile> allProfiles = new ArrayList<Profile>();
+        db.collection("users").document(uid).collection("myProfile")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (DocumentSnapshot doc : task.getResult()) {
+                                Profile profile = doc.toObject(Profile.class);
+                                allProfiles.add(profile);
+                            }
+
+                            Log.i(TAG, "Success reading data: " + myProfile.toString());
+                            firestoreCallback.onCallback(myRuns, myProfile);                        } else {
+                            Log.d(TAG, "Error getting documents: " + task.getException());
+                        }
+                    }
+                });
+        return allProfiles;
     }
 
     //https://stackoverflow.com/questions/48499310/how-to-return-a-documentsnapshot-as-a-result-of-a-method/48500679#48500679
