@@ -9,11 +9,6 @@
     >
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/layoutHeight"
-        android:orientation="vertical">
-
         <TextView
             android:id="@+id/homePageTitle"
             android:layout_width="wrap_content"
@@ -36,6 +31,17 @@
             android:layout_marginTop="@dimen/smallerTopMargin"
             android:onClick="startRun"
             android:text="Record Run" />
+
+        <Button
+            android:id="@+id/buddySearchButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_gravity="center"
+            android:theme="@style/ButtonStyle"
+            android:textSize="25dp"
+            android:layout_marginTop="@dimen/smallerTopMargin"
+            android:onClick="findMatch"
+            android:text="Find Buddy" />
 
         <Button
             android:id="@+id/messageButton"
@@ -70,48 +76,3 @@
             android:text="Log Out" />
 
     </LinearLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/buddySearchButton"
-            android:layout_width="60dip"
-            android:layout_height="60dip"
-            android:layout_gravity="center"
-            android:layout_marginStart="@dimen/sideLayoutMargin"
-            android:layout_marginBottom="@dimen/bottomLayoutMargin"
-            android:background="@drawable/ic_baseline_search_24"
-            android:onClick="findMatch"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageButton
-            android:id="@+id/profileButton"
-            android:layout_width="60dip"
-            android:layout_height="60dip"
-            android:layout_gravity="center"
-            android:layout_marginBottom="28dp"
-            android:background="@drawable/ic_baseline_account_circle_24"
-            android:onClick="viewProfile"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/settingsButton"
-            app:layout_constraintStart_toEndOf="@+id/buddySearchButton" />
-
-        <ImageButton
-            android:id="@+id/settingsButton"
-            android:layout_width="60dip"
-            android:layout_height="60dip"
-            android:layout_gravity="center"
-            android:layout_marginEnd="@dimen/sideLayoutMargin"
-            android:layout_marginBottom="@dimen/bottomLayoutMargin"
-            android:background="@drawable/ic_baseline_settings_24"
-            android:onClick="startSettings"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</LinearLayout>
