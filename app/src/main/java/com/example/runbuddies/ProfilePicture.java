@@ -139,7 +139,6 @@ public class ProfilePicture extends AppCompatActivity {
             imageUri = data.getData();
             binding.profilePicture.setImageURI(imageUri);
 
-
         }
     }
 
