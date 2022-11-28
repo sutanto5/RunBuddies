@@ -20,7 +20,7 @@
 
 
    <!-- home page -->
-   <dimen name="layoutHeight">570dp</dimen>
+   <dimen name="layoutHeight">500dp</dimen>
 
    <dimen name="bottomLayoutMargin">30dp</dimen>
    <dimen name="sideLayoutMargin">30dp</dimen>
