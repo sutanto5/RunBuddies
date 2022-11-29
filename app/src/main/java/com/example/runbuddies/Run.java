@@ -8,10 +8,10 @@ import java.util.Locale;
 
 public class Run implements Parcelable {
 
-    private String date;
-    private String distance;
-    private String pace;
-    private String time;
+    private final String date;
+    private final String distance;
+    private final String pace;
+    private final String time;
     private String name;
     private String docID;
     private String desc;

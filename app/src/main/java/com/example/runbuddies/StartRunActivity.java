@@ -196,13 +196,13 @@ public class StartRunActivity extends AppCompatActivity {
 
         // Get the text view.
         final TextView timeView
-                = (TextView)findViewById(
+                = findViewById(
                 R.id.time_view);
         final TextView paceView
-                = (TextView)findViewById(
+                = findViewById(
                 R.id.pace_View);
         final TextView distView
-                = (TextView)findViewById(
+                = findViewById(
                 R.id.milesView);
         // Creates a new Handler
         final Handler handler
@@ -222,7 +222,7 @@ public class StartRunActivity extends AppCompatActivity {
                 int hours = seconds / 3600;
                 int minutes = (seconds % 3600) / 60;
                 int secs = seconds % 60;
-                pace = (int)((int)seconds/distance);
+                pace = (int)(seconds /distance);
                 int paceHours = pace/ 3600;
                 int paceMinutes = (pace % 3600) / 60;
                 int paceSecs = pace % 60;
@@ -265,7 +265,6 @@ public class StartRunActivity extends AppCompatActivity {
                 // seconds variable.
                 if (running) {
                     seconds++;
-                    distance+=0.01;
                 }
 
                 // Post the code again

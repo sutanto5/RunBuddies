@@ -173,7 +173,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        SignUpActivity.email = email;
     }
 
     public String getPassword() {
@@ -189,6 +189,6 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     public void setName(String name) {
-        this.name = name;
+        SignUpActivity.name = name;
     }
 }
