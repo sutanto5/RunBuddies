@@ -1,11 +1,15 @@
 package com.example.runbuddies;
 
+<<<<<<< Updated upstream
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
 public class SettingsActivity extends AppCompatActivity {
 
+=======
+import android.os.Bundle;
+>>>>>>> Stashed changes
 
 
 
