@@ -31,12 +31,12 @@ import java.util.ArrayList;
 
 public class MyProfile extends AppCompatActivity {
 
-    private TextView level;
-    private TextView state;
-    private TextView city;
-    private TextView bio;
-    private TextView name;
-    private ImageView profile;
+    private  TextView level;
+    private  TextView state;
+    private  TextView city;
+    private  TextView bio;
+    private  TextView name;
+    private  ImageView profile;
 
     public final String TAG = "LIAM";
 
@@ -94,6 +94,8 @@ public class MyProfile extends AppCompatActivity {
         Intent intent = new Intent(MyProfile.this, HomePageActivity.class);
         startActivity(intent);
     }
+
+
 }
 
 

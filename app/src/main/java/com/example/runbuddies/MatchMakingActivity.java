@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,13 +30,13 @@ public class MatchMakingActivity extends AppCompatActivity {
 
    final String TAG = "Liam";
 
-   public DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-   public DatabaseReference usersdRef = rootRef.child("users");
+   private ListView myMatchesListView;
+
+    private FirebaseHelper.FirestoreCallback firestoreCallback;
 
    //ArrayList<String> users = new ArrayList<>();
-    private ArrayList<String> users;
-
-   TextView all;
+    private ArrayList<Profile> users = new ArrayList<>();
+    private ArrayList<Profile> matches = new ArrayList<>();
 
 
     @Override
@@ -42,16 +44,24 @@ public class MatchMakingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_making);
 
-       all = findViewById(R.id.textView2);
+        myMatchesListView = findViewById(R.id.MatchesListView);
+
+       users = LogInActivity.firebaseHelper.getAllProfiles(firestoreCallback);
+
+       for(Profile P: users){
+           if(P.getLevel().equals(Profile.getLevel()) && P.getState().equals(Profile.getState())){
+               matches.add(P);
+           }
+       }
+
+       ArrayAdapter<Profile> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+
+       myMatchesListView.setAdapter(listAdapter);
 
 
+       }
 
 
-
-
-    }
-
-    
 
 
 }

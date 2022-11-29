@@ -6,12 +6,12 @@ import android.os.Parcelable;
 import android.widget.ImageView;
 
 public class Profile implements Parcelable {
-    private String city;
-    private String state;
-    private String bio;
-    private String level;
-    private String docID;
-    private String name;
+    private static String city;
+    private static String state;
+    private static String bio;
+    private static String level;
+    private static String docID;
+    private static String name;
 
     public Profile(String city, String state, String bio, String level, String docID) {
         this.city = city;
@@ -105,7 +105,7 @@ public class Profile implements Parcelable {
         return 0;
     }
 
-    public String getCity() {
+    public static String getCity() {
         return city;
     }
 
@@ -113,7 +113,7 @@ public class Profile implements Parcelable {
         this.city = city;
     }
 
-    public String getState() {
+    public static String getState() {
         return state;
     }
 
@@ -121,7 +121,7 @@ public class Profile implements Parcelable {
         this.state = state;
     }
 
-    public String getBio() {
+    public static String getBio() {
         return bio;
     }
 
@@ -129,11 +129,11 @@ public class Profile implements Parcelable {
         this.bio = bio;
     }
 
-    public String getLevel() { return level; }
+    public static String getLevel() { return level; }
 
     public void setLevel(String level) { this.level = level; }
 
-    public String getDocID() {
+    public static String getDocID() {
         return docID;
     }
 
@@ -141,7 +141,7 @@ public class Profile implements Parcelable {
         this.docID = docID;
     }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 

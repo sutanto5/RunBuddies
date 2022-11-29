@@ -271,7 +271,7 @@ public class FirebaseHelper {
                                 allProfiles.add(profile);
                             }
 
-                            Log.i(TAG, "Success reading data: " + myProfile.toString());
+                            Log.i(TAG, "Success reading data: " + allProfiles.toString());
                             firestoreCallback.onCallback(myRuns, myProfile);                        } else {
                             Log.d(TAG, "Error getting documents: " + task.getException());
                         }

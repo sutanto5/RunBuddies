@@ -4,12 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-
-import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 public class SettingsActivity extends AppCompatActivity {
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +25,7 @@ public class SettingsActivity extends AppCompatActivity {
                 return;
             }
             // below line is to inflate our fragment.
-            getFragmentManager().beginTransaction().add(R.id.idFrameLayout, new SettingsFragment()).commit();
+           // getFragmentManager().beginTransaction().add(R.id.idFrameLayout, new SettingsFragment()).commit();
         }
     }
 }
