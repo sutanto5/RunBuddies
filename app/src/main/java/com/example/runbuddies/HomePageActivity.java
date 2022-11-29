@@ -50,11 +50,11 @@ public class HomePageActivity extends AppCompatActivity {
         switch (item.getItemId()){
 
             case R.id.profileButton:
-                Intent intent2 = new Intent(this, MyProfile.class);
+                Intent intent2 = new Intent(HomePageActivity.this, MyProfile.class);
                 this.startActivity(intent2);
                 return true;
             case R.id.settingsButton:
-                Intent intent3 = new Intent(this, SettingsActivity.class);
+                Intent intent3 = new Intent(HomePageActivity.this, SettingsActivity.class);
                 this.startActivity(intent3);
                 return true;
             default:
@@ -66,6 +66,7 @@ public class HomePageActivity extends AppCompatActivity {
         Intent intent = new Intent(HomePageActivity.this,PastRunsActivity.class);
         startActivity(intent);
     }
+
     public void findMatch(View view) {
         Intent intent = new Intent(HomePageActivity.this,MatchMakingActivity.class);
         startActivity(intent);
