@@ -11,8 +11,8 @@
         android:id="@+id/latLong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="101dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
         android:gravity="center_horizontal"
         android:text="lat long"
         android:textAlignment="center"
@@ -25,29 +25,29 @@
         android:id="@+id/address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="92dp"
         android:gravity="center_horizontal"
         android:text="address"
         android:textAlignment="center"
         android:textColor="#FF000000"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/latLong" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/distance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="172dp"
-        android:layout_marginTop="31dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="204dp"
         android:gravity="center_horizontal"
         android:text="Distance"
         android:textAlignment="center"
         android:textColor="#FF000000"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/Start"

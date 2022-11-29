@@ -258,7 +258,7 @@ class MapActivity : AppCompatActivity(),LocationListener {
             MotionEvent.ACTION_UP -> {
                 x2 = touchEvent.x
                 if (x1 > x2) {
-                    val i = Intent(this@MapActivity, StartRunActivity::class.java)
+                    val i = Intent(this@MapActivity, SaveRun::class.java)
                     startActivity(i)
                 }
             }

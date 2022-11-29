@@ -59,6 +59,7 @@ public class FirebaseHelper {
     private ArrayList<Run> myRuns;
     private ArrayList<Profile> myProfile;
 
+
     // we don't need this yet
     // private ArrayList<Memory> myItems = new ArrayList<>();
 
@@ -77,7 +78,7 @@ public class FirebaseHelper {
 
     public void logOutUser() {
         mAuth.signOut();
-        this.uid = null;
+        uid = null;
     }
 
     public void attachReadDataToUser() {
@@ -202,7 +203,7 @@ public class FirebaseHelper {
 
 
     public void updateUId(String uid) {
-        this.uid = uid;
+        FirebaseHelper.uid = uid;
     }
 
 
@@ -224,7 +225,7 @@ public class FirebaseHelper {
                             for (DocumentSnapshot doc : task.getResult()) {
                                 Run run = doc.toObject(Run.class);
                                 myRuns.add(run);
-                                Log.i(TAG, "Success adding data: " + myRuns.toString());
+                                Log.i(TAG, "Success adding data: " + myRuns);
                             }
                             Log.i(TAG, "Success reading data: " + myRuns.toString());
                             firestoreCallback.onCallback(myRuns, myProfile);
