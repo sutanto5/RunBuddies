@@ -29,7 +29,11 @@ import android.os.Bundle;
                 return;
             }
             // below line is to inflate our fragment.
+<<<<<<< Updated upstream
            // getFragmentManager().beginTransaction().add(R.id.idFrameLayout, new SettingsFragment()).commit();
+=======
+            //getFragmentManager().beginTransaction().add(R.id.idFrameLayout, new SettingsFragment()).commit();
+>>>>>>> Stashed changes
         }
     }
 }
