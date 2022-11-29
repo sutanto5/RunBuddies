@@ -2,13 +2,27 @@
     <!-- Base application theme. -->
     <style name="Theme.RunBuddies" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/prussianBlue</item>
-        <item name="colorPrimaryVariant">@color/cobaltBlue</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
+        <item name="colorPrimary">@color/cobaltBlue</item>
+        <item name="colorPrimaryVariant">@color/prussianBlue</item>
+        <item name="backgroundColor">@color/black</item>
+
         <item name="colorSecondary">@color/brightNavyBlue</item>
         <item name="colorSecondaryVariant">@color/carolinaBlue</item>
         <item name="colorOnSecondary">@color/richBlackFOGRA_29</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name = "android:fontFamily">@font/applegaramond_bold</item>
+    </style>
+
+    <style name="DarkTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/brightNavyBlue</item>
+        <item name="colorPrimaryVariant">@color/cobaltBlue</item>
+        <item name="backgroundColor">@color/black</item>
+
+        <item name="colorSecondary">@color/prussianBlue</item>
+        <item name="colorSecondaryVariant">@color/carolinaBlue</item>
+        <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <item name = "android:fontFamily">@font/applegaramond_bold</item>
