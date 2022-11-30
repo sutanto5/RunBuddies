@@ -16,7 +16,8 @@ import java.util.ArrayList;
 
 public class ProfileCreator extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
-    Spinner spinner;
+    Spinner spinnerLevel;
+    Spinner spinnerState;
     EditText cityET;
     EditText stateET;
     EditText bioET;
@@ -34,16 +35,20 @@ public class ProfileCreator extends AppCompatActivity implements AdapterView.OnI
         bioET = findViewById(R.id.bioEditText);
 
         // this attaches my spinner design (spinner_list.xml) and my array of spinner choices(R.array.memoryRating)
-        spinner = findViewById(R.id.levelSpinner);
+        spinnerLevel = findViewById(R.id.levelSpinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_list,
                 getResources().getStringArray(R.array.runnerLevels));
+        spinnerState = findViewById(R.id.stateSpinner);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, R.layout.spinner_list,
+                getResources().getStringArray(R.array.states));
 
         // this attaches my custom row design (how I want each row to look)
         adapter.setDropDownViewResource(R.layout.spinner_dropdown);
-
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
-
+        adapter1.setDropDownViewResource(R.layout.spinner_dropdown);
+        spinnerLevel.setAdapter(adapter);
+        spinnerLevel.setOnItemSelectedListener(this);
+        spinnerState.setAdapter(adapter1);
+        spinnerState.setOnItemSelectedListener(this);
     }
 
     @Override

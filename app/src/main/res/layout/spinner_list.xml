@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/priorityChosen"
     style="?attr/spinnerDropDownItemStyle"
     android:layout_width="363dp"
     android:layout_height="49dp"
     android:layout_marginTop="56dp"
-    android:background="@color/brightNavyBlue"
+    android:background="@color/white"
     android:padding="5dp"
     android:text="Level of Runner (Weekly Mileage)"
     android:textColor="@color/richBlackFOGRA_29"
