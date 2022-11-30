@@ -219,6 +219,7 @@ public class StartRunActivity extends AppCompatActivity {
 
             public void run()
             {
+                //time stuff
                 int hours = seconds / 3600;
                 int minutes = (seconds % 3600) / 60;
                 int secs = seconds % 60;

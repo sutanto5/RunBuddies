@@ -29,7 +29,7 @@ public class HomePageActivity extends AppCompatActivity {
         //and how to format the page
         // it works so...
         //distance broke for some reason sadness
-        Intent intent = new Intent(HomePageActivity.this,MapActivity.class);
+        Intent intent = new Intent(HomePageActivity.this,SaveRun.class);
         startActivity(intent);
     }
 
