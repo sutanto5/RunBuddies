@@ -37,25 +37,25 @@
         android:layout_width="370dp"
         android:layout_height="180dp"
         android:layout_marginStart="4dp"
-        android:layout_marginBottom="128dp"
+        android:layout_marginBottom="148dp"
         android:ems="10"
         android:gravity="top|left"
         android:hint="Bio"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.351"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/getStartedButton"
-        android:layout_width="125dp"
-        android:layout_height="51dp"
+        style="@style/ButtonStyle"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/buttonHeight"
         android:layout_marginBottom="40dp"
         android:onClick="addProfileButtonClicked"
         android:text="Get Started"
-        style="@style/ButtonStyle"
-        android:textSize="20dp"
+        android:textSize="@dimen/buttonFont"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -65,34 +65,12 @@
         android:id="@+id/runnerLevelTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="40dp"
         android:text="What Runner Are You?"
         android:textSize="@dimen/subTitleFont"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/setUptextView" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/stateTextInputView"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="220dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/levelSpinner">
-
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/stateEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="State" />
-
-    </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -100,11 +78,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/stateTextInputView"
         app:layout_constraintTop_toBottomOf="@+id/levelSpinner">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -114,7 +90,14 @@
             android:hint="City" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
+    <Spinner
+        android:id="@+id/stateSpinner"
+        android:layout_width="180dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/levelSpinner" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

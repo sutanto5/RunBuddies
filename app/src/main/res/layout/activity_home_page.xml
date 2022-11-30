@@ -4,45 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:orientation="vertical"
-    tools:context=".HomePageActivity"
-
-    >
+    tools:context=".HomePageActivity">
 
 
-        <TextView
-            android:id="@+id/homePageTitle"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/smallerTopMargin"
-            android:fontFamily="@font/applegaramond"
-            android:gravity="center"
-            android:text="Home Page"
-            android:textColor="@color/richBlackFOGRA_29"
-            android:textSize="@dimen/titleFont" />
+            app:srcCompat="@drawable/runbudlogo" />
 
         <Button
             android:id="@+id/recordRunButton"
             android:layout_width="@dimen/buttonWidth"
             android:layout_height="@dimen/buttonHeight"
             android:layout_gravity="center"
-            android:theme="@style/ButtonStyle"
-            android:textSize="25dp"
-            android:layout_marginTop="@dimen/smallerTopMargin"
+            android:layout_marginTop="20dp"
             android:onClick="startRun"
-            android:text="Record Run" />
+            android:text="Record Run"
+            android:textSize="@dimen/buttonFont"
+            android:theme="@style/ButtonStyle" />
 
         <Button
             android:id="@+id/buddySearchButton"
             android:layout_width="@dimen/buttonWidth"
             android:layout_height="@dimen/buttonHeight"
             android:layout_gravity="center"
-            android:theme="@style/ButtonStyle"
-            android:textSize="25dp"
             android:layout_marginTop="@dimen/smallerTopMargin"
             android:onClick="findMatch"
-            android:text="Find Buddy" />
+            android:text="Find Buddy"
+            android:textSize="@dimen/buttonFont"
+            android:theme="@style/ButtonStyle" />
 
         <Button
             android:id="@+id/messageButton"
@@ -51,7 +44,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/smallerTopMargin"
             android:text="Message Buds"
-            android:textSize="25dp"
+            android:textSize="@dimen/buttonFont"
             android:theme="@style/ButtonStyle" />
 
         <Button
@@ -62,18 +55,18 @@
             android:layout_marginTop="@dimen/smallerTopMargin"
             android:onClick="viewRuns"
             android:text="View Runs"
-            android:textSize="25dp"
+            android:textSize="@dimen/buttonFont"
             android:theme="@style/ButtonStyle" />
 
         <Button
             android:id="@+id/logoutButton"
             android:layout_width="@dimen/buttonWidth"
             android:layout_height="@dimen/buttonHeight"
-            android:theme="@style/ButtonStyle"
-            android:textSize="25dp"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/smallerTopMargin"
             android:onClick="logOutClicked"
-            android:text="Log Out" />
+            android:text="Log Out"
+            android:textSize="@dimen/buttonFont"
+            android:theme="@style/ButtonStyle" />
 
-    </LinearLayout>
+</LinearLayout>
