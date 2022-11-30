@@ -1,17 +1,10 @@
 package com.example.runbuddies;
 
-<<<<<<< Updated upstream
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-
 public class SettingsActivity extends AppCompatActivity {
-
-=======
-import android.os.Bundle;
->>>>>>> Stashed changes
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +22,7 @@ import android.os.Bundle;
                 return;
             }
             // below line is to inflate our fragment.
-<<<<<<< Updated upstream
-           // getFragmentManager().beginTransaction().add(R.id.idFrameLayout, new SettingsFragment()).commit();
-=======
-            //getFragmentManager().beginTransaction().add(R.id.idFrameLayout, new SettingsFragment()).commit();
->>>>>>> Stashed changes
+            getFragmentManager().beginTransaction().add(R.id.idFrameLayout, new SettingsFragment()).commit();
         }
     }
 }
