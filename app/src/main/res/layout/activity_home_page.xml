@@ -28,7 +28,7 @@
             android:layout_height="@dimen/buttonHeight"
             android:layout_gravity="center"
             android:theme="@style/ButtonStyle"
-            android:textSize="25dp"
+            android:textSize="@dimen/buttonFont"
             android:layout_marginTop="@dimen/smallerTopMargin"
             android:onClick="startRun"
             android:text="Record Run" />
@@ -39,7 +39,7 @@
             android:layout_height="@dimen/buttonHeight"
             android:layout_gravity="center"
             android:theme="@style/ButtonStyle"
-            android:textSize="25dp"
+            android:textSize="@dimen/buttonFont"
             android:layout_marginTop="@dimen/smallerTopMargin"
             android:onClick="findMatch"
             android:text="Find Buddy" />
@@ -51,7 +51,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/smallerTopMargin"
             android:text="Message Buds"
-            android:textSize="25dp"
+            android:textSize="@dimen/buttonFont"
             android:theme="@style/ButtonStyle" />
 
         <Button
@@ -62,7 +62,7 @@
             android:layout_marginTop="@dimen/smallerTopMargin"
             android:onClick="viewRuns"
             android:text="View Runs"
-            android:textSize="25dp"
+            android:textSize="@dimen/buttonFont"
             android:theme="@style/ButtonStyle" />
 
         <Button
@@ -70,7 +70,7 @@
             android:layout_width="@dimen/buttonWidth"
             android:layout_height="@dimen/buttonHeight"
             android:theme="@style/ButtonStyle"
-            android:textSize="25dp"
+            android:textSize="@dimen/buttonFont"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/smallerTopMargin"
             android:onClick="logOutClicked"
