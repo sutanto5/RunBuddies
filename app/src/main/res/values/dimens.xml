@@ -19,6 +19,8 @@
    <dimen name="tvHeight">40dp</dimen>
    <dimen name="subTitleFont">25dp</dimen>
 
+   <dimen name="dropdown_Round_Radius">11dp</dimen>
+
 
    <!-- home page -->
    <dimen name="layoutHeight">500dp</dimen>
