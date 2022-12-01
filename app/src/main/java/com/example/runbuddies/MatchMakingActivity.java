@@ -46,25 +46,11 @@ public class MatchMakingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_making);
 
-        myMatchesListView = findViewById(R.id.MatchesListView);
-
-       /* users = LogInActivity.firebaseHelper.getAllProfiles(firestoreCallback);
 
 
-        ArrayList<Profile> myList = LogInActivity.firebaseHelper.getWishListItemProfile();
-        for (Profile P : users) {
-            if (P.getLevel().equals(myList.get(0).getLevel()) && P.getState().equals(myList.get(0).getState())) {
-                matches.add(P);
-            }
-        }
 
-        ArrayAdapter<Profile> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
 
-        myMatchesListView.setAdapter(listAdapter);
-
-*/
-
-       /* FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference usersRef = db.collection("users");
         usersRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -73,19 +59,19 @@ public class MatchMakingActivity extends AppCompatActivity {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         String level = document.getString("level");
                         String state = document.getString("state");
+                        String name = document.getString("name");
                         String uid = document.getId();
-                        DocumentReference uidRef = db.collection("users").document(uid).collection("myProfile");
+                        DocumentReference uidRef = db.collection("users").document(uid).collection("myProfile").document(document.getId());
                         uidRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                             @Override
                             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                 if (task.isSuccessful()) {
                                     DocumentSnapshot document = task.getResult();
                                     if (document.exists()) {
-                                        String icPassport = document.getString("ic_passport");
-                                        String phone = document.getString("phone");
-                                        String ticketDate = document.getString("ticket_date");
+                                        String level = document.getString("level");
+                                        String state = document.getString("state");
+                                        String name = document.getString("name");
 
-                                        Log.d(TAG, level + "/" + state + "/" + icPassport + "/" + phone + "/" + ticketDate);
                                     } else {
                                         Log.d(TAG, "No such document");
                                     }
@@ -99,7 +85,10 @@ public class MatchMakingActivity extends AppCompatActivity {
                     Log.d(TAG, "Error getting documents: ", task.getException());
                 }
             }
-        });*/
+        });
+       // ArrayAdapter<Profile> listAdapter = new ArrayAdapter<Profile>(this, );
+
+       // myMatchesListView.setAdapter(listAdapter);
     }
 }
 
