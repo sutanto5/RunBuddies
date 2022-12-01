@@ -8,6 +8,35 @@
     android:padding="16dp"
     tools:context=".StartRunActivity">
 
+    <Button
+        android:id="@+id/toStats"
+        android:layout_width="87dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="528dp"
+        android:onClick="switchToStats"
+        android:text="←"
+        android:textSize="34sp"
+        android:visibility="gone"
+        app:cornerRadius="90dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.mapbox.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="384dp"
+        android:layout_height="535dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:mapbox_cameraTargetLat="40.7128"
+        app:mapbox_cameraTargetLng="-74.0060"
+        app:mapbox_cameraZoom="9.0"
+        app:mapbox_locationComponentEnabled="true"
+        tools:context=".examples.LocationComponentActivity">
+
+    </com.mapbox.maps.MapView>
 
     <Button
         android:id="@+id/save"
@@ -196,6 +225,19 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/runNameEditText" />
+
+    <Button
+        android:id="@+id/toMap"
+        android:layout_width="87dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="532dp"
+        android:layout_marginEnd="20dp"
+        android:onClick="switchToMap"
+        android:text="→"
+        android:textSize="34sp"
+        app:cornerRadius="90dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

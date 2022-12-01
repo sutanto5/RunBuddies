@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.mapbox.maps.MapView;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,6 +49,9 @@ public class StartRunActivity extends AppCompatActivity {
     TextView distanceTV;
     TextView paceTV;
     TextView timeTV;
+    Button toMap;
+    Button toStats;
+    MapView map;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -169,6 +174,26 @@ public class StartRunActivity extends AppCompatActivity {
         nameTV.setVisibility(View.VISIBLE);
         upload.setVisibility(View.VISIBLE);
     }
+    public void switchToMap(View view) {
+        ArrayList<View> views = new ArrayList<View>(
+                Arrays.asList(distanceTV,paceTV,timeTV,runDistance,runTime,runPace));
+        for(View v: views) {
+            v.setVisibility(View.GONE);
+        }
+        toMap.setVisibility(View.GONE);
+        toStats.setVisibility(View.VISIBLE);
+        map.setVisibility(View.VISIBLE);
+    }
+    public void switchToStats(View view) {
+        toMap.setVisibility(View.VISIBLE);
+        toStats.setVisibility(View.GONE);
+        map.setVisibility(View.GONE);
+        ArrayList<View> views = new ArrayList<View>(
+                Arrays.asList(distanceTV,paceTV,timeTV,runDistance,runTime,runPace));
+        for(View v: views) {
+            v.setVisibility(View.VISIBLE);
+        }
+    }
     public void addRunButtonClicked(View view) {
         EditText nameET = findViewById(R.id.runNameEditText);
         String name = nameET.getText().toString();
@@ -274,7 +299,7 @@ public class StartRunActivity extends AppCompatActivity {
             }
         });
     }
-
+/*
     public boolean onTouchEvent(MotionEvent touchEvent){
         switch(touchEvent.getAction()){
             case MotionEvent.ACTION_DOWN:
@@ -289,4 +314,6 @@ public class StartRunActivity extends AppCompatActivity {
         }
         return false;
     }
+
+ */
 }

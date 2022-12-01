@@ -29,7 +29,7 @@ import java.io.IOException
 import java.lang.ref.WeakReference
 import java.util.*
 
-
+/*
 class MapActivity : AppCompatActivity(),LocationListener {
 
     //for location tracking
@@ -120,7 +120,7 @@ class MapActivity : AppCompatActivity(),LocationListener {
     private fun setupGesturesListener() {
         mapView.gestures.addOnMoveListener(onMoveListener)
     }
-    
+
 
     private fun initLocationComponent() {
         val locationComponentPlugin = mapView.location
@@ -156,7 +156,6 @@ class MapActivity : AppCompatActivity(),LocationListener {
         //if permission allowed retrieve location
         retrieveLocation()
     }
-
     @SuppressLint("MissingPermission")
     private fun retrieveLocation() {
 
@@ -251,7 +250,6 @@ class MapActivity : AppCompatActivity(),LocationListener {
         super.onLowMemory()
         mapView?.onLowMemory()
     }
-/*
     //switch screens
     override fun onTouchEvent(touchEvent: MotionEvent): Boolean {
         when (touchEvent.action) {
@@ -266,5 +264,5 @@ class MapActivity : AppCompatActivity(),LocationListener {
         }
         return false
     }
-*/
 }
+*/
