@@ -34,7 +34,7 @@ import java.util.Locale;
 // 5 - Start updating locations
 // 6 - Recieve updates and update (UI, Database, cloud)
 // 7 - Stop updating locations if not needed to save battery
-
+/*
 public class SaveRun extends AppCompatActivity implements LocationListener {
 
     protected double latitude, longitude;
@@ -147,7 +147,7 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
         }
 
         last = new Location(location);
-        distanceView.setText("Distance: " + distance + " meters");
+        //distanceView.setText("Distance: " + distance + " meters");
         locationManager.removeUpdates(this);
     }
 
@@ -177,3 +177,4 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
     }
 
 }
+ */
