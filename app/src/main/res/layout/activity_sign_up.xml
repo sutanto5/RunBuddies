@@ -11,15 +11,15 @@
         android:id="@+id/SignUp"
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="130dp"
         android:onClick="signUpClicked"
         android:text="Sign Up"
         android:textAllCaps="false"
-        android:theme="@style/ButtonStyle"
         android:textSize="30dp"
+        android:theme="@style/ButtonStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
