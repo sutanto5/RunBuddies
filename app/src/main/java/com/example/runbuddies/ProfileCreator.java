@@ -19,7 +19,6 @@ public class ProfileCreator extends AppCompatActivity implements AdapterView.OnI
     Spinner spinnerLevel;
     Spinner spinnerState;
     EditText cityET;
-    EditText stateET;
     EditText bioET;
     String spinnerSelectedText;
 
@@ -31,7 +30,6 @@ public class ProfileCreator extends AppCompatActivity implements AdapterView.OnI
         setContentView(R.layout.activity_profile_creator);
 
         cityET = findViewById(R.id.cityEditText);
-        stateET = findViewById(R.id.stateEditText);
         bioET = findViewById(R.id.bioEditText);
 
         // this attaches my spinner design (spinner_list.xml) and my array of spinner choices(R.array.memoryRating)
@@ -62,8 +60,8 @@ public class ProfileCreator extends AppCompatActivity implements AdapterView.OnI
 
     public void addProfileButtonClicked(View view) {
         String city = cityET.getText().toString();
-        String state = stateET.getText().toString();
         String runBio = bioET.getText().toString();
+        String state = spinnerSelectedText;
         String runLevel = spinnerSelectedText;
         String name = SignUpActivity.getName();
 
@@ -72,7 +70,6 @@ public class ProfileCreator extends AppCompatActivity implements AdapterView.OnI
         LogInActivity.firebaseHelper.addProfile(p);
 
         cityET.setText("");
-        stateET.setText("");
         bioET.setText("");
 
         allUsers.add(LogInActivity.firebaseHelper.getMAuth().getUid());

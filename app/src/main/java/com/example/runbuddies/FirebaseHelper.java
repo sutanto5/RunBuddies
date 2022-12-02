@@ -172,22 +172,25 @@ public class FirebaseHelper {
     }
 
     private void addProfile(Profile p, FirestoreCallback firestoreCallback){
-        db.collection("users").document(uid).collection("myProfile")
-                .add(p)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        Map<String, Object> user = new HashMap<>();
+        user.put("name", p.getName());
+        user.put("level", p.getLevel());
+        user.put("state", p.getState());
+        user.put("city", p.getCity());
+        user.put("bio", p.getBio());
+        // Add a new document with a docID = to the authenticated user's UID
+        db.collection("users").document(uid)
+                .set(user)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        // This will set the docID key for the Run that was just added.
-                        db.collection("users").document(uid).collection("myProfile").
-                                document(documentReference.getId()).update("docID", documentReference.getId());
-                        Log.i(TAG, "just added " + p.getName());
-                        readProfileData(firestoreCallback);
+                    public void onSuccess(Void unused) {
+                        Log.d(TAG, p.getName() + "'s user profile added");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.i(TAG, "Error adding document", e);
+                        Log.w(TAG, "Error adding profile", e);
                     }
                 });
     }
