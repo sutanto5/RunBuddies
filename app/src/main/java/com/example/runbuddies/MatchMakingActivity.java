@@ -47,7 +47,19 @@ public class MatchMakingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_match_making);
 
 
+    /*
+    This firebase code shoudl be in firebasehelper and you would call a method here to
+    access this this.
+    first get the data for logged in users level, state with current user uid
+    instantiate myMatches arraylist
 
+        get all users and if level.equals() and state.equals the data from user profile logged in
+        AND uid of user != your uid
+        add this profile to arraylist
+        then load into listview
+
+
+     */
 
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
