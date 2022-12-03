@@ -35,6 +35,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.Source;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -160,7 +161,7 @@ public class FirebaseHelper {
                 });
     }
 
-    public void addProfile(Profile p){
+    public void addProfile(Profile p) {
         // add Profile p to the database
         // this method is overloaded and incorporates the interface to handle the asynch calls
         addProfile(p, new FirestoreCallback() {
@@ -171,7 +172,7 @@ public class FirebaseHelper {
         });
     }
 
-    private void addProfile(Profile p, FirestoreCallback firestoreCallback){
+    private void addProfile(Profile p, FirestoreCallback firestoreCallback) {
         Map<String, Object> user = new HashMap<>();
         user.put("name", p.getName());
         user.put("level", p.getLevel());
@@ -202,7 +203,8 @@ public class FirebaseHelper {
 
     public ArrayList<Profile> getWishListItemProfile() {
 
-        return myProfile; }
+        return myProfile;
+    }
 
 
     public void updateUId(String uid) {
@@ -240,7 +242,7 @@ public class FirebaseHelper {
 
     }
 
-    public void readProfileData(FirestoreCallback firestoreCallback){
+    public void readProfileData(FirestoreCallback firestoreCallback) {
         myProfile.clear();        // empties the AL so that it can get a fresh copy of data
         db.collection("users").document(uid).collection("myProfile")
                 .get()
@@ -254,14 +256,15 @@ public class FirebaseHelper {
                             }
 
                             Log.i(TAG, "Success reading data: " + myProfile.toString());
-                            firestoreCallback.onCallback(myRuns, myProfile);                        } else {
+                            firestoreCallback.onCallback(myRuns, myProfile);
+                        } else {
                             Log.d(TAG, "Error getting documents: " + task.getException());
                         }
                     }
                 });
     }
 
-    public ArrayList<Profile> getAllProfiles(FirestoreCallback firestoreCallback){
+    public ArrayList<Profile> getAllProfiles(FirestoreCallback firestoreCallback) {
         ArrayList<Profile> allProfiles = new ArrayList<Profile>();
         db.collection("users").document(uid).collection("myProfile")
                 .get()
@@ -275,7 +278,8 @@ public class FirebaseHelper {
                             }
 
                             Log.i(TAG, "Success reading data: " + allProfiles.toString());
-                            firestoreCallback.onCallback(myRuns, myProfile);                      } else {
+                            firestoreCallback.onCallback(myRuns, myProfile);
+                        } else {
                             Log.d(TAG, "Error getting documents: " + task.getException());
                         }
                     }
@@ -320,7 +324,7 @@ public class FirebaseHelper {
                 });
     }
 
-    public void editProfile(Profile p){
+    public void editProfile(Profile p) {
         // edit Profile p to the database
         // this method is overloaded and incorporates the interface to handle the asynch calls
         editProfile(p, new FirestoreCallback() {
@@ -330,6 +334,56 @@ public class FirebaseHelper {
                 Log.i(TAG, "Inside editData, onCallback " + myProfile.toString());
             }
         });
+    }
+
+
+    public ArrayList<Profile> getMatches(){
+        ArrayList<Profile> matches = new ArrayList<Profile>();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference usersRef = db.collection("users");
+            usersRef.get().
+
+        addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete (@NonNull Task < QuerySnapshot > task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        String level = document.getString("level");
+                        String state = document.getString("state");
+                        String name = document.getString("name");
+                        String uid = document.getId();
+                        DocumentReference uidRef = db.collection("users").document(uid);
+                        DocumentReference yourUidRef = db.collection("users").document(getMAuth().getUid());
+                        uidRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    DocumentSnapshot document = task.getResult();
+                                    if (document.exists()) {
+                                        String level = document.getString("level");
+                                        String state = document.getString("state");
+                                        String name = document.getString("name");
+                                        String city = document.getString("city");
+                                        String bio = document.getString("bio");
+                                        if(uidRef.get(Source.valueOf(level)).equals(yourUidRef.get(Source.valueOf(level))) && uidRef.get(Source.valueOf(state)).equals(yourUidRef.get(Source.valueOf(state))) && uidRef != yourUidRef) {
+                                            matches.add(new Profile(city, state, bio, level));
+                                        }
+                                    } else {
+                                        Log.d(TAG, "No such document");
+                                    }
+                                } else {
+                                    Log.d(TAG, "get failed with ", task.getException());
+                                }
+                            }
+                        });
+                    }
+                } else {
+                    Log.d(TAG, "Error getting documents: ", task.getException());
+                }
+            }
+        });
+                        return matches;
+
     }
 
     private void editProfile(Profile p, FirestoreCallback firestoreCallback) {

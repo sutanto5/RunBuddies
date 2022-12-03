@@ -3,6 +3,7 @@ package com.example.runbuddies;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -37,7 +38,7 @@ public class MatchMakingActivity extends AppCompatActivity {
 
     //ArrayList<String> users = new ArrayList<>();
     private ArrayList<Profile> users = new ArrayList<>();
-    private ArrayList<Profile> matches = new ArrayList<>();
+    private ArrayList<Profile> myMatches = new ArrayList<>();
    // private FirebaseHelper.FirestoreCallback firestoreCallback;
 
 
@@ -61,46 +62,21 @@ public class MatchMakingActivity extends AppCompatActivity {
 
      */
 
+        myMatches = LogInActivity.firebaseHelper.getMatches();
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        CollectionReference usersRef = db.collection("users");
-        usersRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        String level = document.getString("level");
-                        String state = document.getString("state");
-                        String name = document.getString("name");
-                        String uid = document.getId();
-                        DocumentReference uidRef = db.collection("users").document(uid).collection("myProfile").document(document.getId());
-                        uidRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                if (task.isSuccessful()) {
-                                    DocumentSnapshot document = task.getResult();
-                                    if (document.exists()) {
-                                        String level = document.getString("level");
-                                        String state = document.getString("state");
-                                        String name = document.getString("name");
+        Intent intent = getIntent();
 
-                                    } else {
-                                        Log.d(TAG, "No such document");
-                                    }
-                                } else {
-                                    Log.d(TAG, "get failed with ", task.getException());
-                                }
-                            }
-                        });
-                    }
-                } else {
-                    Log.d(TAG, "Error getting documents: ", task.getException());
-                }
-            }
-        });
-       // ArrayAdapter<Profile> listAdapter = new ArrayAdapter<Profile>(this, );
+        myMatches = intent.getParcelableArrayListExtra(LogInActivity.ARRAYLIST_VALUES);
 
-       // myMatchesListView.setAdapter(listAdapter);
+
+        ArrayAdapter<Profile> listAdapter = new ArrayAdapter<Profile>(this, android.R.layout.simple_list_item_1, myMatches);
+
+        ProfileAdapter myProfileAdapter = new ProfileAdapter(this, myMatches);
+
+        // This finds the listView and then adds the adapter to bind the data to this view
+        ListView listView = (ListView) findViewById(R.id.MatchesListView);
+        //listView.setAdapter(listAdapter);
+        listView.setAdapter(myProfileAdapter);
     }
 }
 

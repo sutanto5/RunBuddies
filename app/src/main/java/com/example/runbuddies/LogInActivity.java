@@ -25,6 +25,8 @@ public class LogInActivity extends AppCompatActivity {
     EditText emailET;
     EditText passwordET;
 
+    public static final String ARRAYLIST_VALUES = "data to display in list view";
+
     String email;
     String password;
 
