@@ -6,8 +6,10 @@
     android:layout_width="363dp"
     android:layout_height="49dp"
     android:layout_marginTop="56dp"
-    android:background="@color/carolinaBlue"
+    android:background="@color/white"
     android:padding="5dp"
     android:text="My Choice"
     android:textColor="@color/richBlackFOGRA_29"
     android:textSize="20dp" />
+
+

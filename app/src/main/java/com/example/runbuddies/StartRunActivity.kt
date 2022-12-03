@@ -1,4 +1,5 @@
-package com.example.runbuddies
+package com.example.runbuddies/*
+
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
@@ -230,7 +231,7 @@ class StartRunActivity : AppCompatActivity(), LocationListener {
         stop!!.visibility = View.GONE
         save!!.visibility = View.GONE
         reset!!.visibility = View.GONE
-        distance!!.visibility = View.GONE
+        //distance!!.visibility = View.GONE
         paceTV!!.visibility = View.GONE
         timeTV!!.visibility = View.GONE
         runDistance!!.visibility = View.GONE
@@ -246,7 +247,7 @@ class StartRunActivity : AppCompatActivity(), LocationListener {
     }
 
     fun switchToMap(view: View?) {
-        distance!!.visibility = View.GONE
+        //distance!!.visibility = View.GONE
         paceTV!!.visibility = View.GONE
         timeTV!!.visibility = View.GONE
         runDistance!!.visibility = View.GONE
@@ -262,7 +263,7 @@ class StartRunActivity : AppCompatActivity(), LocationListener {
         toMap!!.visibility = View.VISIBLE
         toStats!!.visibility = View.GONE
         map!!.visibility = View.GONE
-        distance!!.visibility = View.VISIBLE
+        //distance!!.visibility = View.VISIBLE
         paceTV!!.visibility = View.VISIBLE
         timeTV!!.visibility = View.VISIBLE
         runDistance!!.visibility = View.VISIBLE
@@ -555,3 +556,4 @@ class StartRunActivity : AppCompatActivity(), LocationListener {
 
  */
 }
+*/
