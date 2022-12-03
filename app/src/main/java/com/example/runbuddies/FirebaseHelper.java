@@ -59,6 +59,10 @@ public class FirebaseHelper {
     public static FirebaseFirestore db;
     private ArrayList<Run> myRuns;
     private ArrayList<Profile> myProfile;
+    public ArrayList<Profile> matches;
+
+    public String myLevel;
+    public String myState;
 
 
     // we don't need this yet
@@ -338,8 +342,7 @@ public class FirebaseHelper {
 
 
     public ArrayList<Profile> getMatches(){
-        ArrayList<Profile> matches = new ArrayList<Profile>();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        matches = new ArrayList<Profile>();
         CollectionReference usersRef = db.collection("users");
             usersRef.get().
 
@@ -348,12 +351,29 @@ public class FirebaseHelper {
             public void onComplete (@NonNull Task < QuerySnapshot > task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        String level = document.getString("level");
-                        String state = document.getString("state");
-                        String name = document.getString("name");
+                       // String level = document.getString("level");
+                        //String state = document.getString("state");
+                        //String name = document.getString("name");
                         String uid = document.getId();
                         DocumentReference uidRef = db.collection("users").document(uid);
                         DocumentReference yourUidRef = db.collection("users").document(getMAuth().getUid());
+                        yourUidRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    DocumentSnapshot document = task.getResult();
+                                    if (document.exists()) {
+                                        myLevel = document.getString("level");
+                                        myState = document.getString("state");
+                                    } else {
+                                        Log.d(TAG, "No such document");
+                                    }
+                                } else {
+                                    Log.d(TAG, "get failed with ", task.getException());
+                                }
+                            }
+                        });
+
                         uidRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                             @Override
                             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -365,7 +385,7 @@ public class FirebaseHelper {
                                         String name = document.getString("name");
                                         String city = document.getString("city");
                                         String bio = document.getString("bio");
-                                        if(uid.get(Source.valueOf(level)).equals(yourUidRef.get(Source.valueOf(level))) && uidRef.get(Source.valueOf(state)).equals(yourUidRef.get(Source.valueOf(state))) && uidRef != yourUidRef) {
+                                        if(level.equals(myLevel) && state.equals(myState) && document.getId() != getMAuth().getUid()) {
                                             matches.add(new Profile(city, state, bio, level));
                                         }
                                     } else {
@@ -382,6 +402,9 @@ public class FirebaseHelper {
                 }
             }
         });
+                        Profile Liam = new Profile("liam", "x", "x", "x");
+                        matches.add(Liam);
+                        Log.d(TAG, matches.get(0).getName());
                         return matches;
 
     }

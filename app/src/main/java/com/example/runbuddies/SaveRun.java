@@ -172,36 +172,37 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
         Intent intent = new Intent(SaveRun.this,HomePageActivity.class);
         startActivity(intent);
     }
-    //public void addRun(View view) {
-    //    ArrayList<View> views = new ArrayList<View>(
-    //            Arrays.asList(start,stop,save,reset,distanceTV,paceTV,timeTV,runDistance,runTime,runPace));
-    //    View nameTV = findViewById(R.id.nameTV);
-    //    EditText name = findViewById(R.id.runNameEditText);
-    //    Button upload = findViewById(R.id.upload);
-    //    for(View v:views) {
-    //        v.setVisibility(View.GONE);
-    //    }
-    //    name.setVisibility(View.VISIBLE);
-    //    nameTV.setVisibility(View.VISIBLE);
-    //    upload.setVisibility(View.VISIBLE);
-    //}
-    //public void addRunButtonClicked(View view) {
-    //    EditText nameET = findViewById(R.id.runNameEditText);
-    //    String name = nameET.getText().toString();
-    //    String dist = runDistance.getText().toString();
-    //    String time = runTime.getText().toString();
-    //    String pace = runPace.getText().toString();
-    //    Calendar c = Calendar.getInstance();
-    //    int day = c.get(Calendar.DAY_OF_MONTH);
-    //    int month = c.get(Calendar.MONTH);
-    //    int year = c.get(Calendar.YEAR);
-    //    String date = (month+1) + "/" + (day) + "/" + year;
-    //    Run r = new Run(date, dist, pace, time,name);
+    public void addRun(View view) {
+            ArrayList<View> views = new ArrayList<View>(
+                            Arrays.asList(start,stop,save,reset,distanceTV,paceTV,timeTV,runDistance,runTime,runPace));
+            View nameTV = findViewById(R.id.nameTV);
+            EditText name = findViewById(R.id.runNameEditText);
+            Button upload = findViewById(R.id.upload);
+            for(View v:views) {
+                    v.setVisibility(View.GONE);
+                }
+            name.setVisibility(View.VISIBLE);
+            nameTV.setVisibility(View.VISIBLE);
+            upload.setVisibility(View.VISIBLE);
+        }
+    public void addRunButtonClicked(View view) {
+        EditText nameET = findViewById(R.id.runNameEditText);
+        String name = nameET.getText().toString();
+        String dist = runDistance.getText().toString();
+        String time = runTime.getText().toString();
+        String pace = runPace.getText().toString();
+        Calendar c = Calendar.getInstance();
+        int day = c.get(Calendar.DAY_OF_MONTH);
+        int month = c.get(Calendar.MONTH);
+        int year = c.get(Calendar.YEAR);
+        String date = (month + 1) + "/" + (day) + "/" + year;
+        Run r = new Run(date, dist, pace, time, name);
 
 
-   //    LogInActivity.firebaseHelper.addRunData(r);
-   //    onClickReset(view);
-   //}
+        LogInActivity.firebaseHelper.addRunData(r);
+        onClickReset(view);
+
+    }
 
     // Sets the NUmber of seconds on the timer.
     // The runTimer() method uses a Handler

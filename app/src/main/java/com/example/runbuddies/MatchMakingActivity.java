@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -69,14 +70,13 @@ public class MatchMakingActivity extends AppCompatActivity {
      */
 
         myMatches = LogInActivity.firebaseHelper.getMatches();
-
-        //Intent intent = getIntent();
-
-        //myMatches = intent.getParcelableArrayListExtra(LogInActivity.ARRAYLIST_VALUES);
+        Intent intent = getIntent();
+        myMatches = intent.getParcelableArrayListExtra(LogInActivity.ARRAYLIST_VALUES);
         //Profile Liam = new Profile("Atlanta", "Georgia", "I am hot", "Beginner");
+
         //myMatches.add(Liam);
 
-        ArrayAdapter<Profile> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, myMatches);
+        ArrayAdapter<Profile> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, users);
 
         ProfileAdapter myProfileAdapter = new ProfileAdapter(this, myMatches);
 

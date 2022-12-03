@@ -81,7 +81,7 @@ class MapActivity : AppCompatActivity(),LocationListener {
     private fun onMapReady() {
         mapView.getMapboxMap().setCamera(
             CameraOptions.Builder()
-                .zoom(14.0)
+                .zoom(15.0)
                 .build()
         )
         mapView.getMapboxMap().loadStyleUri(

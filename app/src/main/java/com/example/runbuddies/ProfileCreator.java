@@ -21,6 +21,7 @@ public class ProfileCreator extends AppCompatActivity implements AdapterView.OnI
     EditText cityET;
     EditText bioET;
     String spinnerSelectedText;
+    String otherSpinnerSelectedText;
 
     public static ArrayList<String> allUsers = new ArrayList<String>();
 
@@ -29,6 +30,34 @@ public class ProfileCreator extends AppCompatActivity implements AdapterView.OnI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_creator);
 
+
+        class StateSpinnerClass implements AdapterView.OnItemSelectedListener {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                spinnerSelectedText = parent.getItemAtPosition(position).toString();
+
+            }
+
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        }
+
+        class LevelSpinnerClass implements AdapterView.OnItemSelectedListener {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                otherSpinnerSelectedText = parent.getItemAtPosition(position).toString();
+
+            }
+
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        }
         cityET = findViewById(R.id.cityEditText);
         bioET = findViewById(R.id.bioEditText);
 
@@ -44,25 +73,18 @@ public class ProfileCreator extends AppCompatActivity implements AdapterView.OnI
         adapter.setDropDownViewResource(R.layout.spinner_dropdown);
         adapter1.setDropDownViewResource(R.layout.spinner_dropdown);
         spinnerLevel.setAdapter(adapter);
-        spinnerLevel.setOnItemSelectedListener(this);
+        spinnerLevel.setOnItemSelectedListener(new LevelSpinnerClass());
         spinnerState.setAdapter(adapter1);
-        spinnerState.setOnItemSelectedListener(this);
-    }
+        spinnerState.setOnItemSelectedListener(new StateSpinnerClass());
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        spinnerSelectedText = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), spinnerSelectedText, Toast.LENGTH_SHORT).show();
+
     }
-    // This method is required, even if empty, for the OnItemSelectedListener to work
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) { }
 
     public void addProfileButtonClicked(View view) {
         String city = cityET.getText().toString();
         String runBio = bioET.getText().toString();
         String state = spinnerSelectedText;
-        String runLevel = spinnerSelectedText;
+        String runLevel = otherSpinnerSelectedText;
         String name = SignUpActivity.getName();
 
         Profile p = new Profile(city, state, runBio, runLevel);
@@ -77,6 +99,16 @@ public class ProfileCreator extends AppCompatActivity implements AdapterView.OnI
         Intent intent = new Intent(ProfileCreator.this, HomePageActivity.class);
         startActivity(intent);
 
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
 }
