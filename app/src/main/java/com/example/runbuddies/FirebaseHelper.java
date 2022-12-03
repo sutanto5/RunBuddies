@@ -365,7 +365,7 @@ public class FirebaseHelper {
                                         String name = document.getString("name");
                                         String city = document.getString("city");
                                         String bio = document.getString("bio");
-                                        if(uidRef.get(Source.valueOf(level)).equals(yourUidRef.get(Source.valueOf(level))) && uidRef.get(Source.valueOf(state)).equals(yourUidRef.get(Source.valueOf(state))) && uidRef != yourUidRef) {
+                                        if(uid.get(Source.valueOf(level)).equals(yourUidRef.get(Source.valueOf(level))) && uidRef.get(Source.valueOf(state)).equals(yourUidRef.get(Source.valueOf(state))) && uidRef != yourUidRef) {
                                             matches.add(new Profile(city, state, bio, level));
                                         }
                                     } else {

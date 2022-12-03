@@ -67,17 +67,8 @@ class MapActivity : AppCompatActivity(),LocationListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
         mapView = findViewById(R.id.mapView)
-        mapView?.getMapboxMap()?.loadStyleUri(Style.SATELLITE_STREETS)
-        //Mapbox Streets: Style.MAPBOX_STREETS
-        //Mapbox Outdoors: Style.OUTDOORS
-        //Mapbox Satellite: Style.SATELLITE
-        //Mapbox Satellite Streets: Style.SATELLITE_STREETS
-        //Mapbox Light: Style.LIGHT
-        //Mapbox Dark: Style.DARK
-        //Mapbox Traffic Day: Style.TRAFFIC_DAY
-        //Mapbox Traffic Night: Style.TRAFFIC_NIGHT
-        //Different map styles we can choose
-        //We can also choose different style based on runtime
+        mapView?.getMapboxMap()?.loadStyleUri(Style.DARK)
+
         locationPermissionHelper = LocationPermissionHelper(WeakReference(this))
         locationPermissionHelper.checkPermissions {
             onMapReady()
@@ -94,7 +85,18 @@ class MapActivity : AppCompatActivity(),LocationListener {
                 .build()
         )
         mapView.getMapboxMap().loadStyleUri(
-            Style.MAPBOX_STREETS
+            Style.SATELLITE_STREETS
+
+            //Mapbox Streets: Style.MAPBOX_STREETS
+            //Mapbox Outdoors: Style.OUTDOORS
+            //Mapbox Satellite: Style.SATELLITE
+            //Mapbox Satellite Streets: Style.SATELLITE_STREETS
+            //Mapbox Light: Style.LIGHT
+            //Mapbox Dark: Style.DARK
+            //Mapbox Traffic Day: Style.TRAFFIC_DAY
+            //Mapbox Traffic Night: Style.TRAFFIC_NIGHT
+            //Different map styles we can choose
+            //We can also choose different style based on runtime
         ) {
             initLocationComponent()
             setupGesturesListener()
@@ -110,7 +112,7 @@ class MapActivity : AppCompatActivity(),LocationListener {
             this.locationPuck = LocationPuck2D(
                 bearingImage = AppCompatResources.getDrawable(
                     this@MapActivity,
-                    R.drawable.profileicon,
+                    R.drawable.ic_baseline_account_circle_24,
                 ),
                 scaleExpression = interpolate {
                     linear()

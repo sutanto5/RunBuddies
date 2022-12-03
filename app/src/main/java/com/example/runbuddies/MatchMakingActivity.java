@@ -27,6 +27,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.core.DatabaseInfo;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -38,14 +39,19 @@ public class MatchMakingActivity extends AppCompatActivity {
 
     //ArrayList<String> users = new ArrayList<>();
     private ArrayList<Profile> users = new ArrayList<>();
-    private ArrayList<Profile> myMatches = new ArrayList<>();
-   // private FirebaseHelper.FirestoreCallback firestoreCallback;
+    private ArrayList<Profile> myMatches;
+
+    // private FirebaseHelper.FirestoreCallback firestoreCallback;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_making);
+
+        myMatches  = new ArrayList<Profile>();
+
+
 
 
     /*
@@ -64,19 +70,24 @@ public class MatchMakingActivity extends AppCompatActivity {
 
         myMatches = LogInActivity.firebaseHelper.getMatches();
 
-        Intent intent = getIntent();
+        //Intent intent = getIntent();
 
-        myMatches = intent.getParcelableArrayListExtra(LogInActivity.ARRAYLIST_VALUES);
+        //myMatches = intent.getParcelableArrayListExtra(LogInActivity.ARRAYLIST_VALUES);
+        //Profile Liam = new Profile("Atlanta", "Georgia", "I am hot", "Beginner");
+        //myMatches.add(Liam);
 
-
-        ArrayAdapter<Profile> listAdapter = new ArrayAdapter<Profile>(this, android.R.layout.simple_list_item_1, myMatches);
+        ArrayAdapter<Profile> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, myMatches);
 
         ProfileAdapter myProfileAdapter = new ProfileAdapter(this, myMatches);
 
         // This finds the listView and then adds the adapter to bind the data to this view
-        ListView listView = (ListView) findViewById(R.id.MatchesListView);
-        //listView.setAdapter(listAdapter);
+        ListView listView = findViewById(R.id.MatchesListView);
+        listView.setAdapter(listAdapter);
+
+
         listView.setAdapter(myProfileAdapter);
+
+
     }
 }
 
