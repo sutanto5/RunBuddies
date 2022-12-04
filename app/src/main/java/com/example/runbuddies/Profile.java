@@ -13,13 +13,22 @@ public class Profile implements Parcelable {
     private  String docID;
     private  String name;
 
-    public Profile(String city, String state, String bio, String level, String docID) {
+    public Profile(String city, String state, String bio, String level, String name, String docID) {
         this.city = city;
         this.state = state;
         this.bio = bio;
         this.level = level;
         this.docID = docID;
-        name = SignUpActivity.getName();
+        this.name = name;
+    }
+
+    public Profile(String city, String state, String bio, String level, String name){
+        this.city = city;
+        this.state = state;
+        this.bio = bio;
+        this.level = level;
+        docID = "no DocID yet";
+        this.name = name;
     }
 
     public Profile(String city, String state, String bio, String level){

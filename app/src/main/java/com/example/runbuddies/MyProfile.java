@@ -40,9 +40,6 @@ public class MyProfile extends AppCompatActivity {
 
     public final String TAG = "LIAM";
 
-    private FirebaseAuth mAuth;
-    private FirebaseFirestore db;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,13 +57,13 @@ public class MyProfile extends AppCompatActivity {
         name = findViewById(R.id.nameTextView);
         profile = findViewById(R.id.picture);
 
-        ArrayList<Profile> myList = LogInActivity.firebaseHelper.getWishListItemProfile();
+        Profile myProfile = LogInActivity.firebaseHelper.getProfile();
 
-        level.setText(myList.get(0).getLevel());
-        state.setText(myList.get(0).getState());
-        city.setText(myList.get(0).getCity());
-        bio.setText(myList.get(0).getBio());
-        name.setText(myList.get(0).getName());
+        level.setText(myProfile.getLevel());
+        state.setText(myProfile.getState());
+        city.setText(myProfile.getCity());
+        bio.setText(myProfile.getBio());
+        name.setText(myProfile.getName());
         // Create a reference with an initial file path and name
         StorageReference pathReference = storageRef.child("images/"+ LogInActivity.firebaseHelper.getMAuth().getUid());
         //file size increase to 5 mb

@@ -27,6 +27,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -36,6 +37,8 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.Source;
+
+import org.w3c.dom.Document;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -63,6 +66,9 @@ public class FirebaseHelper {
 
     public String myLevel;
     public String myState;
+    public String myCity;
+    public String myBio;
+    public String myName;
 
 
     // we don't need this yet
@@ -340,6 +346,31 @@ public class FirebaseHelper {
         });
     }
 
+    public Profile getProfile(){
+        DocumentReference yourUidRef = db.collection("users").document(getMAuth().getUid());
+        yourUidRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        myLevel = document.getString("level");
+                        myState = document.getString("state");
+                        myCity = document.getString("city");
+                        myBio = document.getString("bio");
+                        myName = document.getString("name");
+                    } else {
+                        Log.d(TAG, "No such document");
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
+        Profile p = new Profile(myCity, myState, myBio, myLevel, myName);
+        return p;
+    }
+
 
     public ArrayList<Profile> getMatches(){
         matches = new ArrayList<Profile>();
@@ -351,9 +382,9 @@ public class FirebaseHelper {
             public void onComplete (@NonNull Task < QuerySnapshot > task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                       // String level = document.getString("level");
-                        //String state = document.getString("state");
-                        //String name = document.getString("name");
+                        String level = document.getString("level");
+                        String state = document.getString("state");
+                        String name = document.getString("name");
                         String uid = document.getId();
                         DocumentReference uidRef = db.collection("users").document(uid);
                         DocumentReference yourUidRef = db.collection("users").document(getMAuth().getUid());
