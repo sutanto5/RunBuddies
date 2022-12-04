@@ -142,8 +142,4 @@ public class ProfilePicture extends AppCompatActivity {
         }
     }
 
-    public void bypassButton(View view){
-        Intent intent = new Intent(ProfilePicture.this, ProfileCreator.class);
-        startActivity(intent);
-    }
 }

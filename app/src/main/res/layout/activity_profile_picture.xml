@@ -11,7 +11,7 @@
         android:layout_width="125dp"
         android:layout_height="60dp"
         android:layout_marginStart="50dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="100dp"
         android:text="Choose"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -21,19 +21,11 @@
         android:layout_width="125dp"
         android:layout_height="60dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="100dp"
         android:text="Upload"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageView
-        android:id="@+id/profilePicture"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="75dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
@@ -46,14 +38,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/byPassButton"
+    <ImageView
+        android:id="@+id/profilePicture"
         android:layout_width="300dp"
-        android:layout_height="80dp"
+        android:layout_height="300dp"
         android:layout_marginStart="55dp"
-        android:layout_marginBottom="62dp"
-        android:onClick="bypassButton"
-        android:text="Bypass Picture"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="75dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/crying_george"
+         />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
