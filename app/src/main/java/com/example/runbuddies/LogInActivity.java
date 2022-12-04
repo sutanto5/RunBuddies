@@ -39,6 +39,8 @@ public class LogInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        getSupportActionBar().setTitle("Login");
+
         firebaseHelper = new FirebaseHelper();
         logInButton = findViewById(R.id.loginButton);
         signUpButton = findViewById(R.id.signUpButton);

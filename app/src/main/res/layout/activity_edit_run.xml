@@ -13,6 +13,7 @@
         android:id="@+id/paceView"
         android:layout_width="193dp"
         android:layout_height="36dp"
+        android:gravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timeTV" />
@@ -22,6 +23,7 @@
         android:layout_width="193dp"
         android:layout_height="36dp"
         android:layout_marginTop="236dp"
+        android:gravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/runDescTV" />
@@ -30,7 +32,7 @@
         android:id="@+id/runNameTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:text="Run Name"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,10 +44,12 @@
         android:id="@+id/runDescTV"
         android:layout_width="302dp"
         android:layout_height="77dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
+        android:hint="Description"
         android:text="Run Description"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/runNameTV" />
 
@@ -53,13 +57,13 @@
         android:id="@+id/editRunButton"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="352dp"
+        android:layout_marginTop="344dp"
         android:fontFamily="@font/volunmo"
         android:onClick="saveRunEdits"
         android:text="Save Edits"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/runDescTV" />
 
@@ -93,6 +97,7 @@
 
     <TextView
         android:id="@+id/timeTV"
+        android:gravity="center_horizontal"
         android:layout_width="193dp"
         android:layout_height="36dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -103,8 +108,21 @@
         android:id="@+id/dateView"
         android:layout_width="76dp"
         android:layout_height="26dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="168dp"
+        android:gravity=""
         android:text="date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/RunImage"
+        android:layout_width="215dp"
+        android:layout_height="202dp"
+        app:layout_constraintBottom_toTopOf="@+id/distTv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/runDescTV"
+        app:srcCompat="@drawable/crying_george" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

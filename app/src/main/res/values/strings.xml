@@ -84,6 +84,11 @@
     <string name="prefs_enable_stats">prefs_enable_stats</string>
     <string name="enable_stats">Enable stats for nerds</string>
 
+
+    <!-- mapbox styles -->
+
+
+
     <string-array name="pref_upload_quality_entries">
         <item>360p</item>
         <item>480p</item>
@@ -91,6 +96,7 @@
         <item>1080p</item>
         <item>Original</item>
     </string-array>
+
 
     <string-array name="pref_remind_me_to_take_a_break">
         <item>1 hours</item>
@@ -120,6 +126,20 @@
         <item>Only when on Wi-Fi</item>
         <item>On any network</item>
     </string-array>
+
+    <string-array name ="map_styles">
+        <item>Dark</item>
+        <item>Light</item>
+    </string-array>
+
+    <string-array name ="map_values">
+        <item>"mapbox://styles/jmasutanto/clb9juzxe000414lkg0mjjuq1"</item>
+        <item>Style.MAPBOX_STREETS</item>
+    </string-array>
+
+
+
+
     <string name="mapbox_access_token">pk.eyJ1Ijoiam1hc3V0YW50byIsImEiOiJjbGFjand4a3cwOThnM3FxdDhqaXRhdDgyIn0.JiNkpt-oE8HkpeGQMv-eEQ</string>
 
 </resources>

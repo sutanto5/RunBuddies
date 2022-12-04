@@ -7,20 +7,6 @@
     tools:context=".SaveRun">
 
     <Button
-        android:id="@+id/toStats"
-        android:layout_width="87dp"
-        android:layout_height="73dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="528dp"
-        android:onClick="switchToStats"
-        android:text="←"
-        android:textSize="34sp"
-        android:visibility="gone"
-        app:cornerRadius="90dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/save"
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
@@ -208,32 +194,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/runNameEditText" />
 
-    <TextView
-        android:id="@+id/address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="340dp"
-        android:gravity="center_horizontal"
-        android:text="address"
-        android:textAlignment="center"
-        android:textColor="#FF000000"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/latLong"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="388dp"
-        android:gravity="center_horizontal"
-        android:text="lat long"
-        android:textAlignment="center"
-        android:textColor="#FF000000"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

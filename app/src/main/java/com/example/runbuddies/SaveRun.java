@@ -17,11 +17,13 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -45,7 +47,7 @@ import java.util.Locale;
 // 7 - Stop updating locations if not needed to save battery
 
 public class SaveRun extends AppCompatActivity implements LocationListener {
-    DecimalFormat decimalFormat = new DecimalFormat(".##");
+    public DecimalFormat decimalFormat = new DecimalFormat(".##");
 
     // Number of seconds displayed
     // on the stopwatch.
@@ -71,7 +73,7 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
     TextView timeTV;
 
     protected double latitude, longitude;
-    private TextView latLong, address, distanceView;
+    private TextView distanceView;
     private LocationManager locationManager;
     private Location last;
 
@@ -81,13 +83,13 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_save_run);
+        getSupportActionBar().hide();
+
 
         //starts clock
         runTimer();
         //instantiate variables
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        latLong = findViewById(R.id.latLong);
-        address = findViewById(R.id.address);
         distanceView = findViewById(R.id.distance);
         runTime = findViewById(R.id.time_view);
         runPace = findViewById(R.id.pace_View);
@@ -98,6 +100,10 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
         distanceTV = findViewById(R.id.distanceTV);
         paceTV = findViewById(R.id.paceTV);
         timeTV = findViewById(R.id.TIMETV);
+
+        //check if activity has already been opened
+        seconds = GlobalVars.seconds;
+        distance = GlobalVars.distance;
 
 
         //first check and ask permission
@@ -168,6 +174,10 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
         seconds = 0;
         pace = 0;
         distance= 0;
+
+        //resetting global vars
+        GlobalVars.seconds = 0;
+        GlobalVars.distance = 0;
         Intent intent = new Intent(SaveRun.this,HomePageActivity.class);
         startActivity(intent);
     }
@@ -346,13 +356,6 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
             //convert lat long to address
             Geocoder geocoder = new Geocoder(this, Locale.getDefault());
 
-            try{
-                List<Address> addressList = geocoder.getFromLocation(latitude,longitude,1);
-                latLong.setText("Lat:" + latitude + " \nLong: " + longitude);
-                address.setText(addressList.get(0).getAddressLine(0));
-            }catch (IOException e){
-                e.printStackTrace();
-            }
 
         }
     }
@@ -366,8 +369,7 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
             retrieveLocation();
         }
         else{
-            latLong.setText("Permission Denied");
-            address.setText("Permission Denied");
+            Toast.makeText(getApplicationContext(), "This app requires location permissions to run", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -381,8 +383,6 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
 
         try {
             List<Address> addressList = geocoder.getFromLocation(latitude,longitude,1);
-            latLong.setText("Latitude:" + latitude + " \nLongitude: " + longitude);
-            address.setText(addressList.get(0).getAddressLine(0));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -392,7 +392,7 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
         }
 
         last = new Location(location);
-        distanceView.setText(distance/1000 + "km");
+        distanceView.setText(decimalFormat.format((double)distance/1000) + "km");
         locationManager.removeUpdates(this);
     }
 
@@ -445,6 +445,9 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
             case MotionEvent.ACTION_UP:
                 x2 = touchEvent.getX();
                 if(x1 < x2) {
+                    Toast.makeText(getApplicationContext(), "This run has been paused", Toast.LENGTH_LONG).show();
+                    GlobalVars.seconds = seconds;
+                    GlobalVars.distance = distance;
                     Intent i = new Intent(SaveRun.this, MapActivity.class);
                     startActivity(i);
 

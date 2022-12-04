@@ -24,6 +24,15 @@
             android:summary="@string/remind_me"
             android:title="@string/remind_me" />
 
+        <ListPreference
+            android:defaultValue="3"
+            android:dialogTitle="Map Theme"
+            android:entries="@array/map_styles"
+            android:entryValues="@array/map_values"
+            android:summary = "Customize your map style"
+            android:title = "Map Theme"
+            />
+
         <!--on below line we are creating a switch preference
             default value is use to set switch on or off
             key is use to set key

@@ -5,17 +5,22 @@ import static com.example.runbuddies.LogInActivity.firebaseHelper;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class EditRunActivity extends AppCompatActivity {
 
     public final String TAG = "Denna";
     EditText nameET, descET;
-    TextView paceTV,timeTV,distTV,dateTV;
+    TextView paceTV, timeTV, distTV, dateTV;
+    ImageView mileageMessage;
     Run currentRun;
 
     @Override
@@ -29,6 +34,7 @@ public class EditRunActivity extends AppCompatActivity {
         timeTV = findViewById(R.id.timeTV);
         paceTV = findViewById(R.id.paceView);
         dateTV = findViewById(R.id.dateView);
+        mileageMessage = findViewById(R.id.RunImage);
 
 
         // gets intent from ViewAllMemoriesActivity and retrieves the selected Memory
@@ -43,6 +49,7 @@ public class EditRunActivity extends AppCompatActivity {
         timeTV.setText(currentRun.getTime());
         paceTV.setText(currentRun.getPace());
         dateTV.setText(currentRun.getDate());
+        mileageMessage.setImageDrawable(getFunnyImage());
     }
 
 
@@ -59,8 +66,8 @@ public class EditRunActivity extends AppCompatActivity {
     }
 
     public void deleteRun(View v) {
-        Log.d(TAG, "deleting rum " + currentRun.getName());
-       firebaseHelper.deleteData(currentRun);
+        Log.d(TAG, "deleting run " + currentRun.getName());
+        firebaseHelper.deleteData(currentRun);
     }
 
     public void goBack(View v) {
@@ -68,4 +75,22 @@ public class EditRunActivity extends AppCompatActivity {
         Intent intent = new Intent(EditRunActivity.this, PastRunsActivity.class);
         startActivity(intent);
     }
+
+    public Drawable getFunnyImage() {
+        ArrayList<Drawable> runMemes = new ArrayList<>();
+        runMemes.add(getDrawable(R.drawable.bear));
+        runMemes.add(getDrawable(R.drawable.crybaby_meme));
+        runMemes.add(getDrawable(R.drawable.crying_george2));
+        runMemes.add(getDrawable(R.drawable.everyday_run));
+        runMemes.add(getDrawable(R.drawable.slowrun));
+        runMemes.add(getDrawable(R.drawable.imagine));
+        runMemes.add(getDrawable(R.drawable.insanity));
+        runMemes.add(getDrawable(R.drawable.muscles));
+        runMemes.add(getDrawable(R.drawable.thatdbegreat));
+
+        int rand = (int)(Math.random() * runMemes.size());
+
+        return runMemes.get(rand);
+    }
 }
+

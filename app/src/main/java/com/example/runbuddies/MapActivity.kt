@@ -67,14 +67,15 @@ class MapActivity : AppCompatActivity(),LocationListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
         mapView = findViewById(R.id.mapView)
-        mapView?.getMapboxMap()?.loadStyleUri(Style.DARK)
+        mapView?.getMapboxMap()?.loadStyleUri(Style.SATELLITE)
+
+        //hides the action bar
+        supportActionBar?.hide()
 
         locationPermissionHelper = LocationPermissionHelper(WeakReference(this))
         locationPermissionHelper.checkPermissions {
             onMapReady()
         }
-        latLong = findViewById(R.id.latLong)
-        address = findViewById(R.id.address)
         distanceView = findViewById(R.id.distance)
         locationManager = getSystemService(LOCATION_SERVICE) as LocationManager
     }
@@ -85,8 +86,9 @@ class MapActivity : AppCompatActivity(),LocationListener {
                 .build()
         )
         mapView.getMapboxMap().loadStyleUri(
-            Style.SATELLITE_STREETS
+            "mapbox://styles/jmasutanto/clb9juzxe000414lkg0mjjuq1"
 
+            //Mapbox Blueprint: mapbox://styles/jmasutanto/clb9juzxe000414lkg0mjjuq1
             //Mapbox Streets: Style.MAPBOX_STREETS
             //Mapbox Outdoors: Style.OUTDOORS
             //Mapbox Satellite: Style.SATELLITE
@@ -112,7 +114,7 @@ class MapActivity : AppCompatActivity(),LocationListener {
             this.locationPuck = LocationPuck2D(
                 bearingImage = AppCompatResources.getDrawable(
                     this@MapActivity,
-                    R.drawable.runlogo,
+                    R.drawable.uparrow,
                 ),
                 scaleExpression = interpolate {
                     linear()
