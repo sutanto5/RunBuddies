@@ -49,7 +49,8 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
 
     // Number of seconds displayed
     // on the stopwatch.
-    private int seconds = 0;
+    public int seconds = 0;
+    public long distance = 0;
     private int pace = 0;
 
     // Is the stopwatch running?
@@ -59,7 +60,6 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
     float x1,x2;
 
     private boolean wasRunning;
-    TextView runDistance;
     TextView runTime;
     TextView runPace;
     Button start;
@@ -74,7 +74,7 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
     private TextView latLong, address, distanceView;
     private LocationManager locationManager;
     private Location last;
-    private long distance;
+
 
 
     @Override
@@ -91,7 +91,6 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
         distanceView = findViewById(R.id.distance);
         runTime = findViewById(R.id.time_view);
         runPace = findViewById(R.id.pace_View);
-        runDistance = findViewById(R.id.milesView);
         start = findViewById(R.id.startButton);
         stop = findViewById(R.id.stopButton);
         save = findViewById(R.id.save);
@@ -174,7 +173,7 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
     }
     public void addRun(View view) {
             ArrayList<View> views = new ArrayList<View>(
-                            Arrays.asList(start,stop,save,reset,distanceTV,paceTV,timeTV,runDistance,runTime,runPace));
+                            Arrays.asList(start,stop,save,reset,distanceTV,paceTV,timeTV,distanceView,runTime,runPace));
             View nameTV = findViewById(R.id.nameTV);
             EditText name = findViewById(R.id.runNameEditText);
             Button upload = findViewById(R.id.upload);
@@ -185,10 +184,11 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
             nameTV.setVisibility(View.VISIBLE);
             upload.setVisibility(View.VISIBLE);
         }
+
     public void addRunButtonClicked(View view) {
         EditText nameET = findViewById(R.id.runNameEditText);
         String name = nameET.getText().toString();
-        String dist = runDistance.getText().toString();
+        String dist = distanceView.getText().toString();
         String time = runTime.getText().toString();
         String pace = runPace.getText().toString();
         Calendar c = Calendar.getInstance();
@@ -240,7 +240,11 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
                 int hours = seconds / 3600;
                 int minutes = (seconds % 3600) / 60;
                 int secs = seconds % 60;
-                pace = (int)10.0;
+                if(distance == 0){
+                    pace = 0;
+                }else{
+                    pace = (int)(seconds /(distance));
+                }
                 int paceHours = pace/ 3600;
                 int paceMinutes = (pace % 3600) / 60;
                 int paceSecs = pace % 60;
@@ -271,12 +275,12 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
                                     "%02d:%02d",
                                     paceMinutes, paceSecs);
                 }
-                pace +="/mi";
+                pace +="/km";
 
                 // Set the text view text.
                 timeView.setText(time);
                 paceView.setText(pace);
-                distView.setText(distance + "m");
+
 
                 retrieveLocation();
 
@@ -388,7 +392,7 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
         }
 
         last = new Location(location);
-        distanceView.setText(distance + "m");
+        distanceView.setText(distance/1000 + "km");
         locationManager.removeUpdates(this);
     }
 
@@ -417,6 +421,22 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
         LocationListener.super.onProviderDisabled(provider);
     }
 
+    public int getSeconds() {
+        return seconds;
+    }
+
+    public void setSeconds(int seconds) {
+        this.seconds = seconds;
+    }
+
+    public long getDistance() {
+        return distance;
+    }
+
+    public void setDistance(long distance) {
+        this.distance = distance;
+    }
+
     public boolean onTouchEvent(MotionEvent touchEvent){
         switch(touchEvent.getAction()){
             case MotionEvent.ACTION_DOWN:
@@ -427,6 +447,7 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
                 if(x1 < x2) {
                     Intent i = new Intent(SaveRun.this, MapActivity.class);
                     startActivity(i);
+
                 }
         }
         return false;

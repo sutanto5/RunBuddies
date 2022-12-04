@@ -8,41 +8,11 @@
     android:orientation="vertical"
     android:gravity="center">
 
-    <TextView
-        android:id="@+id/latLong"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="lat long"
-        android:textAlignment="center"
-        android:textColor="#FF000000"
-        android:textSize="20dp"
-        android:gravity="center_horizontal"/>
-    <TextView
-        android:id="@+id/address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="address"
-        android:textAlignment="center"
-        android:textColor="#FF000000"
-        android:textSize="20dp"
-        android:gravity="center_horizontal"/>
-    <TextView
-        android:id="@+id/distance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Distance"
-        android:textAlignment="center"
-        android:textColor="#FF000000"
-        android:textSize="20dp"
-        android:gravity="center_horizontal"/>
-
     <Button
-        android:id="@+id/Start"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:onClick="getLocation"
-        android:text="Start" />
+        android:text="Button" />
 
     <com.mapbox.maps.MapView
         android:id="@+id/mapView"
@@ -54,7 +24,12 @@
         app:mapbox_locationComponentEnabled="true"
         tools:context=".examples.LocationComponentActivity"
         tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="252dp" />
+        tools:layout_editor_absoluteY="252dp" >
+
+
+    </com.mapbox.maps.MapView>
+
+
 
 
 

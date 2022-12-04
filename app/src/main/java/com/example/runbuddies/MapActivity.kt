@@ -39,7 +39,7 @@ class MapActivity : AppCompatActivity(),LocationListener {
     protected var longitude = 0.0
     private var locationManager: LocationManager? = null
     private var last: Location? = null
-    private var distance: Long = 0
+    var distance: Long = 0
     //for slide screen
     var x1 = 0f
     var x2 = 0f
@@ -112,7 +112,7 @@ class MapActivity : AppCompatActivity(),LocationListener {
             this.locationPuck = LocationPuck2D(
                 bearingImage = AppCompatResources.getDrawable(
                     this@MapActivity,
-                    R.drawable.ic_baseline_account_circle_24,
+                    R.drawable.runlogo,
                 ),
                 scaleExpression = interpolate {
                     linear()

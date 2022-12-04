@@ -387,24 +387,6 @@ public class FirebaseHelper {
                         String name = document.getString("name");
                         String uid = document.getId();
                         DocumentReference uidRef = db.collection("users").document(uid);
-                        DocumentReference yourUidRef = db.collection("users").document(getMAuth().getUid());
-                        yourUidRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                if (task.isSuccessful()) {
-                                    DocumentSnapshot document = task.getResult();
-                                    if (document.exists()) {
-                                        myLevel = document.getString("level");
-                                        myState = document.getString("state");
-                                    } else {
-                                        Log.d(TAG, "No such document");
-                                    }
-                                } else {
-                                    Log.d(TAG, "get failed with ", task.getException());
-                                }
-                            }
-                        });
-
                         uidRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                             @Override
                             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -416,7 +398,7 @@ public class FirebaseHelper {
                                         String name = document.getString("name");
                                         String city = document.getString("city");
                                         String bio = document.getString("bio");
-                                        if(level.equals(myLevel) && state.equals(myState) && document.getId() != getMAuth().getUid()) {
+                                        if(level.equals(getProfile().getLevel()) && state.equals(getProfile().getState()) && document.getId() != getMAuth().getUid()) {
                                             matches.add(new Profile(city, state, bio, level));
                                         }
                                     } else {

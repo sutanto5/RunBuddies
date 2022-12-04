@@ -78,15 +78,15 @@
 
     <TextView
         android:id="@+id/pace_View"
-        android:layout_width="121dp"
-        android:layout_height="90dp"
+        android:layout_width="205dp"
+        android:layout_height="96dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/paceTV"
-        tools:text="0:00/mi" />
+        tools:text="0:00/km" />
 
     <TextView
         android:id="@+id/distance"
@@ -94,7 +94,7 @@
         android:layout_height="65dp"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="0.0mi"
+        android:text="0.0km"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
