@@ -10,10 +10,13 @@ import android.location.LocationManager
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.preference.Preference
+import androidx.preference.PreferenceManager
 import com.mapbox.android.gestures.MoveGestureDetector
 import com.mapbox.maps.CameraOptions
 import com.mapbox.maps.MapView
@@ -40,6 +43,7 @@ class MapActivity : AppCompatActivity(),LocationListener {
     private var locationManager: LocationManager? = null
     private var last: Location? = null
     var distance: Long = 0
+
     //for slide screen
     var x1 = 0f
     var x2 = 0f
@@ -78,6 +82,13 @@ class MapActivity : AppCompatActivity(),LocationListener {
         }
         distanceView = findViewById(R.id.distance)
         locationManager = getSystemService(LOCATION_SERVICE) as LocationManager
+
+        //allows byutton click
+        val btn_switch = findViewById(R.id.switchActivity) as Button
+        btn_switch.setOnClickListener{
+            switchActivity()
+        }
+
     }
     private fun onMapReady() {
         mapView.getMapboxMap().setCamera(
@@ -85,8 +96,10 @@ class MapActivity : AppCompatActivity(),LocationListener {
                 .zoom(15.0)
                 .build()
         )
+        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+        var mapStyle = prefs.getString("map_theme", "Dark").toString()
         mapView.getMapboxMap().loadStyleUri(
-            "mapbox://styles/jmasutanto/clb9juzxe000414lkg0mjjuq1"
+            mapStyle
 
             //Mapbox Blueprint: mapbox://styles/jmasutanto/clb9juzxe000414lkg0mjjuq1
             //Mapbox Streets: Style.MAPBOX_STREETS
@@ -103,6 +116,11 @@ class MapActivity : AppCompatActivity(),LocationListener {
             initLocationComponent()
             setupGesturesListener()
         }
+    }
+
+    fun switchActivity(){
+        val i = Intent(this@MapActivity, SaveRun::class.java)
+        startActivity(i)
     }
     private fun setupGesturesListener() {
         mapView.gestures.addOnMoveListener(onMoveListener)

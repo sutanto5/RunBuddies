@@ -8,26 +8,29 @@
     android:orientation="vertical"
     android:gravity="center">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button" />
-
     <com.mapbox.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="600dp"
+        android:layout_gravity="top"
         app:mapbox_cameraTargetLat="40.7128"
         app:mapbox_cameraTargetLng="-74.0060"
         app:mapbox_cameraZoom="9.0"
         app:mapbox_locationComponentEnabled="true"
         tools:context=".examples.LocationComponentActivity"
         tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="252dp" >
+        tools:layout_editor_absoluteY="252dp">
 
 
     </com.mapbox.maps.MapView>
+    <Button
+        android:id="@+id/switchActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Stats" />
+
+
 
 
 

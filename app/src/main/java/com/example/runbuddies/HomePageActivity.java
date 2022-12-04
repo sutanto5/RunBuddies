@@ -2,9 +2,13 @@ package com.example.runbuddies;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuBuilder;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceManager;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -18,6 +22,13 @@ public class HomePageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String appTheme = prefs.getString("app_theme", "Blue").toString();
+
+        getApplication().setTheme(R.style.RedTheme);
+
+
     }
     public void logOutClicked(View view) {
         LogInActivity.firebaseHelper.logOutUser();
