@@ -90,7 +90,7 @@ public class ProfilePicture extends AppCompatActivity {
         //We're gonna store the images by user ID number
         String fileName = LogInActivity.firebaseHelper.getMAuth().getUid();
         //"duplicate" fireabse storage
-        storageReference = FirebaseStorage.getInstance().getReference("images/"+fileName);
+        storageReference = FirebaseStorage.getInstance().getReference("images/"+ fileName);
         //store file in firebase storage
         storageReference.putFile(imageUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {

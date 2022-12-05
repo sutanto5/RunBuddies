@@ -63,6 +63,7 @@ public class FirebaseHelper {
     private ArrayList<Run> myRuns;
     private ArrayList<Profile> myProfile;
     public ArrayList<Profile> matches;
+    private Profile currProfile;
 
     public String myLevel;
     public String myState;
@@ -71,15 +72,14 @@ public class FirebaseHelper {
     public String myName;
 
 
-    // we don't need this yet
-    // private ArrayList<Memory> myItems = new ArrayList<>();
-
 
     public FirebaseHelper() {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         myRuns = new ArrayList<>();
         myProfile = new ArrayList<>();
+        matches = new ArrayList<>();
+        currProfile = new Profile();
     }
 
 
@@ -100,15 +100,22 @@ public class FirebaseHelper {
             readProfileData(new FirestoreCallback() {
                 @Override
                 public void onCallback(ArrayList<Run> myRuns, ArrayList<Profile> myProfile) {
-                    Log.d(TAG, "Inside attachReadDataToUser" + myProfile.toString());
+                    Log.d(TAG, "Inside attachReadDataToUser, readProfileData " + myProfile.toString());
+                    readRunData(new FirestoreCallback() {
+                        @Override
+                        public void onCallback(ArrayList<Run> myRuns, ArrayList<Profile> ProfileList) {
+                            Log.d(TAG, "Inside attachReadDataToUser, readRunData onCallback " + myRuns.toString());
+                            readProfileMatches(new FirestoreCallback() {
+                                @Override
+                                public void onCallback(ArrayList<Run> myRuns, ArrayList<Profile> ProfileList) {
+                                    Log.d(TAG, "Inside attachReadDataToUser, readProfileMatches onCallback " + matches.toString());
+                                }
+                            });
+                        }
+                    });
                 }
             });
-            readRunData(new FirestoreCallback() {
-                @Override
-                public void onCallback(ArrayList<Run> myRuns, ArrayList<Profile> ProfileList) {
-                    Log.d(TAG, "Inside attachReadDataToUser, onCallback " + myRuns.toString());
-                }
-            });
+
         } else {
             Log.d(TAG, "No one logged in");
         }
@@ -189,6 +196,7 @@ public class FirebaseHelper {
         user.put("state", p.getState());
         user.put("city", p.getCity());
         user.put("bio", p.getBio());
+        user.put("docID", mAuth.getUid());
         // Add a new document with a docID = to the authenticated user's UID
         db.collection("users").document(uid)
                 .set(user)
@@ -196,6 +204,7 @@ public class FirebaseHelper {
                     @Override
                     public void onSuccess(Void unused) {
                         Log.d(TAG, p.getName() + "'s user profile added");
+                        attachReadDataToUser();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -254,22 +263,20 @@ public class FirebaseHelper {
 
     public void readProfileData(FirestoreCallback firestoreCallback) {
         myProfile.clear();        // empties the AL so that it can get a fresh copy of data
-        db.collection("users").document(uid).collection("myProfile")
+        db.collection("users").document(uid)
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (DocumentSnapshot doc : task.getResult()) {
-                                Profile profile = doc.toObject(Profile.class);
-                                myProfile.add(profile);
-                            }
-
-                            Log.i(TAG, "Success reading data: " + myProfile.toString());
-                            firestoreCallback.onCallback(myRuns, myProfile);
-                        } else {
-                            Log.d(TAG, "Error getting documents: " + task.getException());
-                        }
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        currProfile = documentSnapshot.toObject(Profile.class);
+                        Log.d(TAG, "Current profile is " + currProfile.getName());
+                        firestoreCallback.onCallback(myRuns, myProfile);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d(TAG, "failure in readProfileData " + e.getMessage());
                     }
                 });
     }
@@ -347,33 +354,14 @@ public class FirebaseHelper {
     }
 
     public Profile getProfile(){
-        DocumentReference yourUidRef = db.collection("users").document(getMAuth().getUid());
-        yourUidRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        myLevel = document.getString("level");
-                        myState = document.getString("state");
-                        myCity = document.getString("city");
-                        myBio = document.getString("bio");
-                        myName = document.getString("name");
-                    } else {
-                        Log.d(TAG, "No such document");
-                    }
-                } else {
-                    Log.d(TAG, "get failed with ", task.getException());
-                }
-            }
-        });
-        Profile p = new Profile(myCity, myState, myBio, myLevel, myName);
-        return p;
+        return currProfile;
+    }
+    public ArrayList<Profile> getMatches() {
+        return matches;
     }
 
 
-    public ArrayList<Profile> getMatches(){
-        matches = new ArrayList<Profile>();
+
         CollectionReference usersRef = db.collection("users");
             usersRef.get().
 
@@ -382,34 +370,12 @@ public class FirebaseHelper {
             public void onComplete (@NonNull Task < QuerySnapshot > task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        String level = document.getString("level");
-                        String state = document.getString("state");
-                        String name = document.getString("name");
-                        String uid = document.getId();
-                        DocumentReference uidRef = db.collection("users").document(uid);
-                        uidRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                if (task.isSuccessful()) {
-                                    DocumentSnapshot document = task.getResult();
-                                    if (document.exists()) {
-                                        Log.d(TAG, "documented");
-                                        String level = document.getString("level");
-                                        String state = document.getString("state");
-                                        String name = document.getString("name");
-                                        String city = document.getString("city");
-                                        String bio = document.getString("bio");
-                                        if(level.equals(getProfile().getLevel()) && state.equals(getProfile().getState()) && document.getId() != getMAuth().getUid()) {
-                                            matches.add(new Profile(city, state, bio, level));
-                                        }
-                                    } else {
-                                        Log.d(TAG, "No such document");
-                                    }
-                                } else {
-                                    Log.d(TAG, "get failed with ", task.getException());
-                                }
-                            }
-                        });
+                        Profile tempP = document.toObject(Profile.class);
+                        // made a helper method based on your criteria for a match
+                        if (tempP.matches(currProfile)) {
+                            matches.add(tempP);
+                            Log.d(TAG, "added a match " + tempP.getName());
+                        }
                     }
                 } else {
                     Log.d(TAG, "Error getting documents: ", task.getException());

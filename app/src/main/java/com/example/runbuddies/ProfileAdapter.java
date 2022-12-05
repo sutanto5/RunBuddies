@@ -1,6 +1,8 @@
 package com.example.runbuddies;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,8 +42,26 @@ public class ProfileAdapter extends ArrayAdapter<Profile> {
         ImageView ivPicture = (ImageView)convertView.findViewById(R.id.profileImageView);
 
         tvName.setText(myProfile.getName());
-        tvState.setText("$" + myProfile.getState());
+        tvState.setText(myProfile.getState());
         tvCity.setText(myProfile.getCity());
+        // Create a reference with an initial file path and name
+        StorageReference pathReference = storageRef.child("images/"+ LogInActivity.firebaseHelper.getMAuth().getUid());
+        //file size increase to 5 mb
+        final long ONE_MEGABYTE = 1024 * 1024 *5;
+        pathReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                //on success set the image to the image view through use of bitmpa
+                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                ivPicture.setImageBitmap(bmp);
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                Toast.makeText(getContext(), "No Such file or Path found!!", Toast.LENGTH_LONG).show();
+            }
+        });
 
 
         return convertView;
