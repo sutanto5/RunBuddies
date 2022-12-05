@@ -61,13 +61,19 @@ public class HomePageActivity extends AppCompatActivity {
         switch (item.getItemId()){
 
             case R.id.profileButton:
-                Intent intent2 = new Intent(HomePageActivity.this, MyProfile.class);
+                Intent intent = new Intent(HomePageActivity.this, MyProfile.class);
+                this.startActivity(intent);
+                return true;
+            case R.id.editProfileButton:
+                Intent intent2 = new Intent(HomePageActivity.this, EditProfileActivity.class);
                 this.startActivity(intent2);
                 return true;
             case R.id.settingsButton:
                 Intent intent3 = new Intent(HomePageActivity.this, SettingsActivity.class);
                 this.startActivity(intent3);
                 return true;
+
+
             default:
                 return super.onOptionsItemSelected(item);
         }

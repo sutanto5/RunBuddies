@@ -8,6 +8,13 @@
         android:icon="@drawable/ic_baseline_account_circle_24"
         >
     </item>
+    <item
+        android:id="@+id/editProfileButton"
+        android:title="Edit Profile"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        >
+    </item>
 
     <item
         android:id="@+id/settingsButton"
@@ -16,4 +23,6 @@
         android:icon="@drawable/ic_baseline_settings_24"
         >
     </item>
+
+
 </menu>
