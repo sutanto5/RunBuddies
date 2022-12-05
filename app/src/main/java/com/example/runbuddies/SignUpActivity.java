@@ -85,7 +85,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                                 // we will implement this later
                                 // updateIfLoggedIn();
-                                // firebaseHelper.attachReadDataToUser();
+                              //  firebaseHelper.attachReadDataToUser();
 
                                 Intent intent = new Intent(SignUpActivity.this, ProfilePicture.class);
                                 startActivity(intent);

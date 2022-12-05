@@ -40,8 +40,8 @@ public class LogInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         getSupportActionBar().setTitle("Login");
-
         firebaseHelper = new FirebaseHelper();
+
         logInButton = findViewById(R.id.loginButton);
         signUpButton = findViewById(R.id.signUpButton);
         emailET = findViewById(R.id.emailET);
@@ -50,7 +50,6 @@ public class LogInActivity extends AppCompatActivity {
 
     public void onStart(){
         super.onStart();
-
         updateUI();
     }
 
@@ -62,6 +61,7 @@ public class LogInActivity extends AppCompatActivity {
     public void updateUI(){
         Log.d(TAG, "Inside updateUI: " + firebaseHelper.getMAuth().getUid());
         if(firebaseHelper.getMAuth().getUid() != null){
+
             firebaseHelper.attachReadDataToUser();
             Intent intent = new Intent(LogInActivity.this, HomePageActivity.class);
             startActivity(intent);
@@ -108,7 +108,8 @@ public class LogInActivity extends AppCompatActivity {
 
                                 // we will implement this later
                                 // updateIfLoggedIn();
-                                // firebaseHelper.attachReadDataToUser();
+                                //firebaseHelper.attachReadDataToUser();
+                                updateUI();
 
                                 Log.d(TAG, email + " logged in");
 

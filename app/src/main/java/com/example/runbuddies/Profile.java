@@ -22,21 +22,14 @@ public class Profile implements Parcelable {
         this.name = name;
     }
 
-    public Profile(String city, String state, String bio, String level, String name){
-        this.city = city;
-        this.state = state;
-        this.bio = bio;
-        this.level = level;
-        docID = "no DocID yet";
-        this.name = name;
-    }
 
-    public Profile(String city, String state, String bio, String level){
+
+    public Profile(String city, String state, String bio, String level, String docID){
         this.city = city;
         this.state = state;
         this.bio = bio;
         this.level = level;
-        docID = "no DocID yet";
+        this.docID = docID;
         name = SignUpActivity.getName();
     }
 
@@ -47,6 +40,23 @@ public class Profile implements Parcelable {
         level = "no level";
         docID = "no DocID yet";
         name = "no Name";
+    }
+
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", bio='" + bio + '\'' +
+                ", level='" + level + '\'' +
+                ", docID='" + docID + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+    public boolean matches(Profile other) {
+        return this.level.equals(other.level) && this.state.equals(other.state)
+                && !this.docID.equals(other.docID);
     }
 
     /**

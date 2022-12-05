@@ -71,7 +71,8 @@ public class MatchMakingActivity extends AppCompatActivity {
 
         myMatches = LogInActivity.firebaseHelper.getMatches();
         Intent intent = getIntent();
-        myMatches = intent.getParcelableArrayListExtra(LogInActivity.ARRAYLIST_VALUES);
+        Log.d(TAG, "myMatches.size = "+myMatches.size());
+      //  myMatches = intent.getParcelableArrayListExtra(LogInActivity.ARRAYLIST_VALUES);
         //Profile Liam = new Profile("Atlanta", "Georgia", "I am hot", "Beginner");
 
         //myMatches.add(Liam);
