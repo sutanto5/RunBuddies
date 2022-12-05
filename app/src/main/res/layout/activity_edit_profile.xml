@@ -4,19 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditProfileActivity">
+    tools:context=".EditProfileActivity"
+    android:background="@color/brightNavyBlue"
+    >
 
 
     <Button
         android:id="@+id/goBackButton"
-        android:layout_width="@dimen/buttonWidth"
-        android:layout_height="@dimen/buttonHeight"
-        android:layout_marginBottom="20dp"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="4dp"
         android:fontFamily="@font/masterykingdom"
-        android:text="Go Back"
         android:onClick="goToHome"
+        android:text="Go Back"
         android:textAllCaps="false"
-        android:textSize="@dimen/buttonFont"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -24,32 +26,16 @@
 
     <Button
         android:id="@+id/saveEditButton"
-        android:layout_width="@dimen/buttonWidth"
-        android:layout_height="@dimen/buttonHeight"
-        android:layout_marginBottom="92dp"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="88dp"
         android:fontFamily="@font/masterykingdom"
         android:text="Save"
-
         android:textAllCaps="false"
-        android:textSize="@dimen/buttonFont"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.072"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/deleteEditButton"
-        android:layout_width="@dimen/buttonWidth"
-        android:layout_height="@dimen/buttonHeight"
-        android:layout_marginBottom="92dp"
-        android:fontFamily="@font/masterykingdom"
-        android:text="Delete"
-
-        android:textAllCaps="false"
-        android:textSize="@dimen/buttonFont"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -68,10 +54,10 @@
 
     <EditText
         android:id="@+id/bioEditText"
-        android:layout_width="350dp"
-        android:layout_height="300dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="232dp"
+        android:layout_width="353dp"
+        android:layout_height="160dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="200dp"
         android:background="@color/white"
         android:ems="10"
         android:gravity="top"
@@ -84,15 +70,15 @@
         android:id="@+id/stateEditText"
         android:layout_width="150dp"
         android:layout_height="@dimen/loginETHeight"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="28dp"
         android:background="@color/white"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Username"
+        android:text="State"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameEditText"
-        app:layout_constraintVertical_bias="0.155" />
+        app:layout_constraintVertical_bias="0.154" />
 
     <EditText
         android:id="@+id/cityEditText"
@@ -102,7 +88,7 @@
         android:background="@color/white"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Username"
+        android:text="City"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/stateEditText"
         app:layout_constraintTop_toBottomOf="@+id/nameEditText"
@@ -112,8 +98,8 @@
         android:id="@+id/imageView"
         android:layout_width="117dp"
         android:layout_height="142dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/profileicon" />
