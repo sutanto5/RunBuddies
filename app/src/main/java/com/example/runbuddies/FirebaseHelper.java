@@ -393,6 +393,7 @@ public class FirebaseHelper {
                                 if (task.isSuccessful()) {
                                     DocumentSnapshot document = task.getResult();
                                     if (document.exists()) {
+                                        Log.d(TAG, "documented");
                                         String level = document.getString("level");
                                         String state = document.getString("state");
                                         String name = document.getString("name");
@@ -415,8 +416,7 @@ public class FirebaseHelper {
                 }
             }
         });
-                        Profile Liam = new Profile("liam", "x", "x", "x");
-                        matches.add(Liam);
+
                         Log.d(TAG, matches.get(0).getName());
                         return matches;
 

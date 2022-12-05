@@ -178,6 +178,7 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
         //resetting global vars
         GlobalVars.seconds = 0;
         GlobalVars.distance = 0;
+        GlobalVars.pace = 0;
         Intent intent = new Intent(SaveRun.this,HomePageActivity.class);
         startActivity(intent);
     }
@@ -250,10 +251,10 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
                 int hours = seconds / 3600;
                 int minutes = (seconds % 3600) / 60;
                 int secs = seconds % 60;
-                if(distance == 0){
+                if(distance == 0 || seconds == 0){
                     pace = 0;
                 }else{
-                    pace = (int)(seconds /(distance));
+                    pace = (int)(seconds /((double)distance/1000));
                 }
                 int paceHours = pace/ 3600;
                 int paceMinutes = (pace % 3600) / 60;
@@ -448,6 +449,7 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
                     Toast.makeText(getApplicationContext(), "This run has been paused", Toast.LENGTH_LONG).show();
                     GlobalVars.seconds = seconds;
                     GlobalVars.distance = distance;
+                    GlobalVars.pace = pace;
                     Intent i = new Intent(SaveRun.this, MapActivity.class);
                     startActivity(i);
 
