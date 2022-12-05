@@ -360,8 +360,8 @@ public class FirebaseHelper {
         return matches;
     }
 
-
-
+    public void readProfileMatches(FirestoreCallback firestoreCallback){
+        matches.clear();
         CollectionReference usersRef = db.collection("users");
             usersRef.get().
 
@@ -377,14 +377,13 @@ public class FirebaseHelper {
                             Log.d(TAG, "added a match " + tempP.getName());
                         }
                     }
+
+                    firestoreCallback.onCallback(myRuns, myProfile);
                 } else {
                     Log.d(TAG, "Error getting documents: ", task.getException());
                 }
             }
         });
-
-                        Log.d(TAG, matches.get(0).getName());
-                        return matches;
 
     }
 

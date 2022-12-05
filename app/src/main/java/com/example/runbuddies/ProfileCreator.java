@@ -86,8 +86,9 @@ public class ProfileCreator extends AppCompatActivity implements AdapterView.OnI
         String state = spinnerSelectedText;
         String runLevel = otherSpinnerSelectedText;
         String name = SignUpActivity.getName();
+        String docID = LogInActivity.firebaseHelper.getMAuth().getUid();
 
-        Profile p = new Profile(city, state, runBio, runLevel);
+        Profile p = new Profile(city, state, runBio, runLevel, name, docID);
         Log.d("Denna", p.toString());
         LogInActivity.firebaseHelper.addProfile(p);
 

@@ -109,6 +109,7 @@ public class LogInActivity extends AppCompatActivity {
                                 // we will implement this later
                                 // updateIfLoggedIn();
                                 // firebaseHelper.attachReadDataToUser();
+                                updateUI();
 
                                 Log.d(TAG, email + " logged in");
 
