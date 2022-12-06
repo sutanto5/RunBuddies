@@ -97,7 +97,10 @@ class MapActivity : AppCompatActivity(),LocationListener {
                 .build()
         )
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
-        var mapStyle = prefs.getString("map_theme", "Dark").toString()
+        var mapStyle = prefs.getString("map_theme", "Light").toString()
+        if(mapStyle.equals("Dark")){
+            mapStyle = Style.DARK
+        }
         mapView.getMapboxMap().loadStyleUri(
             mapStyle
 
