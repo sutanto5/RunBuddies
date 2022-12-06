@@ -4,44 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MyProfile">
-
+    tools:context=".MatchProfileActivity">
 
     <TextView
-        android:id="@+id/levelTextView"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="50dp"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
-
-    <TextView
-        android:id="@+id/stateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginBottom="275dp"
-        android:width="125dp"
-        android:height="40dp"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/cityTextView"
+        android:id="@+id/matchCityTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="275dp"
+        android:layout_marginBottom="310dp"
         android:width="125dp"
         android:height="40dp"
         android:textSize="18sp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -52,24 +26,26 @@
         android:layout_marginStart="30dp"
         android:layout_marginBottom="100dp"
         android:width="340dp"
-        android:height="150dp"
+        android:height="125dp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/nameTextView"
+        android:id="@+id/matchNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="106dp"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="20dp"
         android:width="200dp"
         android:height="40dp"
         android:textSize="24sp"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/picture" />
+        app:layout_constraintTop_toBottomOf="@+id/matchPicture" />
 
     <ImageView
-        android:id="@+id/picture"
+        android:id="@+id/matchPicture"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="130dp"
@@ -79,14 +55,47 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
+        android:id="@+id/backtoMatchesButton"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="25dp"
+        android:text="Back to Matches"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/backToHomeButton"
         android:layout_width="150dp"
         android:layout_height="60dp"
-        android:layout_marginStart="130dp"
+        android:layout_marginStart="225dp"
         android:layout_marginBottom="25dp"
-        android:onClick="backToHome"
         android:text="Back to Homescreen"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/matchStateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="310dp"
+        android:width="125dp"
+        android:height="40dp"
+        android:textSize="18sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/matchEmailTextView"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="18sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/matchBioTextView"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

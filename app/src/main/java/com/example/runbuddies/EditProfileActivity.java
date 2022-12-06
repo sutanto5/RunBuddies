@@ -25,11 +25,9 @@ public class EditProfileActivity extends AppCompatActivity {
         stateET = findViewById(R.id.stateEditText);
         cityET = findViewById(R.id.cityEditText);
 
-        Intent intent = getIntent();
 
-        /**
-        userProfile = intent.getParcelableExtra(Profile);
-         */
+        userProfile = LogInActivity.firebaseHelper.getProfile();
+
 
         nameET = findViewById(R.id.nameEditText);
         bioET = findViewById(R.id.bioEditText);
@@ -49,9 +47,9 @@ public class EditProfileActivity extends AppCompatActivity {
 
         // Calls editData with this updated Memory object
 
-        /**
-        LogInActivity.firebaseHelper.editData(userProfile);
-         */
+
+        LogInActivity.firebaseHelper.editProfile(userProfile);
+
     }
 
 

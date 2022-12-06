@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,41 +17,42 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-public class MyProfile extends AppCompatActivity {
+public class MatchProfileActivity extends AppCompatActivity {
 
-    private  TextView level;
-    private  TextView state;
-    private  TextView city;
-    private  TextView bio;
-    private  TextView name;
-    private  ImageView profile;
+    final String TAG = "LIAM";
+    private TextView matchName;
+    private TextView matchEmail;
+    private TextView matchState;
+    private TextView matchCity;
+    private TextView matchBio;
+    private ImageView ivMatchPicture;
 
-    public final String TAG = "LIAM";
+    FirebaseStorage storage = FirebaseStorage.getInstance();
 
+    StorageReference storageRef = storage.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_profile);
+        setContentView(R.layout.activity_match_profile);
 
-        FirebaseStorage storage = FirebaseStorage.getInstance();
+        Intent intent = new Intent();
+        Profile p = intent.getParcelableExtra("Chosen Profile");
+        Log.d(TAG,p.getName());
 
-        StorageReference storageRef = storage.getReference();
+        matchName = findViewById(R.id.matchNameTextView);
+        matchEmail = findViewById(R.id.matchEmailTextView);
+        matchState = findViewById(R.id.matchStateTextView);
+        matchCity = findViewById(R.id.matchCityTextView);
+        matchBio = findViewById(R.id.matchBioTextView);
+        ivMatchPicture = findViewById(R.id.matchPicture);
 
-        level = findViewById(R.id.levelTextView);
-        state = findViewById(R.id.stateTextView);
-        city = findViewById(R.id.cityTextView);
-        bio = findViewById(R.id.matchBioTextView);
-        name = findViewById(R.id.nameTextView);
-        profile = findViewById(R.id.picture);
+        matchName.setText(p.getName());
+        matchEmail.setText(p.getEmail());
+        matchState.setText(p.getState());
+        matchCity.setText(p.getCity());
+        matchBio.setText(p.getBio());
 
-        Profile myProfile = LogInActivity.firebaseHelper.getProfile();
-
-        level.setText(myProfile.getLevel());
-        state.setText(myProfile.getState());
-        city.setText(myProfile.getCity());
-        bio.setText(myProfile.getBio());
-        name.setText(myProfile.getName());
         // Create a reference with an initial file path and name
         StorageReference pathReference = storageRef.child("images/"+ LogInActivity.firebaseHelper.getMAuth().getUid());
         //file size increase to 5 mb
@@ -61,7 +62,7 @@ public class MyProfile extends AppCompatActivity {
             public void onSuccess(byte[] bytes) {
                 //on success set the image to the image view through use of bitmpa
                 Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                profile.setImageBitmap(bmp);
+                ivMatchPicture.setImageBitmap(bmp);
 
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -71,16 +72,7 @@ public class MyProfile extends AppCompatActivity {
             }
         });
 
-        }
 
 
-
-    public void backToHome(View view){
-        Intent intent = new Intent(MyProfile.this, HomePageActivity.class);
-        startActivity(intent);
     }
-
-
 }
-
-

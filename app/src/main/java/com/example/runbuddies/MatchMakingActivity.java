@@ -45,6 +45,8 @@ public class MatchMakingActivity extends AppCompatActivity {
     // private FirebaseHelper.FirestoreCallback firestoreCallback;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +89,19 @@ public class MatchMakingActivity extends AppCompatActivity {
 
         listView.setAdapter(myProfileAdapter);
 
+        // Create listener to listen for when a Food from the specific Category list is clicked on
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                // Creates an intent to go from the Specific Category to the specific Detail
+                Intent intent = new Intent(MatchMakingActivity.this, MatchProfileActivity.class);
+                // Sends the specific object at index i to the Detail activity
+                // In this case, it is sending the particular Food object
+                intent.putExtra("Chosen Profile", myMatches.get(position));
+
+                startActivity(intent);
+            }
+        });
 
     }
 }
