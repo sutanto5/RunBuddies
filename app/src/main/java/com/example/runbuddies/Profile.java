@@ -12,14 +12,16 @@ public class Profile implements Parcelable {
     private  String level;
     private  String docID;
     private  String name;
+    private  String email;
 
-    public Profile(String city, String state, String bio, String level, String name, String docID) {
+    public Profile(String city, String state, String bio, String level, String name, String docID, String email) {
         this.city = city;
         this.state = state;
         this.bio = bio;
         this.level = level;
         this.docID = docID;
         this.name = name;
+        this.email = email;
     }
 
 
@@ -30,6 +32,7 @@ public class Profile implements Parcelable {
         this.level = level;
         this.docID = docID;
         name = SignUpActivity.getName();
+        email = SignUpActivity.getEmail();
     }
 
     public Profile() {
@@ -39,6 +42,7 @@ public class Profile implements Parcelable {
         level = "no level";
         docID = "no DocID yet";
         name = "no Name";
+        email = "no email";
     }
 
     public String toString() {
@@ -49,6 +53,7 @@ public class Profile implements Parcelable {
                 ", level='" + level + '\'' +
                 ", docID='" + docID + '\'' +
                 ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 
@@ -72,6 +77,7 @@ public class Profile implements Parcelable {
         level = parcel.readString();
         docID = parcel.readString();
         name = parcel.readString();
+        email = parcel.readString();
     }
 
     /**
@@ -165,4 +171,11 @@ public class Profile implements Parcelable {
         this.name = name;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

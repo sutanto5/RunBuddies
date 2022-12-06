@@ -70,6 +70,7 @@ public class FirebaseHelper {
     public String myCity;
     public String myBio;
     public String myName;
+    public String myEmail;
 
 
 
@@ -197,6 +198,7 @@ public class FirebaseHelper {
         user.put("city", p.getCity());
         user.put("bio", p.getBio());
         user.put("docID", mAuth.getUid());
+        user.put("email", p.getEmail());
         // Add a new document with a docID = to the authenticated user's UID
         db.collection("users").document(uid)
                 .set(user)
