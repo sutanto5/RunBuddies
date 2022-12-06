@@ -42,6 +42,8 @@ public class MatchMakingActivity extends AppCompatActivity {
     private ArrayList<Profile> users = new ArrayList<>();
     private ArrayList<Profile> myMatches;
 
+    public static final String DETAIL_CHOICE = "Chosen Profile Match";
+
     // private FirebaseHelper.FirestoreCallback firestoreCallback;
 
 
@@ -97,7 +99,7 @@ public class MatchMakingActivity extends AppCompatActivity {
                 Intent intent = new Intent(MatchMakingActivity.this, MatchProfileActivity.class);
                 // Sends the specific object at index i to the Detail activity
                 // In this case, it is sending the particular Food object
-                intent.putExtra("Chosen Profile", myMatches.get(position));
+                intent.putExtra(DETAIL_CHOICE, myMatches.get(position));
 
                 startActivity(intent);
             }

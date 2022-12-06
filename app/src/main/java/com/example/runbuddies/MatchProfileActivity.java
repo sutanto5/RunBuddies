@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +38,7 @@ public class MatchProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_match_profile);
 
         Intent intent = new Intent();
-        Profile p = intent.getParcelableExtra("Chosen Profile");
+        Profile p = intent.getParcelableExtra(MatchMakingActivity.DETAIL_CHOICE);
         Log.d(TAG,p.getName());
 
         matchName = findViewById(R.id.matchNameTextView);
@@ -72,7 +73,15 @@ public class MatchProfileActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    public void backToHome(View view){
+        Intent intent = new Intent(MatchProfileActivity.this, HomePageActivity.class);
+        startActivity(intent);
+    }
 
+    public void backToMatches(View view){
+        Intent intent = new Intent(MatchProfileActivity.this, MatchMakingActivity.class);
+        startActivity(intent);
     }
 }

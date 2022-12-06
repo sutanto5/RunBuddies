@@ -6,7 +6,7 @@
     <PreferenceCategory android:title="General">
 
         <ListPreference
-            android:defaultValue="Light"
+            android:defaultValue="Dark"
             android:dialogTitle="Map Theme"
             android:key="map_theme"
             android:entries="@array/map_styles"
