@@ -13,7 +13,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     public final String TAG = "MOY";
     EditText nameET, bioET, stateET, cityET;
-    Profile userProfile;
+    Profile currentProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,36 +26,34 @@ public class EditProfileActivity extends AppCompatActivity {
         cityET = findViewById(R.id.cityEditText);
 
 
-        userProfile = LogInActivity.firebaseHelper.getProfile();
+        currentProfile = LogInActivity.firebaseHelper.getProfile();
 
 
-        nameET = findViewById(R.id.nameEditText);
-        bioET = findViewById(R.id.bioEditText);
-        stateET = findViewById(R.id.stateEditText);
-        cityET = findViewById(R.id.cityEditText);
+        nameET.setText(currentProfile.getName());
+        bioET.setText(currentProfile.getBio());
+        stateET.setText(currentProfile.getState());
+        cityET.setText(currentProfile.getCity());
 
     }
 
 
 
-    public void saveMemoryEdits(View v) {
+    public void saveProfileEdits(View v) {
         Log.d(TAG, "inside saveMemoryEdits method");
         // updates the currentMemory object to have the same name/desc that are on the screen
         // in the event of changes made.
-        userProfile.setName(nameET.getText().toString());
-        userProfile.setBio(bioET.getText().toString());
+        currentProfile.setName(nameET.getText().toString());
+        currentProfile.setBio(bioET.getText().toString());
+        currentProfile.setState(stateET.getText().toString());
+        currentProfile.setCity(cityET.getText().toString());
 
-        // Calls editData with this updated Memory object
-
-
-        LogInActivity.firebaseHelper.editProfile(userProfile);
+        // Calls editProfile with this updated Memory object
+        LogInActivity.firebaseHelper.editProfile(currentProfile);
 
     }
 
-
-
-
     public void goToHome(View view) {
+        Log.d(TAG, "Go to home");
         Intent intent = new Intent(EditProfileActivity.this, HomePageActivity.class);
         startActivity(intent);
     }
