@@ -99,7 +99,7 @@ public class MatchMakingActivity extends AppCompatActivity {
                 Intent intent = new Intent(MatchMakingActivity.this, MatchProfileActivity.class);
                 // Sends the specific object at index i to the Detail activity
                 // In this case, it is sending the particular Food object
-                Log.d("zzzz",  myMatches.get(position).getName());
+                Log.d("LIAM",  myMatches.get(position).getName());
                 intent.putExtra(DETAIL_CHOICE, myMatches.get(position));
 
                 startActivity(intent);
