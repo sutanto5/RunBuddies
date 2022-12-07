@@ -1,6 +1,7 @@
 package com.example.runbuddies;
 
 import androidx.appcompat.app.AppCompatActivity;
+import static com.example.runbuddies.LogInActivity.firebaseHelper;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -48,8 +49,8 @@ public class EditProfileActivity extends AppCompatActivity {
         currentProfile.setCity(cityET.getText().toString());
 
         // Calls editProfile with this updated Memory object
-        LogInActivity.firebaseHelper.editProfile(currentProfile);
-
+        firebaseHelper.editProfile(currentProfile);
+        goToHome(v);
     }
 
     public void goToHome(View view) {
