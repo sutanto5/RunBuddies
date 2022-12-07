@@ -14,6 +14,7 @@ public class Profile implements Parcelable {
     private  String name;
     private  String email;
 
+
     public Profile(String city, String state, String bio, String level, String name, String docID, String email) {
         this.city = city;
         this.state = state;
@@ -70,31 +71,7 @@ public class Profile implements Parcelable {
      *
      * @param parcel the parcel that is received from the intent
      */
-    public Profile(Parcel parcel){
-        city = parcel.readString();
-        state = parcel.readString();
-        bio = parcel.readString();
-        level = parcel.readString();
-        docID = parcel.readString();
-        name = parcel.readString();
-        email = parcel.readString();
-    }
 
-    /**
-     * This is what is used when we send the Memory object through an intent
-     * It is also a method that is part of the Parceable interface and is needed
-     * to set up the object that is being sent.  Then, when it is received, the
-     * other Memory constructor that accepts a Parcel reference can "unpack it"
-     */
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(city);
-        dest.writeString(state);
-        dest.writeString(bio);
-        dest.writeString(level);
-        dest.writeString(docID);
-        dest.writeString(name);
-    }
 
     public static final Parcelable.Creator<Profile> CREATOR = new Parcelable.Creator<Profile>() {
 
@@ -109,25 +86,7 @@ public class Profile implements Parcelable {
         }
     };
 
-    /**
-     * This method is required for the Parceable interface.  As of now, this method
-     * is in the default state and doesn't really do anything.
-     *
-     * If your Parcelable class will have child classes, you'll need to
-     * take some extra care with the describeContents() method. This would
-     * let you identify the specific child class that should be created by
-     * the Parcelable.Creator. You can read more about how this works on
-     *  Stack Overflow with this link.
-     *           https://stackoverflow.com/questions/4778834/purpose-of-describecontents-of-parcelable-interface
-     * @return
-     */
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public  String getCity() {
+    public String getCity() {
         return city;
     }
 
@@ -135,7 +94,7 @@ public class Profile implements Parcelable {
         this.city = city;
     }
 
-    public  String getState() {
+    public String getState() {
         return state;
     }
 
@@ -143,7 +102,7 @@ public class Profile implements Parcelable {
         this.state = state;
     }
 
-    public  String getBio() {
+    public String getBio() {
         return bio;
     }
 
@@ -151,11 +110,15 @@ public class Profile implements Parcelable {
         this.bio = bio;
     }
 
-    public  String getLevel() { return level; }
+    public String getLevel() {
+        return level;
+    }
 
-    public void setLevel(String level) { this.level = level; }
+    public void setLevel(String level) {
+        this.level = level;
+    }
 
-    public  String getDocID() {
+    public String getDocID() {
         return docID;
     }
 
@@ -163,7 +126,7 @@ public class Profile implements Parcelable {
         this.docID = docID;
     }
 
-    public  String getName() {
+    public String getName() {
         return name;
     }
 
@@ -178,4 +141,35 @@ public class Profile implements Parcelable {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.city);
+        dest.writeString(this.state);
+        dest.writeString(this.bio);
+        dest.writeString(this.level);
+        dest.writeString(this.name);
+        dest.writeString(this.docID);
+        dest.writeString(this.email);
+    }
+
+
+
+    protected Profile(Parcel in) {
+        this.city = in.readString();
+        this.state = in.readString();
+        this.bio = in.readString();
+        this.level = in.readString();
+        this.name = in.readString();
+        this.docID = in.readString();
+
+        this.email = in.readString();
+    }
+
+
 }
