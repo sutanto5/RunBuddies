@@ -38,16 +38,6 @@
             android:theme="@style/ButtonStyle" />
 
         <Button
-            android:id="@+id/messageButton"
-            android:layout_width="@dimen/buttonWidth"
-            android:layout_height="@dimen/buttonHeight"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/smallerTopMargin"
-            android:text="Message Buds"
-            android:textSize="@dimen/buttonFont"
-            android:theme="@style/ButtonStyle" />
-
-        <Button
             android:id="@+id/viewRunButton"
             android:layout_width="@dimen/buttonWidth"
             android:layout_height="@dimen/buttonHeight"
