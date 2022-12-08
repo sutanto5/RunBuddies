@@ -142,7 +142,7 @@ public class SaveRun extends AppCompatActivity implements LocationListener {
     public void onClickStart(View view)
     {
         running = true;
-       // start.setVisibility(View.GONE);
+       start.setVisibility(View.GONE);
         start.setText("Resume");
         reset.setVisibility(View.INVISIBLE);
         save.setVisibility(View.INVISIBLE);
