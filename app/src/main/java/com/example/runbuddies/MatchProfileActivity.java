@@ -27,6 +27,8 @@ public class MatchProfileActivity extends AppCompatActivity {
     private TextView matchCity;
     private TextView matchBio;
     private ImageView ivMatchPicture;
+    public static Profile p;
+
 
     FirebaseStorage storage = FirebaseStorage.getInstance();
 
@@ -37,8 +39,7 @@ public class MatchProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_profile);
 
-        Intent intent = new Intent();
-        Profile p = intent.getParcelableExtra(MatchMakingActivity.DETAIL_CHOICE);
+        p = MatchMakingActivity.chosen;
         Log.d(TAG,p.getName());
 
         matchName = findViewById(R.id.matchNameTextView);

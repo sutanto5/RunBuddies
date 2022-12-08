@@ -41,6 +41,7 @@ public class MatchMakingActivity extends AppCompatActivity {
     //ArrayList<String> users = new ArrayList<>();
     private ArrayList<Profile> users = new ArrayList<>();
     private ArrayList<Profile> myMatches;
+    public static Profile chosen;
 
     public static final String DETAIL_CHOICE = "Chosen Profile Match";
 
@@ -100,8 +101,8 @@ public class MatchMakingActivity extends AppCompatActivity {
                 // Sends the specific object at index i to the Detail activity
                 // In this case, it is sending the particular Food object
                 Log.d("LIAM",  myMatches.get(position).getName());
+                chosen = myMatches.get(position);
                 intent.putExtra(DETAIL_CHOICE, myMatches.get(position));
-
                 startActivity(intent);
             }
         });
