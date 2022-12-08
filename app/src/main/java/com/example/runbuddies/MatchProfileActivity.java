@@ -56,7 +56,7 @@ public class MatchProfileActivity extends AppCompatActivity {
         matchBio.setText(p.getBio());
 
         // Create a reference with an initial file path and name
-        StorageReference pathReference = storageRef.child("images/"+ LogInActivity.firebaseHelper.getMAuth().getUid());
+        StorageReference pathReference = storageRef.child("images/"+ p.getDocID());
         //file size increase to 5 mb
         final long ONE_MEGABYTE = 1024 * 1024 *5;
         pathReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
