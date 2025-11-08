@@ -21,7 +21,7 @@ All user data, run history, and matches are securely stored in Firebase. Fast, r
 
 ## 🛠 Tech Stack
 
-- **Frontend**: React Native 
+- **Frontend**: Android Studio
 - **Backend**: Firebase (Auth, Firestore, Cloud Functions, Storage)
 - **APIs**: Mapbox API
 - **Matching Logic**: Custom algorithm based on distance, pace, preferences, and availability
